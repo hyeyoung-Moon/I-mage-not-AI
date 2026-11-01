@@ -24,6 +24,12 @@ public sealed class i_mage_not_aiRenderCapture : MonoBehaviour
         public string camera_node_path;
         public float camera_distance_offset;
         public float camera_zoom_scale;
+        public float[] camera_position;
+        public bool camera_orthographic;
+        public float camera_field_of_view;
+        public float camera_orthographic_size;
+        public float camera_aspect;
+        public int capture_fps;
     }
 
     [Serializable] private sealed class Evidence
@@ -34,7 +40,7 @@ public sealed class i_mage_not_aiRenderCapture : MonoBehaviour
         public string engine_version;
         public string platform;
         public string scenario_id;
-        public string timebase = "seconds";
+        public string timebase = "monotonic_elapsed_seconds";
         public int[] resolution;
         public ImportSettings import_settings;
         public CaptureFrame[] captures;
@@ -53,6 +59,10 @@ public sealed class i_mage_not_aiRenderCapture : MonoBehaviour
     private RenderTexture renderTarget;
     private readonly List<CaptureFrame> captureRows = new List<CaptureFrame>();
     private bool captureFinished;
+    private bool cameraAdjustmentApplied;
+    private float requestedDistanceOffset;
+    private float requestedZoomScale = 1f;
+    private double captureClockStart = -1;
 
     public static void MarkEvent(string eventId)
     {
@@ -80,6 +90,8 @@ public sealed class i_mage_not_aiRenderCapture : MonoBehaviour
         var cameraNodePath = GetOptionalArgument(arguments, "-i_mage_not_aiCameraNodePath");
         var cameraDistanceOffset = Single.Parse(GetOptionalArgument(arguments, "-i_mage_not_aiCameraDistanceOffset") ?? "0", System.Globalization.CultureInfo.InvariantCulture);
         var cameraZoomScale = Single.Parse(GetOptionalArgument(arguments, "-i_mage_not_aiCameraZoomScale") ?? "1", System.Globalization.CultureInfo.InvariantCulture);
+        requestedDistanceOffset = cameraDistanceOffset;
+        requestedZoomScale = cameraZoomScale;
         if (Single.IsNaN(cameraDistanceOffset) || Single.IsInfinity(cameraDistanceOffset) ||
             Single.IsNaN(cameraZoomScale) || Single.IsInfinity(cameraZoomScale) || cameraZoomScale <= 0)
         {
@@ -94,16 +106,6 @@ public sealed class i_mage_not_aiRenderCapture : MonoBehaviour
         if (captureCamera == null)
         {
             Fail(String.IsNullOrEmpty(cameraNodePath) ? "No Camera.main was found in the selected scene." : "Camera node path did not resolve to a Camera: " + cameraNodePath);
-            return;
-        }
-        if (cameraDistanceOffset != 0) captureCamera.transform.Translate(0, 0, -cameraDistanceOffset, Space.Self);
-        if (captureCamera.orthographic)
-            captureCamera.orthographicSize /= cameraZoomScale;
-        else
-            captureCamera.fieldOfView /= cameraZoomScale;
-        if (captureCamera.fieldOfView <= 1 || captureCamera.fieldOfView >= 179)
-        {
-            Fail("Camera zoom scale produces a field of view outside (1, 179) degrees.");
             return;
         }
         captureCamera.aspect = (float)width / height;
@@ -121,12 +123,27 @@ public sealed class i_mage_not_aiRenderCapture : MonoBehaviour
             settleFrames--;
             return;
         }
+        if (!cameraAdjustmentApplied)
+        {
+            if (requestedDistanceOffset != 0) captureCamera.transform.Translate(0, 0, -requestedDistanceOffset, Space.Self);
+            if (captureCamera.orthographic) captureCamera.orthographicSize /= requestedZoomScale;
+            else captureCamera.fieldOfView /= requestedZoomScale;
+            if (!captureCamera.orthographic && (captureCamera.fieldOfView <= 1 || captureCamera.fieldOfView >= 179))
+            {
+                Fail("Camera zoom scale produces a field of view outside (1, 179) degrees.");
+                return;
+            }
+            cameraAdjustmentApplied = true;
+            return;
+        }
         if (captureRows.Count >= frameCount)
         {
             FinishCapture();
             return;
         }
         captureCamera.Render();
+        var captureTime = Time.realtimeSinceStartupAsDouble;
+        if (captureClockStart < 0) captureClockStart = captureTime;
         var previousTarget = RenderTexture.active;
         RenderTexture.active = renderTarget;
         var texture = new Texture2D(width, height, TextureFormat.RGB24, false);
@@ -141,7 +158,7 @@ public sealed class i_mage_not_aiRenderCapture : MonoBehaviour
         captureRows.Add(new CaptureFrame
         {
             frame_index = frameIndex,
-            timestamp = (float)frameIndex / fps,
+            timestamp = (float)(captureTime - captureClockStart),
             image = Path.GetFileNameWithoutExtension(outputPath) + "_frames/" + imageName,
             event_ids = DrainEvents()
         });
@@ -153,6 +170,7 @@ public sealed class i_mage_not_aiRenderCapture : MonoBehaviour
         if (captureFinished) return;
         captureFinished = true;
         var pipeline = GraphicsSettings.currentRenderPipeline;
+        var capturedPosition = captureCamera.transform.position;
         var evidence = new Evidence
         {
             engine_version = Application.unityVersion,
@@ -167,8 +185,14 @@ public sealed class i_mage_not_aiRenderCapture : MonoBehaviour
                 v_sync_count = QualitySettings.vSyncCount,
                 capture_mode = "camera_render_texture",
                 camera_node_path = GetOptionalArgument(Environment.GetCommandLineArgs(), "-i_mage_not_aiCameraNodePath") ?? "Camera.main",
-                camera_distance_offset = Single.Parse(GetOptionalArgument(Environment.GetCommandLineArgs(), "-i_mage_not_aiCameraDistanceOffset") ?? "0", System.Globalization.CultureInfo.InvariantCulture),
-                camera_zoom_scale = Single.Parse(GetOptionalArgument(Environment.GetCommandLineArgs(), "-i_mage_not_aiCameraZoomScale") ?? "1", System.Globalization.CultureInfo.InvariantCulture)
+                camera_distance_offset = requestedDistanceOffset,
+                camera_zoom_scale = requestedZoomScale,
+                camera_position = new[] { capturedPosition.x, capturedPosition.y, capturedPosition.z },
+                camera_orthographic = captureCamera.orthographic,
+                camera_field_of_view = captureCamera.fieldOfView,
+                camera_orthographic_size = captureCamera.orthographicSize,
+                camera_aspect = captureCamera.aspect,
+                capture_fps = fps
             },
             captures = captureRows.ToArray()
         };

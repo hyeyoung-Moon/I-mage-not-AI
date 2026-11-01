@@ -6,6 +6,7 @@ from pathlib import Path
 
 import numpy as np
 from PIL import Image
+import pytest
 from typer.testing import CliRunner
 
 from i_mage_not_ai.core import load_manifest, review
@@ -44,6 +45,19 @@ def test_manifest_feature_inventory_allows_explicit_non_applicability(tmp_path: 
     gate = next(row for row in report["results"] if row["rule_id"] == "FEATURE-COVERAGE-001")
     assert gate["status"] == "PASS"
     assert report["completeness"] == "COMPLETE"
+
+
+def test_manifest_feature_inventory_rejects_shared_approved_feature_mapping(tmp_path: Path) -> None:
+    manifest_path = _manifest(tmp_path, "approved")
+    data = json.loads(manifest_path.read_text(encoding="utf-8"))
+    data["features"] = [{"id": "hat", "role": "accessory"}, {"id": "eyes", "role": "face"}]
+    data["feature_inventory"] = [
+        {"id": "required-hat", "description": "hat", "status": "approved", "feature_id": "hat"},
+        {"id": "required-eyes", "description": "eyes", "status": "approved", "feature_id": "hat"},
+    ]
+    manifest_path.write_text(json.dumps(data), encoding="utf-8")
+    with pytest.raises(ValueError, match="exactly one approved feature_inventory entry"):
+        load_manifest(manifest_path)
 
 
 def test_candidate_rejection_is_recorded_but_unreviewed_candidate_blocks_gate(tmp_path: Path) -> None:
@@ -115,6 +129,16 @@ def test_render_check_requires_saved_frames_before_and_after_event(tmp_path: Pat
     assert finding["measured"]["available_before_frames"] == 2
     assert finding["measured"]["available_after_frames"] == 1
 
+    sparse_data = json.loads(evidence_path.read_text(encoding="utf-8"))
+    sparse_data["captures"][1]["frame_index"] = 100
+    sparse_data["captures"][2]["frame_index"] = 200
+    sparse_data["captures"][3]["frame_index"] = 300
+    evidence_path.write_text(json.dumps(sparse_data), encoding="utf-8")
+    sparse = analyze_render_evidence(load_render_evidence(evidence_path)[0], policy)
+    finding = next(row for row in sparse["results"] if row["rule_id"] == "RENDER-EVENT:hit")
+    assert (sparse["status"], sparse["completeness"], finding["status"]) == ("INCONCLUSIVE", "INCOMPLETE", "INCONCLUSIVE")
+    assert finding["measured"]["frame_indices_contiguous"] is False
+
     policy["event_times"]["hit"]["after_frames"] = 2
     incomplete = analyze_render_evidence(evidence, policy)
     finding = next(row for row in incomplete["results"] if row["rule_id"] == "RENDER-EVENT:hit")
@@ -141,6 +165,24 @@ def test_render_check_fails_when_changed_pixel_ratio_exceeds_policy(tmp_path: Pa
     assert (report["status"], report["completeness"]) == ("FAIL", "COMPLETE")
 
 
+def test_render_delta_threshold_rejects_values_above_rgb_channel_range(tmp_path: Path) -> None:
+    from i_mage_not_ai.render_evidence import analyze_render_evidence, load_render_evidence
+
+    frames = tmp_path / "frames"
+    frames.mkdir()
+    Image.new("RGB", (2, 2), (0, 0, 0)).save(frames / "0.png")
+    Image.new("RGB", (2, 2), (255, 255, 255)).save(frames / "1.png")
+    evidence_path = tmp_path / "evidence.json"
+    evidence_path.write_text(json.dumps({"format": "i_mage_not_ai.render-evidence/1", "capture_source": "engine_runtime",
+        "engine": "godot", "engine_version": "4.6.3", "platform": "desktop", "scenario_id": "delta", "timebase": "seconds",
+        "resolution": [2, 2], "import_settings": {"renderer": "vulkan"},
+        "captures": [{"frame_index": 0, "timestamp": 0, "image": "frames/0.png", "event_ids": []},
+                     {"frame_index": 1, "timestamp": 1, "image": "frames/1.png", "event_ids": []}]}), encoding="utf-8")
+    evidence, _ = load_render_evidence(evidence_path)
+    with pytest.raises(ValueError, match="1 to 255"):
+        analyze_render_evidence(evidence, {"max_changed_pixel_ratio": 0, "pixel_delta_threshold": 256})
+
+
 def test_game_gate_requires_complete_reports_for_same_scenario() -> None:
     reports = [
         {"asset_type": "game_trace", "status": "PASS", "completeness": "COMPLETE", "scenario_id": "hero-attack-v1"},
@@ -153,6 +195,17 @@ def test_game_gate_requires_complete_reports_for_same_scenario() -> None:
     mismatch = aggregate_game_gate(*reports)
     assert (mismatch["status"], mismatch["completeness"]) == ("INCONCLUSIVE", "INCOMPLETE")
     assert next(row for row in mismatch["results"] if row["gate"] == "scenario_alignment")["status"] == "INCONCLUSIVE"
+
+
+def test_game_gate_never_promotes_incomplete_pass_to_pass() -> None:
+    reports = [
+        {"asset_type": "game_trace", "status": "PASS", "completeness": "INCOMPLETE", "scenario_id": "attack-v1"},
+        {"asset_type": "runtime_evidence", "status": "PASS", "completeness": "COMPLETE", "scenario_id": "attack-v1"},
+        {"asset_type": "render_evidence", "status": "PASS", "completeness": "COMPLETE", "scenario_id": "attack-v1"},
+    ]
+    report = aggregate_game_gate(*reports)
+    assert (report["status"], report["completeness"]) == ("INCONCLUSIVE", "INCOMPLETE")
+    assert next(row for row in report["results"] if row["gate"] == "game_trace")["status"] == "INCONCLUSIVE"
 
 
 def test_game_gate_cli_writes_an_inconclusive_aggregate_on_scenario_mismatch(tmp_path: Path) -> None:

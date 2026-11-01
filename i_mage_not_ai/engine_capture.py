@@ -9,7 +9,7 @@ import sys
 from pathlib import Path
 from typing import Any
 
-from .render_evidence import load_render_evidence
+from .render_evidence import MAX_FRAME_PIXELS, load_render_evidence
 from .render_evidence import analyze_render_evidence
 from .game import aggregate_game_gate
 
@@ -19,7 +19,7 @@ def install_unity_capture_adapter(project_root: Path) -> dict[str, str]:
     root = project_root.expanduser().resolve(strict=True)
     if not (root / "ProjectSettings" / "ProjectVersion.txt").is_file() or not (root / "Assets").is_dir():
         raise ValueError(f"Unity project markers not found at project root: {root}")
-    source_root = Path(__file__).resolve().parents[1] / "engine" / "unity"
+    source_root = Path(__file__).resolve().parent / "engine_resources" / "unity"
     mappings = {
         source_root / "Runtime" / "i_mage_not_aiRenderCapture.cs": root / "Assets" / "i_mage_not_ai" / "Runtime" / "i_mage_not_aiRenderCapture.cs",
         source_root / "Editor" / "i_mage_not_aiRenderCaptureEditor.cs": root / "Assets" / "Editor" / "i_mage_not_aiRenderCaptureEditor.cs",
@@ -70,8 +70,8 @@ def run_engine_capture(*, engine: str, project_root: Path, engine_executable: Pa
         raise ValueError("camera_zoom_scale requires camera_node_path")
     if any(isinstance(value, bool) or not isinstance(value, int) for value in (width, height, frame_count, fps)):
         raise ValueError("resolution, frame_count, and fps must be integers")
-    if not 1 <= width <= 8192 or not 1 <= height <= 8192 or width * height > 50_000_000:
-        raise ValueError("capture resolution must be positive and no larger than 50 million pixels")
+    if not 1 <= width <= 8192 or not 1 <= height <= 8192 or width * height > MAX_FRAME_PIXELS:
+        raise ValueError(f"capture resolution must be positive and no larger than {MAX_FRAME_PIXELS} pixels")
     if not 2 <= frame_count <= 10000:
         raise ValueError("frame_count must be between 2 and 10000")
     if not 1 <= fps <= 240:
@@ -104,7 +104,7 @@ def run_engine_capture(*, engine: str, project_root: Path, engine_executable: Pa
         scene = (root / selection).resolve(strict=True)
         if not scene.is_file() or not scene.is_relative_to(root) or scene.suffix.lower() != ".tscn":
             raise ValueError("Godot selection must be an existing .tscn scene inside the project root")
-        runner = Path(__file__).resolve().parents[1] / "engine" / "godot" / "i_mage_not_ai_render_capture.gd"
+        runner = Path(__file__).resolve().parent / "engine_resources" / "godot" / "i_mage_not_ai_render_capture.gd"
         command = [str(executable), "--path", str(root), "--script", str(runner), "--",
                    "--scene", "res://" + scene.relative_to(root).as_posix(), "--scenario-id", scenario_id,
                    "--output", str(output_path), "--frames", str(frame_count), "--fps", str(fps),
@@ -209,7 +209,7 @@ def run_engine_capture_suite(*, engine: str, project_root: Path, engine_executab
             raise ValueError(f"cases[{index}].id must be a unique non-empty filename-safe identifier")
         seen_ids.add(case_id)
         width, height = case["width"], case["height"]
-        if any(not isinstance(value, int) or isinstance(value, bool) for value in (width, height)) or not 1 <= width <= 8192 or not 1 <= height <= 8192 or width * height > 50_000_000:
+        if any(not isinstance(value, int) or isinstance(value, bool) for value in (width, height)) or not 1 <= width <= 8192 or not 1 <= height <= 8192 or width * height > MAX_FRAME_PIXELS:
             raise ValueError(f"cases[{index}] resolution is invalid")
         camera_path = case.get("camera_node_path")
         if camera_path is not None and (not isinstance(camera_path, str) or not camera_path.strip()):

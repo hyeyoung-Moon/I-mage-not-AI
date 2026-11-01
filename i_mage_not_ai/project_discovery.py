@@ -254,7 +254,7 @@ def install_unity_exporter(project_root: Path) -> Path:
     root = project_root.expanduser().resolve(strict=True)
     if not root.is_dir() or not (root / "Assets").is_dir() or not (root / "ProjectSettings" / "ProjectVersion.txt").is_file():
         raise ValueError("selected directory is not a Unity project root")
-    source = Path(__file__).resolve().parents[1] / "engine" / "unity" / "Editor" / "i_mage_not_aiTraceExporter.cs"
+    source = Path(__file__).resolve().parent / "engine_resources" / "unity" / "Editor" / "i_mage_not_aiTraceExporter.cs"
     if not source.is_file():
         raise ValueError(f"bundled Unity exporter is missing: {source}")
     destination_dir = root / "Assets" / "Editor"

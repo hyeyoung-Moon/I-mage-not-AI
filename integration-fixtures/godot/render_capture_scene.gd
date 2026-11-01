@@ -3,6 +3,7 @@ extends Control
 signal attack_started
 
 func _ready() -> void:
+	$CaptureCamera.zoom = Vector2.ONE
 	var background := ColorRect.new()
 	background.color = Color("#26334a")
 	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)

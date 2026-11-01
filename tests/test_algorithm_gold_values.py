@@ -7,6 +7,7 @@ import math
 import subprocess
 import sys
 import pytest
+import numpy as np
 
 from PIL import Image
 
@@ -156,6 +157,16 @@ def test_mask_holes_minimum_width_and_reference_shape_metrics(tmp_path):
     assert rows["mask_boundary_distance"]["measured"] > 0
     assert rows["mask_iou_dice"]["measured"] < 1
     assert rows["mask_dice"]["measured"] < 1
+
+
+def test_minimum_width_detects_a_one_pixel_neck(tmp_path):
+    from i_mage_not_ai.shape_metrics import minimum_width
+
+    mask = np.zeros((17, 15), dtype=bool)
+    mask[1:7, 3:12] = True
+    mask[10:16, 3:12] = True
+    mask[7:10, 7] = True
+    assert minimum_width(mask) == 2
 
 
 def test_skeleton_hu_shape_and_roi_edge_metrics(tmp_path):

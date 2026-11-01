@@ -17,13 +17,21 @@ def topology(mask: np.ndarray) -> dict[str, int]:
 
 
 def minimum_width(mask: np.ndarray) -> float | None:
-    """Estimate minimum local thickness as twice the EDT radius at ridge maxima."""
+    """Measure the thinnest medial-skeleton thickness using the Euclidean distance transform."""
     foreground = np.asarray(mask, dtype=bool)
     if not np.any(foreground):
         return None
     distance = ndimage.distance_transform_edt(foreground)
-    ridges = foreground & (distance == ndimage.maximum_filter(distance, size=3, mode="constant"))
-    radii = distance[ridges]
+    current = foreground.copy()
+    skeleton = np.zeros_like(foreground)
+    structure = np.array([[0, 1, 0], [1, 1, 1], [0, 1, 0]], dtype=bool)
+    for _ in range(max(foreground.shape)):
+        opened = ndimage.binary_dilation(ndimage.binary_erosion(current, structure=structure), structure=structure)
+        skeleton |= current & ~opened
+        current = ndimage.binary_erosion(current, structure=structure)
+        if not np.any(current):
+            break
+    radii = distance[skeleton]
     if radii.size == 0:
         return None
     return float(2.0 * radii.min())

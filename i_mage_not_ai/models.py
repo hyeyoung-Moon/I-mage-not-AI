@@ -81,8 +81,8 @@ class FeatureManifest(BaseModel):
                     raise ValueError(f"feature inventory {item.id}: approved feature must have at least one approved candidate when candidates are listed")
                 if item.status == "not_found" and any(candidate["status"] == "approved" for candidate in item.candidates):
                     raise ValueError(f"feature inventory {item.id}: not_found conflicts with an approved candidate")
-            approved_features={item.feature_id for item in self.feature_inventory if item.status == "approved"}
-            if approved_features != known:
+            approved_features=[item.feature_id for item in self.feature_inventory if item.status == "approved"]
+            if len(approved_features) != len(set(approved_features)) or set(approved_features) != known:
                 raise ValueError("every manifest feature must be represented by exactly one approved feature_inventory entry")
         for feature in self.features:
             if feature.parent_id is not None and feature.parent_id not in known:

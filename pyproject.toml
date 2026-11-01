@@ -20,7 +20,7 @@ i-mage-not-ai = "i_mage_not_ai.typer_cli:app"
 packages = ["i_mage_not_ai"]
 
 [tool.setuptools.package-data]
-i_mage_not_ai = ["rules/*.yaml"]
+i_mage_not_ai = ["rules/*.yaml", "engine_resources/godot/*.gd", "engine_resources/unity/Runtime/*.cs", "engine_resources/unity/Editor/*.cs"]
 
 [tool.ruff.lint]
 select = ["F"]

@@ -300,7 +300,8 @@ def aggregate_game_gate(review_report:Any,runtime_report:Any,render_report:Any)-
             findings.append({"gate":expected_type,"status":"INCONCLUSIVE","reason":f"expected asset_type={expected_type}, received {actual_type!r}"}); continue
         if report.get("status") not in {"PASS","FAIL","INCONCLUSIVE"} or report.get("completeness") not in {"COMPLETE","INCOMPLETE"}:
             findings.append({"gate":expected_type,"status":"INCONCLUSIVE","reason":"report lacks a recognized status/completeness"}); continue
-        state="PASS" if report["status"]=="PASS" and report["completeness"]=="COMPLETE" else report["status"]
+        state=(report["status"] if report["status"] != "PASS" else
+               ("PASS" if report["completeness"] == "COMPLETE" else "INCONCLUSIVE"))
         if state=="PASS" and expected_type in {"runtime_evidence","render_evidence"} and not scenario:
             state="INCONCLUSIVE"
         findings.append({"gate":expected_type,"status":state,"scenario_id":scenario,
@@ -312,11 +313,15 @@ def aggregate_game_gate(review_report:Any,runtime_report:Any,render_report:Any)-
         findings.append({"gate":"scenario_alignment","status":"INCONCLUSIVE","reason":"all three reports must declare a scenario_id"})
     else:
         findings.append({"gate":"scenario_alignment","status":"PASS","scenario_id":next(iter(distinct))})
-    complete=all(row["status"] in {"PASS","FAIL"} for row in findings)
+    complete=all(row["status"] in {"PASS","FAIL"} and
+                 ("source_completeness" not in row or row["source_completeness"] == "COMPLETE")
+                 for row in findings)
+    completed_rows=[row for row in findings if row["status"] in {"PASS","FAIL"} and
+                    ("source_completeness" not in row or row["source_completeness"] == "COMPLETE")]
     status="FAIL" if any(row["status"]=="FAIL" for row in findings) else ("PASS" if complete else "INCONCLUSIVE")
     return {"schema_version":"0.5","asset_type":"game_gate","status":status,"completeness":"COMPLETE" if complete else "INCOMPLETE",
-            "coverage":{"required":len(findings),"completed":sum(row["status"] in {"PASS","FAIL"} for row in findings),
-                        "missing":[row["gate"] for row in findings if row["status"] not in {"PASS","FAIL"}]},"results":findings}
+            "coverage":{"required":len(findings),"completed":len(completed_rows),
+                        "missing":[row["gate"] for row in findings if row not in completed_rows]},"results":findings}
 
 def load_runtime_evidence(path:Path)->dict[str,Any]:
     try:

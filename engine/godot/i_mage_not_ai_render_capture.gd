@@ -21,6 +21,7 @@ func _run() -> void:
 	var camera_node_path: String = args.camera_node_path
 	var camera_distance_offset: float = args.camera_distance_offset
 	var camera_zoom_scale: float = args.camera_zoom_scale
+	var selected_camera: Node = null
 	if DisplayServer.get_name() == "headless":
 		push_error("Rendered capture requires an active renderer; headless mode cannot provide engine pixels.")
 		quit(3)
@@ -35,10 +36,9 @@ func _run() -> void:
 		return
 	var scene_root := packed.instantiate()
 	if not camera_node_path.is_empty():
-		var selected_camera := scene_root.get_node_or_null(NodePath(camera_node_path))
+		selected_camera = scene_root.get_node_or_null(NodePath(camera_node_path))
 		if selected_camera is Camera3D:
-			selected_camera.translate_object_local(Vector3(0.0, 0.0, camera_distance_offset))
-			selected_camera.fov = clampf(selected_camera.fov / camera_zoom_scale, 1.0, 179.0)
+			pass
 		elif selected_camera is Camera2D:
 			if not is_zero_approx(camera_distance_offset):
 				push_error("camera-distance-offset is only valid for Camera3D; use camera-zoom-scale for Camera2D")
@@ -63,6 +63,13 @@ func _run() -> void:
 	for _index in range(2):
 		await process_frame
 		await RenderingServer.frame_post_draw
+	if selected_camera is Camera3D:
+		selected_camera.translate_object_local(Vector3(0.0, 0.0, camera_distance_offset))
+		selected_camera.fov = clampf(selected_camera.fov / camera_zoom_scale, 1.0, 179.0)
+	elif selected_camera is Camera2D:
+		selected_camera.zoom *= camera_zoom_scale
+	await process_frame
+	await RenderingServer.frame_post_draw
 	var output_directory := output_path.get_base_dir()
 	var stem := output_path.get_file().get_basename()
 	var frames_directory := output_directory.path_join(stem + "_frames")
@@ -72,10 +79,12 @@ func _run() -> void:
 		quit(4)
 		return
 	var captures: Array[Dictionary] = []
+	var capture_clock_start := Time.get_ticks_usec()
 	for frame_index in range(frame_count):
 		await process_frame
 		await RenderingServer.frame_post_draw
 		var image := get_root().get_texture().get_image()
+		var capture_timestamp := float(Time.get_ticks_usec() - capture_clock_start) / 1000000.0
 		if image == null or image.get_size() != resolution:
 			push_error("Rendered viewport size mismatch; expected %s, received %s" % [resolution, image.get_size() if image else Vector2i.ZERO])
 			quit(4)
@@ -88,7 +97,7 @@ func _run() -> void:
 			quit(4)
 			return
 		var relative_image := stem + "_frames/" + image_name
-		captures.append({"frame_index": frame_index, "timestamp": float(frame_index) / float(fps),
+		captures.append({"frame_index": frame_index, "timestamp": capture_timestamp,
 			"image": relative_image, "event_ids": _drain_events()})
 	var evidence := {
 		"format": "i_mage_not_ai.render-evidence/1",
@@ -97,15 +106,17 @@ func _run() -> void:
 		"engine_version": Engine.get_version_info().string,
 		"platform": OS.get_name(),
 		"scenario_id": scenario_id,
-		"timebase": "seconds",
+		"timebase": "monotonic_elapsed_seconds",
 		"resolution": [resolution.x, resolution.y],
 		"import_settings": {
+			"capture_fps": fps,
 			"renderer": ProjectSettings.get_setting("rendering/renderer/rendering_method", "unknown"),
 			"default_texture_filter": ProjectSettings.get_setting("rendering/textures/default_filters/use_nearest_mipmap_filter", "project_default"),
 			"window_mode": "runtime_capture",
 			"camera_node_path": camera_node_path,
 			"camera_distance_offset": camera_distance_offset,
-			"camera_zoom_scale": camera_zoom_scale
+			"camera_zoom_scale": camera_zoom_scale,
+			"camera_effective": _camera_state(selected_camera)
 		},
 		"captures": captures
 	}
@@ -118,6 +129,13 @@ func _run() -> void:
 	file.close()
 	print("I_MAGE_NOT_AI_RENDER_CAPTURE_PASS Godot frames=%d resolution=%s output=%s" % [frame_count, resolution, output_path])
 	quit(0)
+
+func _camera_state(camera: Node) -> Dictionary:
+	if camera is Camera3D:
+		return {"type": "Camera3D", "position": [camera.global_position.x, camera.global_position.y, camera.global_position.z], "fov_degrees": camera.fov}
+	if camera is Camera2D:
+		return {"type": "Camera2D", "position": [camera.global_position.x, camera.global_position.y], "zoom": [camera.zoom.x, camera.zoom.y]}
+	return {"type": "default_camera"}
 
 func _parse_args(values: PackedStringArray) -> Dictionary:
 	var parsed := {"scene": "", "scenario_id": "", "output": "", "frames": 0,

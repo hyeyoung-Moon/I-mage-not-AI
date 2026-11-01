@@ -12,6 +12,7 @@ from PIL import Image
 
 
 FORMAT = "i_mage_not_ai.render-evidence/1"
+MAX_FRAME_PIXELS = 16_777_216
 
 
 def load_render_evidence(path: Path) -> tuple[dict[str, Any], Path]:
@@ -30,8 +31,8 @@ def load_render_evidence(path: Path) -> tuple[dict[str, Any], Path]:
     for key in ("engine_version", "platform", "scenario_id"):
         if not isinstance(data[key], str) or not data[key].strip():
             raise ValueError(f"{key} must be a non-empty string")
-    if data["engine"] not in {"godot", "unity"} or data["timebase"] != "seconds":
-        raise ValueError("render evidence requires engine godot/unity and timebase seconds")
+    if data["engine"] not in {"godot", "unity"} or data["timebase"] not in {"seconds", "monotonic_elapsed_seconds"}:
+        raise ValueError("render evidence requires engine godot/unity and a supported seconds timebase")
     resolution = data["resolution"]
     if not isinstance(resolution, list) or len(resolution) != 2 or any(not isinstance(value, int) or isinstance(value, bool) or value <= 0 for value in resolution):
         raise ValueError("resolution must be [positive_width, positive_height]")
@@ -47,7 +48,6 @@ def load_render_evidence(path: Path) -> tuple[dict[str, Any], Path]:
     previous_index = -1
     seen_events: dict[str, list[float]] = {}
     event_positions: dict[str, list[dict[str, int | float]]] = {}
-    frame_arrays: list[np.ndarray] = []
     capture_rows: list[dict[str, Any]] = []
     for capture_position, item in enumerate(captures):
         if not isinstance(item, dict) or set(item) != {"frame_index", "timestamp", "image", "event_ids"}:
@@ -71,10 +71,10 @@ def load_render_evidence(path: Path) -> tuple[dict[str, Any], Path]:
             with Image.open(resolved) as image:
                 if image.format != "PNG" or getattr(image, "n_frames", 1) != 1 or image.size != tuple(resolution):
                     raise ValueError(f"capture must be a single-frame PNG at declared resolution: {image_path}")
-                array = np.asarray(image.convert("RGB"), dtype=np.uint8)
+                if image.width * image.height > MAX_FRAME_PIXELS:
+                    raise ValueError(f"capture exceeds the decoded frame limit of {MAX_FRAME_PIXELS} pixels: {image_path}")
         except OSError as exc:
             raise ValueError(f"cannot decode capture image {image_path}: {exc}") from exc
-        frame_arrays.append(array)
         for event_id in event_ids:
             seen_events.setdefault(event_id, []).append(float(timestamp))
             event_positions.setdefault(event_id, []).append({
@@ -86,10 +86,15 @@ def load_render_evidence(path: Path) -> tuple[dict[str, Any], Path]:
                              "sha256": hashlib.sha256(resolved.read_bytes()).hexdigest(), "event_ids": event_ids})
         previous_time, previous_index = float(timestamp), index
     data["_capture_rows"] = capture_rows
-    data["_frame_arrays"] = frame_arrays
+    data["_evidence_root"] = root
     data["_events"] = seen_events
     data["_event_positions"] = event_positions
     return data, root
+
+
+def _load_frame(root: Path, row: dict[str, Any]) -> np.ndarray:
+    with Image.open(root / str(row["image"])) as image:
+        return np.asarray(image.convert("RGB"), dtype=np.uint8)
 
 
 def analyze_render_evidence(evidence: dict[str, Any], policy: Any) -> dict[str, Any]:
@@ -100,8 +105,9 @@ def analyze_render_evidence(evidence: dict[str, Any], policy: Any) -> dict[str, 
     if set(policy) - allowed:
         raise ValueError(f"unknown render policy keys: {sorted(set(policy)-allowed)}")
     findings: list[dict[str, Any]] = []
-    arrays: list[np.ndarray] = evidence["_frame_arrays"]
-    count = len(arrays)
+    root: Path = evidence["_evidence_root"]
+    rows: list[dict[str, Any]] = evidence["_capture_rows"]
+    count = len(rows)
     if "min_capture_count" in policy:
         minimum = policy["min_capture_count"]
         if not isinstance(minimum, int) or isinstance(minimum, bool) or minimum < 2:
@@ -115,13 +121,16 @@ def analyze_render_evidence(evidence: dict[str, Any], policy: Any) -> dict[str, 
         threshold = policy.get("pixel_delta_threshold", 1)
         if not isinstance(maximum, (int, float)) or isinstance(maximum, bool) or not math.isfinite(maximum) or not 0 <= maximum <= 1:
             raise ValueError("max_changed_pixel_ratio must be between 0 and 1")
-        if not isinstance(threshold, int) or isinstance(threshold, bool) or not 1 <= threshold <= 765:
-            raise ValueError("pixel_delta_threshold must be an integer from 1 to 765")
+        if not isinstance(threshold, int) or isinstance(threshold, bool) or not 1 <= threshold <= 255:
+            raise ValueError("pixel_delta_threshold must be an integer from 1 to 255")
         if count < 2:
             status, measured = "INCONCLUSIVE", None
         else:
-            ratios = [float(np.mean(np.max(np.abs(right.astype(np.int16) - left.astype(np.int16)), axis=2) >= threshold))
-                      for left, right in zip(arrays, arrays[1:])]
+            ratios = []
+            for left_row, right_row in zip(rows, rows[1:]):
+                left = _load_frame(root, left_row)
+                right = _load_frame(root, right_row)
+                ratios.append(float(np.mean(np.max(np.abs(right.astype(np.int16) - left.astype(np.int16)), axis=2) >= threshold)))
             maximum_observed = max(ratios)
             measured = {"max_ratio": maximum_observed, "per_interval": ratios,
                         "changed_pixel_threshold_rgb": threshold, "interval_count": len(ratios)}
@@ -153,11 +162,19 @@ def analyze_render_evidence(evidence: dict[str, Any], policy: Any) -> dict[str, 
             position = int(event_row["capture_position"])
             available_before = position
             available_after = count - position - 1
-            window_complete = available_before >= before_frames and available_after >= after_frames
+            before_start = max(0, position - before_frames)
+            after_end = min(count - 1, position + after_frames)
+            window_indices = list(range(before_start, after_end + 1))
+            contiguous = all(
+                int(rows[right]["frame_index"]) == int(rows[left]["frame_index"]) + 1
+                for left, right in zip(window_indices, window_indices[1:])
+            )
+            window_complete = (available_before >= before_frames and available_after >= after_frames and contiguous)
             measured = {"observed_timestamp": times[0], "frame_index": event_row["frame_index"],
-                        "absolute_error": error, "timebase": "seconds",
+                        "absolute_error": error, "timebase": evidence["timebase"],
                         "requested_before_frames": before_frames, "available_before_frames": available_before,
-                        "requested_after_frames": after_frames, "available_after_frames": available_after}
+                        "requested_after_frames": after_frames, "available_after_frames": available_after,
+                        "frame_indices_contiguous": contiguous}
             status = "FAIL" if error > tolerance else ("PASS" if window_complete else "INCONCLUSIVE")
         findings.append({"rule_id": f"RENDER-EVENT:{event_id}", "algorithm": "render_event_frame_alignment", "status": status,
                          "measured": measured, "threshold": {"expected_time": time, "tolerance": tolerance,
@@ -187,15 +204,32 @@ def analyze_render_evidence(evidence: dict[str, Any], policy: Any) -> dict[str, 
             raise ValueError("flash.max_events must be a non-negative integer")
         if "max_red_area_ratio" in flash_policy and "red_min_dominance" not in flash_policy:
             raise ValueError("flash.red_min_dominance is required with max_red_area_ratio")
+        if "max_red_area_ratio" in flash_policy:
+            dominance = flash_policy["red_min_dominance"]
+            if not isinstance(dominance, (int, float)) or isinstance(dominance, bool) or not math.isfinite(dominance) or dominance <= 1:
+                raise ValueError("flash.red_min_dominance must be finite and greater than 1")
         if count < 2:
             measured = None
             flash_state = "INCONCLUSIVE"
         else:
-            times = [row["timestamp"] for row in evidence["_capture_rows"]]
-            luminance = [0.2126 * frame[:, :, 0].astype(np.float32) + 0.7152 * frame[:, :, 1].astype(np.float32) + 0.0722 * frame[:, :, 2].astype(np.float32) for frame in arrays]
-            interval_masks = [np.abs(right - left) >= float(delta_threshold) for left, right in zip(luminance, luminance[1:])]
-            interval_areas = [float(np.mean(mask)) for mask in interval_masks]
-            active = [area >= area_threshold for area in interval_areas]
+            times = [row["timestamp"] for row in rows]
+            interval_areas: list[float] = []
+            active: list[bool] = []
+            red_areas: list[float] = []
+            for left_row, right_row in zip(rows, rows[1:]):
+                before = _load_frame(root, left_row).astype(np.float32)
+                after = _load_frame(root, right_row).astype(np.float32)
+                before_luma = 0.2126 * before[:, :, 0] + 0.7152 * before[:, :, 1] + 0.0722 * before[:, :, 2]
+                after_luma = 0.2126 * after[:, :, 0] + 0.7152 * after[:, :, 1] + 0.0722 * after[:, :, 2]
+                changed = np.abs(after_luma - before_luma) >= float(delta_threshold)
+                area = float(np.mean(changed))
+                interval_areas.append(area)
+                active.append(area >= area_threshold)
+                if "max_red_area_ratio" in flash_policy:
+                    dominance = float(flash_policy["red_min_dominance"])
+                    before_red = before[:, :, 0] >= dominance * np.maximum(before[:, :, 1], before[:, :, 2])
+                    after_red = after[:, :, 0] >= dominance * np.maximum(after[:, :, 1], after[:, :, 2])
+                    red_areas.append(float(np.mean(changed & (before_red | after_red))))
             groups: list[tuple[int, int]] = []
             start: int | None = None
             for index, is_active in enumerate(active + [False]):
@@ -205,18 +239,7 @@ def analyze_render_evidence(evidence: dict[str, Any], policy: Any) -> dict[str, 
                     groups.append((start, index - 1))
                     start = None
             durations = [times[end + 1] - times[start] for start, end in groups]
-            red_area = 0.0
-            if "max_red_area_ratio" in flash_policy:
-                dominance = float(flash_policy["red_min_dominance"])
-                if not math.isfinite(dominance) or dominance <= 1:
-                    raise ValueError("flash.red_min_dominance must be finite and greater than 1")
-                red_areas = []
-                for index, mask in enumerate(interval_masks):
-                    before, after = arrays[index], arrays[index + 1]
-                    before_red = before[:, :, 0].astype(np.float32) >= dominance * np.maximum(before[:, :, 1], before[:, :, 2])
-                    after_red = after[:, :, 0].astype(np.float32) >= dominance * np.maximum(after[:, :, 1], after[:, :, 2])
-                    red_areas.append(float(np.mean(mask & (before_red | after_red))))
-                red_area = max(red_areas, default=0.0)
+            red_area = max(red_areas, default=0.0)
             elapsed = times[-1] - times[0]
             measured = {"event_count": len(groups), "event_rate_hz": len(groups) / elapsed if elapsed else None,
                         "max_area_ratio": max(interval_areas, default=0.0), "red_flash_area_ratio": red_area,

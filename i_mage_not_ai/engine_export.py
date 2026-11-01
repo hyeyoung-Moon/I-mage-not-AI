@@ -36,7 +36,7 @@ def run_engine_export(*, engine: str, project_root: Path, engine_executable: Pat
         scene = (root / selection).resolve(strict=True)
         if not scene.is_file() or not scene.is_relative_to(root) or scene.suffix.lower() != ".tscn":
             raise ValueError("Godot selection must be an existing .tscn scene inside the project root")
-        exporter = Path(__file__).resolve().parents[1] / "engine" / "godot" / "i_mage_not_ai_cli_export.gd"
+        exporter = Path(__file__).resolve().parent / "engine_resources" / "godot" / "i_mage_not_ai_cli_export.gd"
         if not exporter.is_file():
             raise ValueError(f"bundled Godot CLI exporter is missing: {exporter}")
         scene_argument = "res://" + scene.relative_to(root).as_posix()
@@ -50,7 +50,7 @@ def run_engine_export(*, engine: str, project_root: Path, engine_executable: Pat
             raise ValueError("Unity selection must be an existing .anim file inside Assets/")
         exporter = root / "Assets" / "Editor" / "i_mage_not_aiTraceExporter.cs"
         if not exporter.is_file():
-            raise ValueError("Unity exporter is not installed. Copy engine/unity/Editor/i_mage_not_aiTraceExporter.cs into Assets/Editor/ first.")
+            raise ValueError("Unity exporter is not installed. Copy the bundled Unity trace exporter into Assets/Editor/ first.")
         command = [str(executable), "-batchmode", "-nographics", "-projectPath", str(root),
                    "-executeMethod", "i_mage_not_aiTraceExporter.ExportFromCommandLine",
                    "-i_mage_not_aiClip", clip.relative_to(root).as_posix(), "-i_mage_not_aiOutput", str(output_path), "-logFile", "-", "-quit"]

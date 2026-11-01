@@ -10,6 +10,18 @@ import i_mage_not_ai.engine_capture as engine_capture
 from i_mage_not_ai.engine_capture import install_unity_capture_adapter, run_engine_capture, run_engine_capture_suite
 
 
+def test_bundled_engine_adapters_match_repository_sources() -> None:
+    repository = Path(__file__).resolve().parents[1]
+    packaged = repository / "i_mage_not_ai" / "engine_resources"
+    for source in (repository / "engine" / "godot", repository / "engine" / "unity"):
+        for original in source.rglob("*"):
+            if original.is_file() and original.suffix in {".gd", ".cs"}:
+                relative = original.relative_to(source)
+                package_path = packaged / source.name / relative
+                assert package_path.is_file(), package_path
+                assert package_path.read_bytes() == original.read_bytes(), relative
+
+
 def test_engine_capture_requires_explicit_project_code_acknowledgment(tmp_path: Path) -> None:
     with pytest.raises(ValueError, match="--allow-project-code"):
         run_engine_capture(
@@ -70,7 +82,9 @@ def test_capture_suite_runs_render_check_and_game_gate_for_each_case(tmp_path: P
     def fake_capture(**kwargs: object) -> dict[str, object]:
         evidence_path = kwargs["output"]
         assert isinstance(evidence_path, Path)
-        width, height = int(kwargs["width"]), int(kwargs["height"])
+        width_value, height_value = kwargs["width"], kwargs["height"]
+        assert isinstance(width_value, int) and isinstance(height_value, int)
+        width, height = width_value, height_value
         frame_directory = evidence_path.parent / f"{evidence_path.stem}_frames"
         frame_directory.mkdir()
         rows = []

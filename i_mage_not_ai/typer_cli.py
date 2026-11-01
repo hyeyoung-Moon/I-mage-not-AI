@@ -463,7 +463,7 @@ def install_capture_adapter(engine: str=typer.Option(...,"--engine"),project: Pa
     try:
         if engine == "godot":
             emit({"status":"READY","engine":"godot","installed":False,
-                  "runner":str(Path(__file__).resolve().parents[1]/"engine"/"godot"/"i_mage_not_ai_render_capture.gd"),
+                  "runner":str(Path(__file__).resolve().parent/"engine_resources"/"godot"/"i_mage_not_ai_render_capture.gd"),
                   "note":"Godot capture uses the bundled external runner and does not modify the project."})
         elif engine == "unity":
             paths=install_unity_capture_adapter(project)
