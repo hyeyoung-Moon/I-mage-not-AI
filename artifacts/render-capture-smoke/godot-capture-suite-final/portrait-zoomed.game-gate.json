@@ -1,0 +1,39 @@
+{
+  "schema_version": "0.5",
+  "asset_type": "game_gate",
+  "status": "PASS",
+  "completeness": "COMPLETE",
+  "coverage": {
+    "required": 4,
+    "completed": 4,
+    "missing": []
+  },
+  "results": [
+    {
+      "gate": "game_trace",
+      "status": "PASS",
+      "scenario_id": "capture-suite-live-fixture-v2",
+      "source_status": "PASS",
+      "source_completeness": "COMPLETE"
+    },
+    {
+      "gate": "runtime_evidence",
+      "status": "PASS",
+      "scenario_id": "capture-suite-live-fixture-v2",
+      "source_status": "PASS",
+      "source_completeness": "COMPLETE"
+    },
+    {
+      "gate": "render_evidence",
+      "status": "PASS",
+      "scenario_id": "capture-suite-live-fixture-v2",
+      "source_status": "PASS",
+      "source_completeness": "COMPLETE"
+    },
+    {
+      "gate": "scenario_alignment",
+      "status": "PASS",
+      "scenario_id": "capture-suite-live-fixture-v2"
+    }
+  ]
+}

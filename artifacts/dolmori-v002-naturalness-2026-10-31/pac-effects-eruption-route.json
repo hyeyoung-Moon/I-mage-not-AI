@@ -1,0 +1,84 @@
+{
+  "catalog_version": 2,
+  "catalog_source": "PAC commit 057177a999aed949c5944f152d4f3c54c58f1ad7",
+  "catalog_path": "E:\\CodexTemp\\WindowsTemp\\dolmori-v002-pac-unity-qa-naturalness-20261031\\Assets\\Resources\\PacEffects\\effects.json",
+  "catalog_sha256": "a8be1107578b209718238126ea5020dd21b9076b0d7214bfafd161a741d645a8",
+  "runtime_exercised_in_run20": false,
+  "route": {
+    "key": "ERUPTION",
+    "steps": [
+      {
+        "kind": "projectile",
+        "animOptionsJson": "{}",
+        "tweenPropsJson": "{}",
+        "maxScale": 3,
+        "intensity": 0.01,
+        "ability": "",
+        "texture": "abilities",
+        "frame": "",
+        "scaleX": 2,
+        "scaleY": 2,
+        "originX": 0.5,
+        "originY": 0.5,
+        "depth": "ABILITY",
+        "tint": 16777215,
+        "alpha": 1,
+        "rotation": 0,
+        "angle": 0,
+        "flipX": false,
+        "flipY": false,
+        "oriented": false,
+        "delay": -1,
+        "duration": 500,
+        "ease": "linear",
+        "easeX": "linear",
+        "easeY": "linear",
+        "startCoords": "\"target\"",
+        "endCoords": "\"target\"",
+        "startOffset": [
+          72,
+          72
+        ],
+        "endOffset": [
+          0,
+          0
+        ],
+        "positionOffset": [
+          0,
+          0
+        ],
+        "hasDistance": false,
+        "distance": 12,
+        "orientation": "",
+        "projectileSpeed": 0,
+        "hasDuration": false,
+        "peakHeight": 150,
+        "destroyOnComplete": false,
+        "destroyOnTweenComplete": true,
+        "hit": []
+      }
+    ],
+    "sourceStart": 2060,
+    "sourceEnd": 2063,
+    "sourceHash": "e75bbdbaca90b68269e16a01c37949de114e63fc7d48ee8312961067e78abda5"
+  },
+  "animation": {
+    "key": "abilities/ERUPTION",
+    "fps": 20,
+    "repeat": 0,
+    "yoyo": false,
+    "frames": [
+      "abilities/ERUPTION/000.png",
+      "abilities/ERUPTION/001.png",
+      "abilities/ERUPTION/002.png",
+      "abilities/ERUPTION/003.png",
+      "abilities/ERUPTION/004.png",
+      "abilities/ERUPTION/005.png",
+      "abilities/ERUPTION/006.png",
+      "abilities/ERUPTION/007.png",
+      "abilities/ERUPTION/008.png",
+      "abilities/ERUPTION/009.png",
+      "abilities/ERUPTION/010.png"
+    ]
+  }
+}

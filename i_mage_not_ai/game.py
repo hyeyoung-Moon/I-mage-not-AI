@@ -229,6 +229,8 @@ def analyze_runtime_evidence(evidence:Any,policy:Any)->dict[str,Any]:
     if evidence.get("engine") not in {"godot","unity"} or not isinstance(evidence.get("engine_version"),str) or not evidence["engine_version"].strip():
         raise ValueError("runtime evidence requires a Godot/Unity engine and non-empty engine_version")
     if evidence.get("timebase")!="seconds": raise ValueError("runtime evidence timebase must be seconds")
+    scenario_id=evidence.get("scenario_id")
+    if scenario_id is not None and (not isinstance(scenario_id,str) or not scenario_id.strip()): raise ValueError("scenario_id must be a non-empty string when provided")
     if not isinstance(evidence.get("random_seed"),int) or isinstance(evidence.get("random_seed"),bool): raise ValueError("runtime evidence requires an integer random_seed")
     if not isinstance(evidence.get("callbacks"),list) or not isinstance(evidence.get("particles"),list): raise ValueError("runtime evidence callbacks and particles must be arrays")
     if not isinstance(policy,dict) or set(policy)-{"callbacks","particles"}: raise ValueError("runtime policy may only contain callbacks and particles")
@@ -282,7 +284,39 @@ def analyze_runtime_evidence(evidence:Any,policy:Any)->dict[str,Any]:
             alive=sample.get("alive_count"); minimum=rule.get("min_alive_count",0); maximum=rule.get("max_alive_count",2**31-1)
             findings.append({"id":f"PARTICLE:{emitter}:COUNT","algorithm":"runtime_particle_alive_count","version":"1.0","status":"INCONCLUSIVE" if alive is None else ("PASS" if minimum<=alive<=maximum else "FAIL"),"measured":{"alive_count":alive},"threshold":{"min":minimum,"max":maximum},"formula":"min_alive_count <= observed live count <= max_alive_count"})
     status="FAIL" if any(f["status"]=="FAIL" for f in findings) else ("INCONCLUSIVE" if any(f["status"]=="INCONCLUSIVE" for f in findings) else "PASS")
-    return {"schema_version":"0.5","asset_type":"runtime_evidence","status":status,"completeness":"COMPLETE" if findings and all(f["status"] in {"PASS","FAIL"} for f in findings) else "INCOMPLETE","engine":evidence["engine"],"engine_version":evidence["engine_version"],"timebase":evidence["timebase"],"random_seed":evidence["random_seed"],"results":findings}
+    return {"schema_version":"0.5","asset_type":"runtime_evidence","status":status,"completeness":"COMPLETE" if findings and all(f["status"] in {"PASS","FAIL"} for f in findings) else "INCOMPLETE","engine":evidence["engine"],"engine_version":evidence["engine_version"],"scenario_id":scenario_id,"timebase":evidence["timebase"],"random_seed":evidence["random_seed"],"results":findings}
+
+def aggregate_game_gate(review_report:Any,runtime_report:Any,render_report:Any)->dict[str,Any]:
+    """Require game trace, observed runtime, and rendered frame evidence to pass together."""
+    required: dict[str, Any]={"game_trace":review_report,"runtime_evidence":runtime_report,"render_evidence":render_report}
+    findings: list[dict[str, Any]]=[]; scenario_ids: list[tuple[str, Any]]=[]
+    for expected_type,report in required.items():
+        if not isinstance(report,dict):
+            findings.append({"gate":expected_type,"status":"INCONCLUSIVE","reason":"report must be a JSON object"}); continue
+        actual_type=report.get("asset_type")
+        scenario=report.get("scenario_id")
+        if scenario is not None: scenario_ids.append((expected_type,scenario))
+        if actual_type!=expected_type:
+            findings.append({"gate":expected_type,"status":"INCONCLUSIVE","reason":f"expected asset_type={expected_type}, received {actual_type!r}"}); continue
+        if report.get("status") not in {"PASS","FAIL","INCONCLUSIVE"} or report.get("completeness") not in {"COMPLETE","INCOMPLETE"}:
+            findings.append({"gate":expected_type,"status":"INCONCLUSIVE","reason":"report lacks a recognized status/completeness"}); continue
+        state="PASS" if report["status"]=="PASS" and report["completeness"]=="COMPLETE" else report["status"]
+        if state=="PASS" and expected_type in {"runtime_evidence","render_evidence"} and not scenario:
+            state="INCONCLUSIVE"
+        findings.append({"gate":expected_type,"status":state,"scenario_id":scenario,
+                         "source_status":report["status"],"source_completeness":report["completeness"]})
+    distinct={scenario for _,scenario in scenario_ids}
+    if len(distinct)>1:
+        findings.append({"gate":"scenario_alignment","status":"INCONCLUSIVE","reason":"trace, runtime, and render reports refer to different scenarios","scenario_ids":dict(scenario_ids)})
+    elif len(scenario_ids)<3:
+        findings.append({"gate":"scenario_alignment","status":"INCONCLUSIVE","reason":"all three reports must declare a scenario_id"})
+    else:
+        findings.append({"gate":"scenario_alignment","status":"PASS","scenario_id":next(iter(distinct))})
+    complete=all(row["status"] in {"PASS","FAIL"} for row in findings)
+    status="FAIL" if any(row["status"]=="FAIL" for row in findings) else ("PASS" if complete else "INCONCLUSIVE")
+    return {"schema_version":"0.5","asset_type":"game_gate","status":status,"completeness":"COMPLETE" if complete else "INCOMPLETE",
+            "coverage":{"required":len(findings),"completed":sum(row["status"] in {"PASS","FAIL"} for row in findings),
+                        "missing":[row["gate"] for row in findings if row["status"] not in {"PASS","FAIL"}]},"results":findings}
 
 def load_runtime_evidence(path:Path)->dict[str,Any]:
     try:

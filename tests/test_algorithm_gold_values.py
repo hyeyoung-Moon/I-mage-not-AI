@@ -129,6 +129,64 @@ def test_mask_palette_uniformity_topology_symmetry_overlap_and_luma(tmp_path):
     assert report["feature_masks"]["shape"]["sha256"] == hashlib.sha256((tmp_path / "shape.png").read_bytes()).hexdigest()
 
 
+def test_mask_holes_minimum_width_and_reference_shape_metrics(tmp_path):
+    asset = Image.new("RGBA", (12, 12), (255, 255, 255, 255))
+    asset_path = tmp_path / "asset.png"
+    asset.save(asset_path)
+    candidate = Image.new("L", (12, 12), 0)
+    for y in range(2, 10):
+        for x in range(2, 10):
+            if not (4 <= x <= 7 and 4 <= y <= 7):
+                candidate.putpixel((x, y), 255)
+    candidate.save(tmp_path / "candidate.png")
+    reference = Image.new("L", (12, 12), 0)
+    for y in range(2, 10):
+        for x in range(2, 10):
+            reference.putpixel((x, y), 255)
+    reference.save(tmp_path / "reference.png")
+    report = review(tmp_path, asset_path, features=[{
+        "id": "shape", "role": "character", "geometry": {"type": "mask", "path": "candidate.png"},
+        "properties": {"max_holes": 0, "min_width_px": 1, "reference_mask": "reference.png",
+                       "max_boundary_distance_px": 2, "min_iou": 0.7, "min_dice": 0.8},
+    }])
+    rows = {row["algorithm"]: row for row in report["results"]}
+    assert rows["mask_hole_count"]["measured"] == 1
+    assert rows["mask_hole_count"]["status"] == "FAIL"
+    assert rows["mask_minimum_width"]["measured"] == 2
+    assert rows["mask_boundary_distance"]["measured"] > 0
+    assert rows["mask_iou_dice"]["measured"] < 1
+    assert rows["mask_dice"]["measured"] < 1
+
+
+def test_skeleton_hu_shape_and_roi_edge_metrics(tmp_path):
+    asset = Image.new("RGB", (16, 16), (0, 0, 0))
+    for y in range(4, 12):
+        for x in range(4, 12):
+            asset.putpixel((x, y), (255, 255, 255))
+    asset_path = tmp_path / "edge-asset.png"
+    asset.save(asset_path)
+    mask = Image.new("L", (16, 16), 0)
+    for y in range(4, 12):
+        for x in range(4, 12): mask.putpixel((x, y), 255)
+    mask.save(tmp_path / "roi.png")
+    reference = Image.new("L", (16, 16), 0)
+    for y in range(4, 12):
+        for x in range(4, 12): reference.putpixel((x, y), 255)
+    reference.save(tmp_path / "ref-roi.png")
+    report = review(tmp_path, asset_path, features=[{
+        "id": "roi", "role": "character", "geometry": {"type": "mask", "path": "roi.png"},
+        "properties": {"max_skeleton_endpoints": 4, "max_skeleton_branches": 0,
+                       "reference_mask": "ref-roi.png", "max_hu_shape_distance": 0.001,
+                       "min_tenengrad": 1, "min_boundary_gradient": 1},
+    }])
+    rows = {row["algorithm"]: row for row in report["results"]}
+    assert rows["mask_skeleton_endpoints"]["measured"] == 4
+    assert rows["mask_skeleton_branches"]["measured"] == 1
+    assert rows["mask_hu_shape_distance"]["measured"] == pytest.approx(0)
+    assert rows["roi_tenengrad_sharpness"]["measured"] > 1
+    assert rows["mask_boundary_gradient"]["measured"] > 1
+
+
 def test_review_and_measure_use_same_linear_srgb_luma_bins(tmp_path):
     from i_mage_not_ai.measurements import measure_manifest
     image = Image.new("RGB", (32, 1))

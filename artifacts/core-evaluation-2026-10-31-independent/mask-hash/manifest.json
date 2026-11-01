@@ -1,0 +1,18 @@
+{
+  "schema_version": "0.5",
+  "asset": {
+    "path": "asset.png",
+    "sha256": "ff67b8095b057ced54b872adbf49cb2102011006d3741110f6b5e19d743df6b3"
+  },
+  "features": [
+    {
+      "id": "body",
+      "role": "foreground",
+      "geometry": {
+        "type": "mask",
+        "path": "mask.png",
+        "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  ]
+}

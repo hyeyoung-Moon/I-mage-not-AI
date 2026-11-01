@@ -1,0 +1,4695 @@
+{
+  "schema_version": "0.5",
+  "asset_type": "game_trace",
+  "status": "INCONCLUSIVE",
+  "completeness": "INCOMPLETE",
+  "engine": "unity",
+  "engine_version": "6000.3.25f1",
+  "timebase": "seconds",
+  "random_seed": null,
+  "results": [
+    {
+      "id": "MOTION:walk-direction-0",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 181,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.92108154296875,
+        "mean_step": 0.12888895670572917
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:walk-direction-1",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 181,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.92108154296875,
+        "mean_step": 0.12888895670572917
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:walk-direction-2",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 181,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.92108154296875,
+        "mean_step": 0.12888895670572917
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:walk-direction-3",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 181,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.92108154296875,
+        "mean_step": 0.12888895670572917
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:walk-direction-4",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 181,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.92108154296875,
+        "mean_step": 0.12888895670572917
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:walk-direction-5",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 181,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.92108154296875,
+        "mean_step": 0.12888895670572917
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:walk-direction-6",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 181,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.92108154296875,
+        "mean_step": 0.12888895670572917
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:walk-direction-7",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 181,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.92108154296875,
+        "mean_step": 0.12888895670572917
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000000",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 180,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.1367122383035796,
+        "mean_step": 0.13670684726972468
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000001",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 180,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.1367122383035796,
+        "mean_step": 0.13670684351321483
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000002",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 180,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.1367149356752738,
+        "mean_step": 0.13670685856121992
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000003",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 180,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.1367149356752738,
+        "mean_step": 0.13670684348110304
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000004",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 180,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.1367149356752738,
+        "mean_step": 0.13670684348110304
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000005",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 180,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.13672033057831884,
+        "mean_step": 0.13670681340620125
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000006",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 180,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.13672033057831884,
+        "mean_step": 0.13670687369039408
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000007",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 180,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.13672033057831884,
+        "mean_step": 0.13670681340620125
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000008",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 180,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.1367122383035796,
+        "mean_step": 0.13670654965035228
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000009",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 180,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.1367122383035796,
+        "mean_step": 0.13670628216856068
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000010",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 180,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.1367122383035796,
+        "mean_step": 0.1367066739705839
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000011",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 180,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.1367122383035796,
+        "mean_step": 0.13670726920760046
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000012",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 179,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.1367122383035796,
+        "mean_step": 0.13670788154739266
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000013",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 179,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.1367122383035796,
+        "mean_step": 0.13670844982133878
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000014",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 179,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.1367122383035796,
+        "mean_step": 0.1367090521912287
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000015",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 179,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.1367129126415136,
+        "mean_step": 0.13670914690355618
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000016",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 179,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.1367129126415136,
+        "mean_step": 0.13670914690355618
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000017",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 179,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.1367129126415136,
+        "mean_step": 0.13670914690355618
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000018",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 179,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.1367129126415136,
+        "mean_step": 0.13670914690355618
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000019",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 179,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.1367129126415136,
+        "mean_step": 0.13670914690355618
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000020",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 179,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.1367129126415136,
+        "mean_step": 0.13670910144186174
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000021",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 179,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.1367122383035796,
+        "mean_step": 0.13670910144221682
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000022",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 179,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.1367122383035796,
+        "mean_step": 0.1367091014423663
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000023",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 179,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.1367122383035796,
+        "mean_step": 0.13670910144206733
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000024",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 179,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.1367122383035796,
+        "mean_step": 0.13670910144221682
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000025",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 179,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.1367129126415136,
+        "mean_step": 0.13670914690355618
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000026",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 179,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.1367129126415136,
+        "mean_step": 0.13670914690355618
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000027",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 179,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.1367129126415136,
+        "mean_step": 0.13670914690355618
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000028",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 179,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.1367129126415136,
+        "mean_step": 0.13670914690355618
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000029",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 179,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.1367129126415136,
+        "mean_step": 0.13670914690355618
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000030",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 179,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.1367129126415136,
+        "mean_step": 0.13670914690355618
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000031",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 179,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.1367129126415136,
+        "mean_step": 0.13670914690355618
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000032",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 179,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.1367129126415136,
+        "mean_step": 0.13670914690355618
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000033",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 179,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.1367129126415136,
+        "mean_step": 0.13670914690355618
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000034",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 179,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.1367129126415136,
+        "mean_step": 0.13670914690355618
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000035",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 179,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.1367129126415136,
+        "mean_step": 0.13670914690355618
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MOTION:position-eruption-shot-9000000000000036",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "sample_count": 179,
+        "units": "ui_pixel",
+        "timebase": "seconds",
+        "coordinate_system": "unity_canvas_world",
+        "max_step": 0.1367129126415136,
+        "mean_step": 0.13670914690355618
+      },
+      "threshold": null,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000000",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 0.2805555760860443,
+        "absolute_error": 0.002777785062789917,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000001",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 0.2805555760860443,
+        "absolute_error": 0.002777785062789917,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000002",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 0.2805555760860443,
+        "absolute_error": 0.002777785062789917,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000003",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 0.2805555760860443,
+        "absolute_error": 0.002777785062789917,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000004",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 0.2805555760860443,
+        "absolute_error": 0.002777785062789917,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000005",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 0.2805555760860443,
+        "absolute_error": 0.002777785062789917,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000006",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 0.2805555760860443,
+        "absolute_error": 0.002777785062789917,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000007",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 0.2805555760860443,
+        "absolute_error": 0.002777785062789917,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000008",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 0.3805558383464813,
+        "absolute_error": 0.0027780532836914062,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000009",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 0.48055610060691833,
+        "absolute_error": 0.0027783215045928955,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000010",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 0.5805554986000061,
+        "absolute_error": 0.002777695655822754,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000011",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 0.6805546879768372,
+        "absolute_error": 0.002776920795440674,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000012",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 0.7833316326141357,
+        "absolute_error": 0.005553841590881348,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000013",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 0.8833308219909668,
+        "absolute_error": 0.005553007125854492,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000014",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 0.9833300113677979,
+        "absolute_error": 0.005552232265472412,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000015",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 1.0833309888839722,
+        "absolute_error": 0.005553245544433594,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000016",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 1.1833323240280151,
+        "absolute_error": 0.005554556846618652,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000017",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 1.2805558443069458,
+        "absolute_error": 0.0027780532836914062,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000018",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 1.3805571794509888,
+        "absolute_error": 0.002779364585876465,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000019",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 1.4805585145950317,
+        "absolute_error": 0.0027806758880615234,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000020",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 1.5805598497390747,
+        "absolute_error": 0.002782106399536133,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000021",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 1.6805611848831177,
+        "absolute_error": 0.0027834177017211914,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000022",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 1.7805625200271606,
+        "absolute_error": 0.00278472900390625,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000023",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 1.8805638551712036,
+        "absolute_error": 0.0027860403060913086,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000024",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 1.9805651903152466,
+        "absolute_error": 0.002787351608276367,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000025",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 2.08056640625,
+        "absolute_error": 0.002788543701171875,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000026",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 2.180567741394043,
+        "absolute_error": 0.0027899742126464844,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000027",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 2.280569076538086,
+        "absolute_error": 0.0027914047241210938,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000028",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 2.380570411682129,
+        "absolute_error": 0.0027925968170166016,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000029",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 2.480571746826172,
+        "absolute_error": 0.002794027328491211,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000030",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 2.580573081970215,
+        "absolute_error": 0.0027952194213867188,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000031",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 2.680574417114258,
+        "absolute_error": 0.002796649932861328,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000032",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 2.780575752258301,
+        "absolute_error": 0.0027980804443359375,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000033",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 2.8805770874023438,
+        "absolute_error": 0.0027992725372314453,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000034",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 2.9805784225463867,
+        "absolute_error": 0.0028007030487060547,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000035",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 3.0805797576904297,
+        "absolute_error": 0.0028018951416015625,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "EVENT:eruption-shot-9000000000000036",
+      "algorithm": "event_timing_difference",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "time": 3.1805810928344727,
+        "absolute_error": 0.002803325653076172,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "abs(observed event time - expected event time)"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000000",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.4999983012676239,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000001",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.4999983012676239,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000002",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.4999983012676239,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000003",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.4999983012676239,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000004",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.4999983012676239,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000005",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.4999983012676239,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000006",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.4999983012676239,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000007",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.4999983012676239,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000008",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.49999722838401794,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000009",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.499996155500412,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000010",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.49999767541885376,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000011",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.4999998211860657,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000012",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.49722421169281006,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000013",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.497226357460022,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000014",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.4972285032272339,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000015",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.49722886085510254,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000016",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.49722886085510254,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000017",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.49722886085510254,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000018",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.49722886085510254,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000019",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.49722886085510254,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000020",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.497228741645813,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000021",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.497228741645813,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000022",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.497228741645813,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000023",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.497228741645813,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000024",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.497228741645813,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000025",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.49722886085510254,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000026",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.49722886085510254,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000027",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.49722886085510254,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000028",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.49722886085510254,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000029",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.49722886085510254,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000030",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.49722886085510254,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000031",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.49722886085510254,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000032",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.49722886085510254,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000033",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.49722886085510254,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000034",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.49722886085510254,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000035",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.49722886085510254,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "PARTICLE:eruption-shot-9000000000000036",
+      "algorithm": "particle_lifetime",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "lifetime": 0.49722886085510254,
+        "timebase": "seconds"
+      },
+      "threshold": null,
+      "formula": "death_time - spawn_time"
+    },
+    {
+      "id": "OCCLUSION:0:unit-0",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.02388385130548918,
+        "frame_time": 0.0,
+        "layer_id": "unit-0",
+        "z_index": 51
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:0:unit-1",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.14228232099132673,
+        "frame_time": 0.0,
+        "layer_id": "unit-1",
+        "z_index": 52
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:0:unit-2",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.20562192004251786,
+        "frame_time": 0.0,
+        "layer_id": "unit-2",
+        "z_index": 53
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:0:unit-3",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09128171882537563,
+        "frame_time": 0.0,
+        "layer_id": "unit-3",
+        "z_index": 54
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:0:unit-4",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11695869332473818,
+        "frame_time": 0.0,
+        "layer_id": "unit-4",
+        "z_index": 55
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:0:unit-5",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.16325501864038283,
+        "frame_time": 0.0,
+        "layer_id": "unit-5",
+        "z_index": 56
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:0:unit-6",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.12824872141224386,
+        "frame_time": 0.0,
+        "layer_id": "unit-6",
+        "z_index": 57
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:1:unit-0",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.02388385130548918,
+        "frame_time": 0.016666666666666666,
+        "layer_id": "unit-0",
+        "z_index": 51
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:1:unit-1",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.14228232099132673,
+        "frame_time": 0.016666666666666666,
+        "layer_id": "unit-1",
+        "z_index": 52
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:1:unit-2",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.20562192004251786,
+        "frame_time": 0.016666666666666666,
+        "layer_id": "unit-2",
+        "z_index": 53
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:1:unit-3",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09128171882537563,
+        "frame_time": 0.016666666666666666,
+        "layer_id": "unit-3",
+        "z_index": 54
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:1:unit-4",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11695869332473818,
+        "frame_time": 0.016666666666666666,
+        "layer_id": "unit-4",
+        "z_index": 55
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:1:unit-5",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.16325501864038283,
+        "frame_time": 0.016666666666666666,
+        "layer_id": "unit-5",
+        "z_index": 56
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:1:unit-6",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.12824872141224386,
+        "frame_time": 0.016666666666666666,
+        "layer_id": "unit-6",
+        "z_index": 57
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:2:unit-0",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.02388385130548918,
+        "frame_time": 0.03333333333333333,
+        "layer_id": "unit-0",
+        "z_index": 51
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:2:unit-1",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.14228232099132673,
+        "frame_time": 0.03333333333333333,
+        "layer_id": "unit-1",
+        "z_index": 52
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:2:unit-2",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.20562192004251786,
+        "frame_time": 0.03333333333333333,
+        "layer_id": "unit-2",
+        "z_index": 53
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:2:unit-3",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09128171882537563,
+        "frame_time": 0.03333333333333333,
+        "layer_id": "unit-3",
+        "z_index": 54
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:2:unit-4",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11695869332473818,
+        "frame_time": 0.03333333333333333,
+        "layer_id": "unit-4",
+        "z_index": 55
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:2:unit-5",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.16325501864038283,
+        "frame_time": 0.03333333333333333,
+        "layer_id": "unit-5",
+        "z_index": 56
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:2:unit-6",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.12824872141224386,
+        "frame_time": 0.03333333333333333,
+        "layer_id": "unit-6",
+        "z_index": 57
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:3:unit-0",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.02388385130548918,
+        "frame_time": 0.05,
+        "layer_id": "unit-0",
+        "z_index": 51
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:3:unit-1",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.14228232099132673,
+        "frame_time": 0.05,
+        "layer_id": "unit-1",
+        "z_index": 52
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:3:unit-2",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.20562192004251786,
+        "frame_time": 0.05,
+        "layer_id": "unit-2",
+        "z_index": 53
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:3:unit-3",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09128171882537563,
+        "frame_time": 0.05,
+        "layer_id": "unit-3",
+        "z_index": 54
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:3:unit-4",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11695869332473818,
+        "frame_time": 0.05,
+        "layer_id": "unit-4",
+        "z_index": 55
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:3:unit-5",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.16325501864038283,
+        "frame_time": 0.05,
+        "layer_id": "unit-5",
+        "z_index": 56
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:3:unit-6",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.12824872141224386,
+        "frame_time": 0.05,
+        "layer_id": "unit-6",
+        "z_index": 57
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:4:unit-0",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.02388385130548918,
+        "frame_time": 0.06666666666666667,
+        "layer_id": "unit-0",
+        "z_index": 51
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:4:unit-1",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.14228232099132673,
+        "frame_time": 0.06666666666666667,
+        "layer_id": "unit-1",
+        "z_index": 52
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:4:unit-2",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.20562192004251786,
+        "frame_time": 0.06666666666666667,
+        "layer_id": "unit-2",
+        "z_index": 53
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:4:unit-3",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09128171882537563,
+        "frame_time": 0.06666666666666667,
+        "layer_id": "unit-3",
+        "z_index": 54
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:4:unit-4",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11695869332473818,
+        "frame_time": 0.06666666666666667,
+        "layer_id": "unit-4",
+        "z_index": 55
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:4:unit-5",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.16325501864038283,
+        "frame_time": 0.06666666666666667,
+        "layer_id": "unit-5",
+        "z_index": 56
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:4:unit-6",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.12824872141224386,
+        "frame_time": 0.06666666666666667,
+        "layer_id": "unit-6",
+        "z_index": 57
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:5:unit-0",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.02388385130548918,
+        "frame_time": 0.08333333333333333,
+        "layer_id": "unit-0",
+        "z_index": 51
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:5:unit-1",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.14228232099132673,
+        "frame_time": 0.08333333333333333,
+        "layer_id": "unit-1",
+        "z_index": 52
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:5:unit-2",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.20562192004251786,
+        "frame_time": 0.08333333333333333,
+        "layer_id": "unit-2",
+        "z_index": 53
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:5:unit-3",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09128171882537563,
+        "frame_time": 0.08333333333333333,
+        "layer_id": "unit-3",
+        "z_index": 54
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:5:unit-4",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11695869332473818,
+        "frame_time": 0.08333333333333333,
+        "layer_id": "unit-4",
+        "z_index": 55
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:5:unit-5",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.16325501864038283,
+        "frame_time": 0.08333333333333333,
+        "layer_id": "unit-5",
+        "z_index": 56
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:5:unit-6",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.12824872141224386,
+        "frame_time": 0.08333333333333333,
+        "layer_id": "unit-6",
+        "z_index": 57
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:6:unit-0",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.02388385130548918,
+        "frame_time": 0.1,
+        "layer_id": "unit-0",
+        "z_index": 51
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:6:unit-1",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.14228232099132673,
+        "frame_time": 0.1,
+        "layer_id": "unit-1",
+        "z_index": 52
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:6:unit-2",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.2056219200425178,
+        "frame_time": 0.1,
+        "layer_id": "unit-2",
+        "z_index": 53
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:6:unit-3",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.0912817188253756,
+        "frame_time": 0.1,
+        "layer_id": "unit-3",
+        "z_index": 54
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:6:unit-4",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11695869332473821,
+        "frame_time": 0.1,
+        "layer_id": "unit-4",
+        "z_index": 55
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:6:unit-5",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.16325501864038283,
+        "frame_time": 0.1,
+        "layer_id": "unit-5",
+        "z_index": 56
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:6:unit-6",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.1282487214122439,
+        "frame_time": 0.1,
+        "layer_id": "unit-6",
+        "z_index": 57
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:7:unit-0",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.00740354720807144,
+        "frame_time": 0.11666666666666667,
+        "layer_id": "unit-0",
+        "z_index": 51
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:7:unit-1",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.1140468259440712,
+        "frame_time": 0.11666666666666667,
+        "layer_id": "unit-1",
+        "z_index": 52
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:7:unit-2",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.19935532346597165,
+        "frame_time": 0.11666666666666667,
+        "layer_id": "unit-2",
+        "z_index": 53
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:7:unit-3",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11234497617860088,
+        "frame_time": 0.11666666666666667,
+        "layer_id": "unit-3",
+        "z_index": 54
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:7:unit-4",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09676227425984943,
+        "frame_time": 0.11666666666666667,
+        "layer_id": "unit-4",
+        "z_index": 55
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:7:unit-5",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.1438410427929937,
+        "frame_time": 0.11666666666666667,
+        "layer_id": "unit-5",
+        "z_index": 56
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:7:unit-6",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09955030991620636,
+        "frame_time": 0.11666666666666667,
+        "layer_id": "unit-6",
+        "z_index": 57
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:8:unit-0",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.00740354720807144,
+        "frame_time": 0.13333333333333333,
+        "layer_id": "unit-0",
+        "z_index": 51
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:8:unit-1",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11404682594407121,
+        "frame_time": 0.13333333333333333,
+        "layer_id": "unit-1",
+        "z_index": 52
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:8:unit-2",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.19935532346597168,
+        "frame_time": 0.13333333333333333,
+        "layer_id": "unit-2",
+        "z_index": 53
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:8:unit-3",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11234497617860086,
+        "frame_time": 0.13333333333333333,
+        "layer_id": "unit-3",
+        "z_index": 54
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:8:unit-4",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09676227425984942,
+        "frame_time": 0.13333333333333333,
+        "layer_id": "unit-4",
+        "z_index": 55
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:8:unit-5",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.1438410427929937,
+        "frame_time": 0.13333333333333333,
+        "layer_id": "unit-5",
+        "z_index": 56
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:8:unit-6",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09955030991620636,
+        "frame_time": 0.13333333333333333,
+        "layer_id": "unit-6",
+        "z_index": 57
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:9:unit-0",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.00740354720807144,
+        "frame_time": 0.15,
+        "layer_id": "unit-0",
+        "z_index": 51
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:9:unit-1",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11404682594407121,
+        "frame_time": 0.15,
+        "layer_id": "unit-1",
+        "z_index": 52
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:9:unit-2",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.19935532346597165,
+        "frame_time": 0.15,
+        "layer_id": "unit-2",
+        "z_index": 53
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:9:unit-3",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11234497617860088,
+        "frame_time": 0.15,
+        "layer_id": "unit-3",
+        "z_index": 54
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:9:unit-4",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09676227425984944,
+        "frame_time": 0.15,
+        "layer_id": "unit-4",
+        "z_index": 55
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:9:unit-5",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.1438410427929937,
+        "frame_time": 0.15,
+        "layer_id": "unit-5",
+        "z_index": 56
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:9:unit-6",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09955030991620636,
+        "frame_time": 0.15,
+        "layer_id": "unit-6",
+        "z_index": 57
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:10:unit-0",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.007403547208071441,
+        "frame_time": 0.16666666666666666,
+        "layer_id": "unit-0",
+        "z_index": 51
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:10:unit-1",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11404682594407121,
+        "frame_time": 0.16666666666666666,
+        "layer_id": "unit-1",
+        "z_index": 52
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:10:unit-2",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.19935532346597168,
+        "frame_time": 0.16666666666666666,
+        "layer_id": "unit-2",
+        "z_index": 53
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:10:unit-3",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11234497617860091,
+        "frame_time": 0.16666666666666666,
+        "layer_id": "unit-3",
+        "z_index": 54
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:10:unit-4",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09676227425984942,
+        "frame_time": 0.16666666666666666,
+        "layer_id": "unit-4",
+        "z_index": 55
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:10:unit-5",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.1438410427929937,
+        "frame_time": 0.16666666666666666,
+        "layer_id": "unit-5",
+        "z_index": 56
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:10:unit-6",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09955030991620638,
+        "frame_time": 0.16666666666666666,
+        "layer_id": "unit-6",
+        "z_index": 57
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:11:unit-0",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.007403547208071441,
+        "frame_time": 0.18333333333333332,
+        "layer_id": "unit-0",
+        "z_index": 51
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:11:unit-1",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11404682594407121,
+        "frame_time": 0.18333333333333332,
+        "layer_id": "unit-1",
+        "z_index": 52
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:11:unit-2",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.19935532346597165,
+        "frame_time": 0.18333333333333332,
+        "layer_id": "unit-2",
+        "z_index": 53
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:11:unit-3",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11234497617860086,
+        "frame_time": 0.18333333333333332,
+        "layer_id": "unit-3",
+        "z_index": 54
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:11:unit-4",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09676227425984942,
+        "frame_time": 0.18333333333333332,
+        "layer_id": "unit-4",
+        "z_index": 55
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:11:unit-5",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.14384104279299367,
+        "frame_time": 0.18333333333333332,
+        "layer_id": "unit-5",
+        "z_index": 56
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:11:unit-6",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09955030991620638,
+        "frame_time": 0.18333333333333332,
+        "layer_id": "unit-6",
+        "z_index": 57
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:12:unit-0",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.007403547208071439,
+        "frame_time": 0.2,
+        "layer_id": "unit-0",
+        "z_index": 51
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:12:unit-1",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11404682594407121,
+        "frame_time": 0.2,
+        "layer_id": "unit-1",
+        "z_index": 52
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:12:unit-2",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.19935532346597165,
+        "frame_time": 0.2,
+        "layer_id": "unit-2",
+        "z_index": 53
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:12:unit-3",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11234497617860086,
+        "frame_time": 0.2,
+        "layer_id": "unit-3",
+        "z_index": 54
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:12:unit-4",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09676227425984943,
+        "frame_time": 0.2,
+        "layer_id": "unit-4",
+        "z_index": 55
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:12:unit-5",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.1438410427929937,
+        "frame_time": 0.2,
+        "layer_id": "unit-5",
+        "z_index": 56
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:12:unit-6",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09955030991620634,
+        "frame_time": 0.2,
+        "layer_id": "unit-6",
+        "z_index": 57
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:13:unit-0",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.00740354720807144,
+        "frame_time": 0.21666666666666667,
+        "layer_id": "unit-0",
+        "z_index": 51
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:13:unit-1",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11404682594407124,
+        "frame_time": 0.21666666666666667,
+        "layer_id": "unit-1",
+        "z_index": 52
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:13:unit-2",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.19935532346597165,
+        "frame_time": 0.21666666666666667,
+        "layer_id": "unit-2",
+        "z_index": 53
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:13:unit-3",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11234497617860086,
+        "frame_time": 0.21666666666666667,
+        "layer_id": "unit-3",
+        "z_index": 54
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:13:unit-4",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09676227425984943,
+        "frame_time": 0.21666666666666667,
+        "layer_id": "unit-4",
+        "z_index": 55
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:13:unit-5",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.14384104279299367,
+        "frame_time": 0.21666666666666667,
+        "layer_id": "unit-5",
+        "z_index": 56
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:13:unit-6",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09955030991620636,
+        "frame_time": 0.21666666666666667,
+        "layer_id": "unit-6",
+        "z_index": 57
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:14:unit-0",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.007403547208071441,
+        "frame_time": 0.23333333333333334,
+        "layer_id": "unit-0",
+        "z_index": 51
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:14:unit-1",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11404682594407121,
+        "frame_time": 0.23333333333333334,
+        "layer_id": "unit-1",
+        "z_index": 52
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:14:unit-2",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.19935532346597165,
+        "frame_time": 0.23333333333333334,
+        "layer_id": "unit-2",
+        "z_index": 53
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:14:unit-3",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.1123449761786009,
+        "frame_time": 0.23333333333333334,
+        "layer_id": "unit-3",
+        "z_index": 54
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:14:unit-4",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09676227425984943,
+        "frame_time": 0.23333333333333334,
+        "layer_id": "unit-4",
+        "z_index": 55
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:14:unit-5",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.1438410427929937,
+        "frame_time": 0.23333333333333334,
+        "layer_id": "unit-5",
+        "z_index": 56
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:14:unit-6",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09955030991620638,
+        "frame_time": 0.23333333333333334,
+        "layer_id": "unit-6",
+        "z_index": 57
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:15:unit-0",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.00740354720807144,
+        "frame_time": 0.25,
+        "layer_id": "unit-0",
+        "z_index": 51
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:15:unit-1",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.1140468259440712,
+        "frame_time": 0.25,
+        "layer_id": "unit-1",
+        "z_index": 52
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:15:unit-2",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.19935532346597168,
+        "frame_time": 0.25,
+        "layer_id": "unit-2",
+        "z_index": 53
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:15:unit-3",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11234497617860091,
+        "frame_time": 0.25,
+        "layer_id": "unit-3",
+        "z_index": 54
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:15:unit-4",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09676227425984944,
+        "frame_time": 0.25,
+        "layer_id": "unit-4",
+        "z_index": 55
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:15:unit-5",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.14384104279299367,
+        "frame_time": 0.25,
+        "layer_id": "unit-5",
+        "z_index": 56
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:15:unit-6",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09955030991620636,
+        "frame_time": 0.25,
+        "layer_id": "unit-6",
+        "z_index": 57
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:16:unit-0",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.007403547208071439,
+        "frame_time": 0.26666666666666666,
+        "layer_id": "unit-0",
+        "z_index": 51
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:16:unit-1",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11404682594407121,
+        "frame_time": 0.26666666666666666,
+        "layer_id": "unit-1",
+        "z_index": 52
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:16:unit-2",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.1993553234659716,
+        "frame_time": 0.26666666666666666,
+        "layer_id": "unit-2",
+        "z_index": 53
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:16:unit-3",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11234497617860088,
+        "frame_time": 0.26666666666666666,
+        "layer_id": "unit-3",
+        "z_index": 54
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:16:unit-4",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09676227425984944,
+        "frame_time": 0.26666666666666666,
+        "layer_id": "unit-4",
+        "z_index": 55
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:16:unit-5",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.1438410427929937,
+        "frame_time": 0.26666666666666666,
+        "layer_id": "unit-5",
+        "z_index": 56
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:16:unit-6",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09955030991620636,
+        "frame_time": 0.26666666666666666,
+        "layer_id": "unit-6",
+        "z_index": 57
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:17:unit-0",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.007403547208071439,
+        "frame_time": 0.2833333333333333,
+        "layer_id": "unit-0",
+        "z_index": 51
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:17:unit-1",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11404682594407121,
+        "frame_time": 0.2833333333333333,
+        "layer_id": "unit-1",
+        "z_index": 52
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:17:unit-2",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.1993553234659717,
+        "frame_time": 0.2833333333333333,
+        "layer_id": "unit-2",
+        "z_index": 53
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:17:unit-3",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11234497617860086,
+        "frame_time": 0.2833333333333333,
+        "layer_id": "unit-3",
+        "z_index": 54
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:17:unit-4",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09676227425984943,
+        "frame_time": 0.2833333333333333,
+        "layer_id": "unit-4",
+        "z_index": 55
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:17:unit-5",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.1438410427929937,
+        "frame_time": 0.2833333333333333,
+        "layer_id": "unit-5",
+        "z_index": 56
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:17:unit-6",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09955030991620638,
+        "frame_time": 0.2833333333333333,
+        "layer_id": "unit-6",
+        "z_index": 57
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:18:unit-0",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.00740354720807144,
+        "frame_time": 0.3,
+        "layer_id": "unit-0",
+        "z_index": 51
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:18:unit-1",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11404682594407124,
+        "frame_time": 0.3,
+        "layer_id": "unit-1",
+        "z_index": 52
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:18:unit-2",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.1993553234659717,
+        "frame_time": 0.3,
+        "layer_id": "unit-2",
+        "z_index": 53
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:18:unit-3",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11234497617860088,
+        "frame_time": 0.3,
+        "layer_id": "unit-3",
+        "z_index": 54
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:18:unit-4",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09676227425984943,
+        "frame_time": 0.3,
+        "layer_id": "unit-4",
+        "z_index": 55
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:18:unit-5",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.1438410427929937,
+        "frame_time": 0.3,
+        "layer_id": "unit-5",
+        "z_index": 56
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:18:unit-6",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09955030991620636,
+        "frame_time": 0.3,
+        "layer_id": "unit-6",
+        "z_index": 57
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:19:unit-0",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.007403547208071439,
+        "frame_time": 0.31666666666666665,
+        "layer_id": "unit-0",
+        "z_index": 51
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:19:unit-1",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11404682594407121,
+        "frame_time": 0.31666666666666665,
+        "layer_id": "unit-1",
+        "z_index": 52
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:19:unit-2",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.19935532346597168,
+        "frame_time": 0.31666666666666665,
+        "layer_id": "unit-2",
+        "z_index": 53
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:19:unit-3",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11234497617860086,
+        "frame_time": 0.31666666666666665,
+        "layer_id": "unit-3",
+        "z_index": 54
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:19:unit-4",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09676227425984942,
+        "frame_time": 0.31666666666666665,
+        "layer_id": "unit-4",
+        "z_index": 55
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:19:unit-5",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.1438410427929937,
+        "frame_time": 0.31666666666666665,
+        "layer_id": "unit-5",
+        "z_index": 56
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:19:unit-6",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09955030991620638,
+        "frame_time": 0.31666666666666665,
+        "layer_id": "unit-6",
+        "z_index": 57
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:20:unit-0",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.003075743348205037,
+        "frame_time": 0.3333333333333333,
+        "layer_id": "unit-0",
+        "z_index": 51
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:20:unit-1",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.13490220407902592,
+        "frame_time": 0.3333333333333333,
+        "layer_id": "unit-1",
+        "z_index": 52
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:20:unit-2",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.19292718365418107,
+        "frame_time": 0.3333333333333333,
+        "layer_id": "unit-2",
+        "z_index": 53
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:20:unit-3",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11398484694648138,
+        "frame_time": 0.3333333333333333,
+        "layer_id": "unit-3",
+        "z_index": 54
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:20:unit-4",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09046713197605799,
+        "frame_time": 0.3333333333333333,
+        "layer_id": "unit-4",
+        "z_index": 55
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:20:unit-5",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.14219917744698227,
+        "frame_time": 0.3333333333333333,
+        "layer_id": "unit-5",
+        "z_index": 56
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:20:unit-6",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.10152623318052838,
+        "frame_time": 0.3333333333333333,
+        "layer_id": "unit-6",
+        "z_index": 57
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:21:unit-0",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.003075743348205037,
+        "frame_time": 0.35,
+        "layer_id": "unit-0",
+        "z_index": 51
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:21:unit-1",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.13490220407902592,
+        "frame_time": 0.35,
+        "layer_id": "unit-1",
+        "z_index": 52
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:21:unit-2",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.19292718365418107,
+        "frame_time": 0.35,
+        "layer_id": "unit-2",
+        "z_index": 53
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:21:unit-3",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11398484694648138,
+        "frame_time": 0.35,
+        "layer_id": "unit-3",
+        "z_index": 54
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:21:unit-4",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09046713197605799,
+        "frame_time": 0.35,
+        "layer_id": "unit-4",
+        "z_index": 55
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:21:unit-5",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.14219917744698227,
+        "frame_time": 0.35,
+        "layer_id": "unit-5",
+        "z_index": 56
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:21:unit-6",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.10152623318052838,
+        "frame_time": 0.35,
+        "layer_id": "unit-6",
+        "z_index": 57
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:22:unit-0",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.003075743348205037,
+        "frame_time": 0.36666666666666664,
+        "layer_id": "unit-0",
+        "z_index": 51
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:22:unit-1",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.13490220407902592,
+        "frame_time": 0.36666666666666664,
+        "layer_id": "unit-1",
+        "z_index": 52
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:22:unit-2",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.19292718365418107,
+        "frame_time": 0.36666666666666664,
+        "layer_id": "unit-2",
+        "z_index": 53
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:22:unit-3",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11398484694648138,
+        "frame_time": 0.36666666666666664,
+        "layer_id": "unit-3",
+        "z_index": 54
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:22:unit-4",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09046713197605799,
+        "frame_time": 0.36666666666666664,
+        "layer_id": "unit-4",
+        "z_index": 55
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:22:unit-5",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.14219917744698227,
+        "frame_time": 0.36666666666666664,
+        "layer_id": "unit-5",
+        "z_index": 56
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:22:unit-6",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.10152623318052838,
+        "frame_time": 0.36666666666666664,
+        "layer_id": "unit-6",
+        "z_index": 57
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:23:unit-0",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.003075743348205037,
+        "frame_time": 0.38333333333333336,
+        "layer_id": "unit-0",
+        "z_index": 51
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:23:unit-1",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.13490220407902592,
+        "frame_time": 0.38333333333333336,
+        "layer_id": "unit-1",
+        "z_index": 52
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:23:unit-2",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.19292718365418107,
+        "frame_time": 0.38333333333333336,
+        "layer_id": "unit-2",
+        "z_index": 53
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:23:unit-3",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11398484694648138,
+        "frame_time": 0.38333333333333336,
+        "layer_id": "unit-3",
+        "z_index": 54
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:23:unit-4",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09046713197605799,
+        "frame_time": 0.38333333333333336,
+        "layer_id": "unit-4",
+        "z_index": 55
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:23:unit-5",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.14219917744698227,
+        "frame_time": 0.38333333333333336,
+        "layer_id": "unit-5",
+        "z_index": 56
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:23:unit-6",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.10152623318052838,
+        "frame_time": 0.38333333333333336,
+        "layer_id": "unit-6",
+        "z_index": 57
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:24:unit-0",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.003075743348205037,
+        "frame_time": 0.4,
+        "layer_id": "unit-0",
+        "z_index": 51
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:24:unit-1",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.13490220407902592,
+        "frame_time": 0.4,
+        "layer_id": "unit-1",
+        "z_index": 52
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:24:unit-2",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.19292718365418107,
+        "frame_time": 0.4,
+        "layer_id": "unit-2",
+        "z_index": 53
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:24:unit-3",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11398484694648138,
+        "frame_time": 0.4,
+        "layer_id": "unit-3",
+        "z_index": 54
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:24:unit-4",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09046713197605799,
+        "frame_time": 0.4,
+        "layer_id": "unit-4",
+        "z_index": 55
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:24:unit-5",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.14219917744698227,
+        "frame_time": 0.4,
+        "layer_id": "unit-5",
+        "z_index": 56
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:24:unit-6",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.10152623318052838,
+        "frame_time": 0.4,
+        "layer_id": "unit-6",
+        "z_index": 57
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:25:unit-0",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.003075743348205037,
+        "frame_time": 0.4166666666666667,
+        "layer_id": "unit-0",
+        "z_index": 51
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:25:unit-1",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.13490220407902592,
+        "frame_time": 0.4166666666666667,
+        "layer_id": "unit-1",
+        "z_index": 52
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:25:unit-2",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.19292718365418107,
+        "frame_time": 0.4166666666666667,
+        "layer_id": "unit-2",
+        "z_index": 53
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:25:unit-3",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11398484694648138,
+        "frame_time": 0.4166666666666667,
+        "layer_id": "unit-3",
+        "z_index": 54
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:25:unit-4",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09046713197605799,
+        "frame_time": 0.4166666666666667,
+        "layer_id": "unit-4",
+        "z_index": 55
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:25:unit-5",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.14219917744698227,
+        "frame_time": 0.4166666666666667,
+        "layer_id": "unit-5",
+        "z_index": 56
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:25:unit-6",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.10152623318052838,
+        "frame_time": 0.4166666666666667,
+        "layer_id": "unit-6",
+        "z_index": 57
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:26:unit-0",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.003075743348205037,
+        "frame_time": 0.43333333333333335,
+        "layer_id": "unit-0",
+        "z_index": 51
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:26:unit-1",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.13490220407902592,
+        "frame_time": 0.43333333333333335,
+        "layer_id": "unit-1",
+        "z_index": 52
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:26:unit-2",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.19292718365418107,
+        "frame_time": 0.43333333333333335,
+        "layer_id": "unit-2",
+        "z_index": 53
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:26:unit-3",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11398484694648138,
+        "frame_time": 0.43333333333333335,
+        "layer_id": "unit-3",
+        "z_index": 54
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:26:unit-4",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09046713197605799,
+        "frame_time": 0.43333333333333335,
+        "layer_id": "unit-4",
+        "z_index": 55
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:26:unit-5",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.14219917744698227,
+        "frame_time": 0.43333333333333335,
+        "layer_id": "unit-5",
+        "z_index": 56
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:26:unit-6",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.10152623318052838,
+        "frame_time": 0.43333333333333335,
+        "layer_id": "unit-6",
+        "z_index": 57
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:27:unit-0",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.003075743348205037,
+        "frame_time": 0.45,
+        "layer_id": "unit-0",
+        "z_index": 51
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:27:unit-1",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.13490220407902592,
+        "frame_time": 0.45,
+        "layer_id": "unit-1",
+        "z_index": 52
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:27:unit-2",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.19292718365418107,
+        "frame_time": 0.45,
+        "layer_id": "unit-2",
+        "z_index": 53
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:27:unit-3",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11398484694648138,
+        "frame_time": 0.45,
+        "layer_id": "unit-3",
+        "z_index": 54
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:27:unit-4",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09046713197605799,
+        "frame_time": 0.45,
+        "layer_id": "unit-4",
+        "z_index": 55
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:27:unit-5",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.14219917744698227,
+        "frame_time": 0.45,
+        "layer_id": "unit-5",
+        "z_index": 56
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:27:unit-6",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.10152623318052838,
+        "frame_time": 0.45,
+        "layer_id": "unit-6",
+        "z_index": 57
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:28:unit-0",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.003075743348205037,
+        "frame_time": 0.4666666666666667,
+        "layer_id": "unit-0",
+        "z_index": 51
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:28:unit-1",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.13490220407902592,
+        "frame_time": 0.4666666666666667,
+        "layer_id": "unit-1",
+        "z_index": 52
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:28:unit-2",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.19292718365418107,
+        "frame_time": 0.4666666666666667,
+        "layer_id": "unit-2",
+        "z_index": 53
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:28:unit-3",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11398484694648138,
+        "frame_time": 0.4666666666666667,
+        "layer_id": "unit-3",
+        "z_index": 54
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:28:unit-4",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09046713197605799,
+        "frame_time": 0.4666666666666667,
+        "layer_id": "unit-4",
+        "z_index": 55
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:28:unit-5",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.14219917744698227,
+        "frame_time": 0.4666666666666667,
+        "layer_id": "unit-5",
+        "z_index": 56
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:28:unit-6",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.10152623318052838,
+        "frame_time": 0.4666666666666667,
+        "layer_id": "unit-6",
+        "z_index": 57
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:29:unit-0",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.003075743348205037,
+        "frame_time": 0.48333333333333334,
+        "layer_id": "unit-0",
+        "z_index": 51
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:29:unit-1",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.13490220407902592,
+        "frame_time": 0.48333333333333334,
+        "layer_id": "unit-1",
+        "z_index": 52
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:29:unit-2",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.19292718365418107,
+        "frame_time": 0.48333333333333334,
+        "layer_id": "unit-2",
+        "z_index": 53
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:29:unit-3",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11398484694648138,
+        "frame_time": 0.48333333333333334,
+        "layer_id": "unit-3",
+        "z_index": 54
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:29:unit-4",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.09046713197605799,
+        "frame_time": 0.48333333333333334,
+        "layer_id": "unit-4",
+        "z_index": 55
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:29:unit-5",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.14219917744698227,
+        "frame_time": 0.48333333333333334,
+        "layer_id": "unit-5",
+        "z_index": 56
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:29:unit-6",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.10152623318052838,
+        "frame_time": 0.48333333333333334,
+        "layer_id": "unit-6",
+        "z_index": 57
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:30:unit-0",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.003332934383956614,
+        "frame_time": 0.5,
+        "layer_id": "unit-0",
+        "z_index": 51
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:30:unit-1",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.049908214791608306,
+        "frame_time": 0.5,
+        "layer_id": "unit-1",
+        "z_index": 52
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:30:unit-2",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.18708731303965612,
+        "frame_time": 0.5,
+        "layer_id": "unit-2",
+        "z_index": 53
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:30:unit-3",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.11473235029487693,
+        "frame_time": 0.5,
+        "layer_id": "unit-3",
+        "z_index": 54
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:30:unit-4",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.0612701598079393,
+        "frame_time": 0.5,
+        "layer_id": "unit-4",
+        "z_index": 55
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:30:unit-5",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.14518847316108208,
+        "frame_time": 0.5,
+        "layer_id": "unit-5",
+        "z_index": 56
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    },
+    {
+      "id": "OCCLUSION:30:unit-6",
+      "algorithm": "alpha_weighted_occlusion",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": {
+        "occlusion_ratio": 0.10259428876748816,
+        "frame_time": 0.5,
+        "layer_id": "unit-6",
+        "z_index": 57
+      },
+      "threshold": null,
+      "formula": "sum(back_alpha * (1 - product(1 - front_alpha))) / sum(back_alpha)"
+    }
+  ]
+}

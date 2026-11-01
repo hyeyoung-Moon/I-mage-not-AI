@@ -1,0 +1,32 @@
+{
+  "schema_version": "0.5",
+  "asset": {
+    "path": "asset.png",
+    "sha256": "4158613de6f164302373f07bcabaf381a2ae959085936dba1b52454ae558551a"
+  },
+  "features": [
+    {
+      "id": "part:left",
+      "role": "foreground",
+      "geometry": {
+        "type": "mask",
+        "path": "m0.png"
+      }
+    },
+    {
+      "id": "right",
+      "role": "foreground",
+      "geometry": {
+        "type": "mask",
+        "path": "m1.png"
+      }
+    }
+  ],
+  "overlap_constraints": [
+    {
+      "feature_a": "part:left",
+      "feature_b": "right",
+      "max_overlap_ratio": 1
+    }
+  ]
+}

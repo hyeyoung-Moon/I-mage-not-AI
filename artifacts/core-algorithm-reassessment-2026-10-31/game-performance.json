@@ -1,0 +1,26 @@
+[
+  {
+    "samples": 1000,
+    "validation_seconds": 0.0028762000001734123,
+    "analysis_seconds": 0.013270899988128804,
+    "status": "PASS",
+    "completeness": "COMPLETE",
+    "findings": 4
+  },
+  {
+    "samples": 10000,
+    "validation_seconds": 0.03232460000435822,
+    "analysis_seconds": 0.15383310000470374,
+    "status": "PASS",
+    "completeness": "COMPLETE",
+    "findings": 4
+  },
+  {
+    "samples": 50000,
+    "validation_seconds": 0.15815570000268053,
+    "analysis_seconds": 0.9781901999958791,
+    "status": "PASS",
+    "completeness": "COMPLETE",
+    "findings": 4
+  }
+]

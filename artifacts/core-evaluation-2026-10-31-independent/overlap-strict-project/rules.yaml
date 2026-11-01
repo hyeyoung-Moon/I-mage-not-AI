@@ -1,0 +1,6 @@
+schema_version: '1'
+rules:
+  - id: PROJECT-OVERLAP
+    version: '1'
+    algorithm: {id: mask_intersection_ratio, parameters: {features: [a, b]}}
+    assertion: {operator: less_than_or_equal, value: 0, origin: project_config}

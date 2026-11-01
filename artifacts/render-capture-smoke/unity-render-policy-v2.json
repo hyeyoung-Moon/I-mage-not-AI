@@ -1,0 +1,13 @@
+{
+  "min_capture_count": 18,
+  "max_changed_pixel_ratio": 0.4,
+  "pixel_delta_threshold": 10,
+  "event_times": {
+    "attack-start": {
+      "time": 0.2,
+      "tolerance": 0.1,
+      "before_frames": 3,
+      "after_frames": 3
+    }
+  }
+}

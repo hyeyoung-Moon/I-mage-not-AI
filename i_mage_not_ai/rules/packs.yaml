@@ -5,7 +5,7 @@ packs:
     algorithms: [exact_palette_count, masked_palette_count, ciede2000_uniformity, alpha_centroid_offset, alpha_margin_ratio, svg_gradient_declarations, svg_stroke_width_range, svg_path_geometry]
   character:
     description: Feature-masked character constraints
-    algorithms: [ciede2000_uniformity, masked_palette_count, masked_luma_levels, mask_connected_components, silhouette_metrics, mask_reflection_iou, mask_intersection_ratio]
+    algorithms: [ciede2000_uniformity, masked_palette_count, masked_luma_levels, mask_connected_components, mask_hole_count, mask_skeleton_endpoints, mask_skeleton_branches, mask_minimum_width, mask_boundary_distance, mask_iou_dice, mask_dice, mask_hu_shape_distance, roi_tenengrad_sharpness, mask_boundary_gradient, silhouette_metrics, mask_reflection_iou, mask_intersection_ratio]
   character_anatomy:
     description: OpenPose BODY_25 anatomy measurements requiring reviewed detections and explicit limits
     algorithms: [openpose_bone_ratio, openpose_joint_angle]

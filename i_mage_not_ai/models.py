@@ -31,22 +31,59 @@ class Feature(BaseModel):
     properties: dict[str, Any] = Field(default_factory=dict)
     provenance: Provenance | None = None
 
+class FeatureInventoryItem(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    id: str = Field(min_length=1)
+    description: str = Field(min_length=1)
+    status: Literal["approved", "not_found", "not_applicable", "unreviewed"]
+    feature_id: str | None = None
+    candidates: list[dict[str, Any]] = Field(default_factory=list)
+    rationale: str | None = None
+
 class FeatureManifest(BaseModel):
     model_config = ConfigDict(extra="allow")
-    schema_version: Literal["0.1", "0.5"]
+    schema_version: Literal["0.1", "0.5", "0.6"]
     asset: AssetRef
     features: list[Feature]
     intent: dict[str, Any] = Field(default_factory=dict)
     constraints: dict[str, Any] = Field(default_factory=dict)
     overlap_constraints: list[dict[str, Any]] = Field(default_factory=list)
+    feature_inventory: list[FeatureInventoryItem] | None = None
 
     @model_validator(mode="after")
     def validate_feature_relations(self):
-        if self.schema_version == "0.5" and not self.asset.sha256:
-            raise ValueError("schema_version 0.5 requires asset.sha256")
+        if self.schema_version in {"0.5", "0.6"} and not self.asset.sha256:
+            raise ValueError(f"schema_version {self.schema_version} requires asset.sha256")
+        if self.schema_version == "0.6" and not self.feature_inventory:
+            raise ValueError("schema_version 0.6 requires a non-empty feature_inventory")
         ids=[feature.id for feature in self.features]
         if len(ids)!=len(set(ids)): raise ValueError("feature IDs must be unique")
         known=set(ids)
+        if self.feature_inventory is not None:
+            inventory_ids=[item.id for item in self.feature_inventory]
+            if len(inventory_ids)!=len(set(inventory_ids)):
+                raise ValueError("feature_inventory IDs must be unique")
+            for item in self.feature_inventory:
+                if item.status == "approved" and item.feature_id not in known:
+                    raise ValueError(f"feature inventory {item.id}: approved entry must reference a known feature_id")
+                if item.status != "approved" and item.feature_id is not None:
+                    raise ValueError(f"feature inventory {item.id}: feature_id is only valid for approved entries")
+                if item.status == "not_applicable" and not (item.rationale or "").strip():
+                    raise ValueError(f"feature inventory {item.id}: not_applicable requires a rationale")
+                candidate_ids: list[str] = []
+                for candidate in item.candidates:
+                    if set(candidate) != {"candidate_id", "status"} or not isinstance(candidate.get("candidate_id"), str) or not candidate["candidate_id"].strip() or candidate.get("status") not in {"approved", "rejected", "unreviewed"}:
+                        raise ValueError(f"feature inventory {item.id}: each candidate needs candidate_id and approved/rejected/unreviewed status")
+                    candidate_ids.append(candidate["candidate_id"])
+                if len(candidate_ids) != len(set(candidate_ids)):
+                    raise ValueError(f"feature inventory {item.id}: candidate IDs must be unique")
+                if item.status == "approved" and item.candidates and not any(candidate["status"] == "approved" for candidate in item.candidates):
+                    raise ValueError(f"feature inventory {item.id}: approved feature must have at least one approved candidate when candidates are listed")
+                if item.status == "not_found" and any(candidate["status"] == "approved" for candidate in item.candidates):
+                    raise ValueError(f"feature inventory {item.id}: not_found conflicts with an approved candidate")
+            approved_features={item.feature_id for item in self.feature_inventory if item.status == "approved"}
+            if approved_features != known:
+                raise ValueError("every manifest feature must be represented by exactly one approved feature_inventory entry")
         for feature in self.features:
             if feature.parent_id is not None and feature.parent_id not in known:
                 raise ValueError(f"feature {feature.id}: unknown parent_id {feature.parent_id}")

@@ -3,10 +3,41 @@ using System.IO;
 using System.Reflection;
 using UnityEditor;
 using UnityEditor.Animations;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public static class i_mage_not_aiIntegrationRunner
 {
+    public static void CreateRenderCaptureFixtureScene()
+    {
+        var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
+        var cameraObject = new GameObject("Main Camera");
+        cameraObject.tag = "MainCamera";
+        cameraObject.transform.position = new Vector3(0f, 0f, -10f);
+        var camera = cameraObject.AddComponent<Camera>();
+        camera.orthographic = true;
+        camera.orthographicSize = 2.2f;
+        camera.clearFlags = CameraClearFlags.SolidColor;
+        camera.backgroundColor = new Color(0.08f, 0.12f, 0.2f);
+        var lightObject = new GameObject("Key Light");
+        var light = lightObject.AddComponent<Light>();
+        light.type = LightType.Directional;
+        light.intensity = 2f;
+        lightObject.transform.rotation = Quaternion.Euler(35f, -25f, 0f);
+        var floor = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        floor.name = "Floor";
+        floor.transform.position = new Vector3(0f, -1.15f, 0f);
+        floor.transform.localScale = new Vector3(6f, 0.12f, 0.5f);
+        floor.GetComponent<Renderer>().sharedMaterial = new Material(Shader.Find("Standard")) { color = new Color(0.45f, 0.8f, 0.64f) };
+        var actor = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        actor.name = "Actor";
+        actor.transform.position = new Vector3(-1.5f, -0.3f, 0f);
+        actor.transform.localScale = new Vector3(0.55f, 1f, 0.5f);
+        actor.GetComponent<Renderer>().sharedMaterial = new Material(Shader.Find("Standard")) { color = new Color(0.95f, 0.68f, 0.22f) };
+        actor.AddComponent<i_mage_not_aiCaptureFixtureMover>();
+        EditorSceneManager.SaveScene(scene, "Assets/i_mage_not_aiRenderCaptureFixture.unity");
+    }
+
     public static void Run()
     {
         try

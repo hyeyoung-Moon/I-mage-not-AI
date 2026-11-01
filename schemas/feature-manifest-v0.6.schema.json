@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://munsunouk.github.io/I-mage-not-AI/feature-manifest-v0.6.schema.json",
+  "title": "i_mage_not_ai Feature Manifest 0.6",
+  "type": "object",
+  "required": ["schema_version", "asset", "features", "feature_inventory"],
+  "properties": {
+    "schema_version": {"const": "0.6"},
+    "asset": {"type": "object", "required": ["path", "sha256"], "properties": {"path": {"type": "string"}, "sha256": {"type": "string", "pattern": "^[0-9a-fA-F]{64}$"}}, "additionalProperties": true},
+    "features": {"type": "array", "items": {"type": "object", "required": ["id", "role"], "properties": {"id": {"type": "string", "minLength": 1}, "role": {"type": "string", "minLength": 1}, "parent_id": {"type": ["string", "null"]}, "geometry": {"type": ["object", "null"]}, "properties": {"type": "object"}, "provenance": {"type": ["object", "null"]}}, "additionalProperties": true}},
+    "feature_inventory": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["id", "description", "status"], "properties": {"id": {"type": "string", "minLength": 1}, "description": {"type": "string", "minLength": 1}, "status": {"enum": ["approved", "not_found", "not_applicable", "unreviewed"]}, "feature_id": {"type": ["string", "null"]}, "candidates": {"type": "array", "items": {"type": "object", "required": ["candidate_id", "status"], "properties": {"candidate_id": {"type": "string", "minLength": 1}, "status": {"enum": ["approved", "rejected", "unreviewed"]}}, "additionalProperties": false}}, "rationale": {"type": ["string", "null"]}}, "additionalProperties": false}},
+    "intent": {"type": "object"},
+    "constraints": {"type": "object"},
+    "overlap_constraints": {"type": "array"}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": "0.5",
+  "asset": {
+    "path": "asset.png",
+    "sha256": "3bb2da1a2287b7ee8580ad0b998cf32736e1a8108cb9859aea8bb1a0e73bc486"
+  },
+  "features": [
+    {
+      "id": "body",
+      "role": "foreground",
+      "geometry": {
+        "type": "mask",
+        "path": "mask.png"
+      },
+      "properties": {
+        "max_palette_colors": 1,
+        "max_luma_levels": 1,
+        "min_symmetry_iou": 0.9,
+        "max_connected_components": 1
+      }
+    }
+  ]
+}

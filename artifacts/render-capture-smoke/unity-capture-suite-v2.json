@@ -1,0 +1,8 @@
+{
+  "cases": [
+    {"id": "landscape-far", "width": 320, "height": 180,
+     "camera_node_path": "Main Camera", "camera_distance_offset": 2.0},
+    {"id": "portrait-zoomed", "width": 360, "height": 640,
+     "camera_node_path": "Main Camera", "camera_zoom_scale": 1.4}
+  ]
+}

@@ -78,6 +78,25 @@ class CliWorkflowTest(unittest.TestCase):
         feature_check=next(check for check in plan["checks"] if check["feature_id"]=="fg")
         self.assertIn("raster_mask",feature_check["feature_adapter_ids"])
 
+    def test_codex_review_plan_is_bound_and_consumed_by_cli(self):
+        manifest=self.write_manifest(self.base({"max_palette_colors":1}))
+        plan_path=self.root/"review-plan.json"
+        planned=self.run_cli("plan","--manifest",manifest,"--output",plan_path)
+        self.assertEqual(planned.returncode,0,planned.stderr)
+        plan=json.loads(plan_path.read_text(encoding="utf-8"))
+        plan["review_intent"]=[{"rule_id":check["rule_id"],"purpose":"Review this declared requirement","threshold_source":"manifest constraints"}
+                                for check in plan["execution_plan"]["checks"]]
+        plan_path.write_text(json.dumps(plan),encoding="utf-8")
+        report=self.root/"review.json"
+        reviewed=self.run_cli("review","--manifest",manifest,"--plan",plan_path,"--output",report)
+        self.assertEqual(reviewed.returncode,0,reviewed.stderr)
+        self.assertEqual(json.loads(report.read_text())["status"],"PASS")
+
+        manifest.write_text(manifest.read_text()+" ",encoding="utf-8")
+        stale=self.run_cli("review","--manifest",manifest,"--plan",plan_path)
+        self.assertEqual(stale.returncode,3)
+        self.assertIn("review plan is stale",stale.stderr)
+
     def test_verify_uses_allowed_region_from_report(self):
         doc=self.base(); doc["regression"]={"allowed_region":[2,2,6,6]}
         manifest=self.write_manifest(doc); report=self.root/"report.json"

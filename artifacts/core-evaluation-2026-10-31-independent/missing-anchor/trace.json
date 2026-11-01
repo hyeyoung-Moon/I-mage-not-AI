@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "timebase": "seconds",
+  "tracks": [
+    {
+      "id": "root",
+      "kind": "position",
+      "units": "m",
+      "coordinate_system": "world",
+      "samples": [
+        {
+          "time": 0,
+          "value": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 1,
+          "value": [
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  ]
+}

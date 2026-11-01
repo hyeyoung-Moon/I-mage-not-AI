@@ -1,0 +1,71 @@
+{
+  "schema_version": "0.5",
+  "asset_type": "game_capture_suite",
+  "status": "PASS",
+  "completeness": "COMPLETE",
+  "engine": "unity",
+  "scenario_id": "unity-capture-suite-live-fixture-v3",
+  "case_count": 2,
+  "results": [
+    {
+      "case_id": "landscape-far",
+      "status": "PASS",
+      "completeness": "COMPLETE",
+      "resolution": [
+        320,
+        180
+      ],
+      "camera_node_path": "Main Camera",
+      "camera_distance_offset": 2.0,
+      "camera_zoom_scale": 1.0,
+      "capture": {
+        "status": "CAPTURED",
+        "engine": "unity",
+        "engine_version": "6000.3.25f1",
+        "platform": "WindowsEditor",
+        "scenario_id": "unity-capture-suite-live-fixture-v3",
+        "resolution": [
+          320,
+          180
+        ],
+        "capture_count": 30,
+        "evidence": "E:\\I-mage-not-AI\\artifacts\\render-capture-smoke\\unity-capture-suite-final\\landscape-far.evidence.json",
+        "frames_directory": "E:\\I-mage-not-AI\\artifacts\\render-capture-smoke\\unity-capture-suite-final\\landscape-far.evidence_frames",
+        "code_execution_acknowledged": true,
+        "note": "The selected scene, its scripts, and engine/editor code ran during capture."
+      },
+      "render_report": "E:\\I-mage-not-AI\\artifacts\\render-capture-smoke\\unity-capture-suite-final\\landscape-far.render-check.json",
+      "game_gate_report": "E:\\I-mage-not-AI\\artifacts\\render-capture-smoke\\unity-capture-suite-final\\landscape-far.game-gate.json"
+    },
+    {
+      "case_id": "portrait-zoomed",
+      "status": "PASS",
+      "completeness": "COMPLETE",
+      "resolution": [
+        360,
+        640
+      ],
+      "camera_node_path": "Main Camera",
+      "camera_distance_offset": 0.0,
+      "camera_zoom_scale": 1.4,
+      "capture": {
+        "status": "CAPTURED",
+        "engine": "unity",
+        "engine_version": "6000.3.25f1",
+        "platform": "WindowsEditor",
+        "scenario_id": "unity-capture-suite-live-fixture-v3",
+        "resolution": [
+          360,
+          640
+        ],
+        "capture_count": 30,
+        "evidence": "E:\\I-mage-not-AI\\artifacts\\render-capture-smoke\\unity-capture-suite-final\\portrait-zoomed.evidence.json",
+        "frames_directory": "E:\\I-mage-not-AI\\artifacts\\render-capture-smoke\\unity-capture-suite-final\\portrait-zoomed.evidence_frames",
+        "code_execution_acknowledged": true,
+        "note": "The selected scene, its scripts, and engine/editor code ran during capture."
+      },
+      "render_report": "E:\\I-mage-not-AI\\artifacts\\render-capture-smoke\\unity-capture-suite-final\\portrait-zoomed.render-check.json",
+      "game_gate_report": "E:\\I-mage-not-AI\\artifacts\\render-capture-smoke\\unity-capture-suite-final\\portrait-zoomed.game-gate.json"
+    }
+  ]
+}

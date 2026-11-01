@@ -1,0 +1,71 @@
+{
+  "schema_version": "0.5",
+  "asset_type": "game_capture_suite",
+  "status": "FAIL",
+  "completeness": "COMPLETE",
+  "engine": "godot",
+  "scenario_id": "capture-suite-live-fixture-v2",
+  "case_count": 2,
+  "results": [
+    {
+      "case_id": "landscape-base",
+      "status": "FAIL",
+      "completeness": "COMPLETE",
+      "resolution": [
+        320,
+        180
+      ],
+      "camera_node_path": "CaptureCamera",
+      "camera_distance_offset": 0.0,
+      "camera_zoom_scale": 1.0,
+      "capture": {
+        "status": "CAPTURED",
+        "engine": "godot",
+        "engine_version": "4.6.3-stable (official)",
+        "platform": "Windows",
+        "scenario_id": "capture-suite-live-fixture-v2",
+        "resolution": [
+          320,
+          180
+        ],
+        "capture_count": 30,
+        "evidence": "E:\\I-mage-not-AI\\artifacts\\render-capture-smoke\\godot-capture-suite-v2\\landscape-base.evidence.json",
+        "frames_directory": "E:\\I-mage-not-AI\\artifacts\\render-capture-smoke\\godot-capture-suite-v2\\landscape-base.evidence_frames",
+        "code_execution_acknowledged": true,
+        "note": "The selected scene, its scripts, and engine/editor code ran during capture."
+      },
+      "render_report": "E:\\I-mage-not-AI\\artifacts\\render-capture-smoke\\godot-capture-suite-v2\\landscape-base.render-check.json",
+      "game_gate_report": "E:\\I-mage-not-AI\\artifacts\\render-capture-smoke\\godot-capture-suite-v2\\landscape-base.game-gate.json"
+    },
+    {
+      "case_id": "portrait-zoomed",
+      "status": "FAIL",
+      "completeness": "COMPLETE",
+      "resolution": [
+        360,
+        640
+      ],
+      "camera_node_path": "CaptureCamera",
+      "camera_distance_offset": 0.0,
+      "camera_zoom_scale": 1.4,
+      "capture": {
+        "status": "CAPTURED",
+        "engine": "godot",
+        "engine_version": "4.6.3-stable (official)",
+        "platform": "Windows",
+        "scenario_id": "capture-suite-live-fixture-v2",
+        "resolution": [
+          360,
+          640
+        ],
+        "capture_count": 30,
+        "evidence": "E:\\I-mage-not-AI\\artifacts\\render-capture-smoke\\godot-capture-suite-v2\\portrait-zoomed.evidence.json",
+        "frames_directory": "E:\\I-mage-not-AI\\artifacts\\render-capture-smoke\\godot-capture-suite-v2\\portrait-zoomed.evidence_frames",
+        "code_execution_acknowledged": true,
+        "note": "The selected scene, its scripts, and engine/editor code ran during capture."
+      },
+      "render_report": "E:\\I-mage-not-AI\\artifacts\\render-capture-smoke\\godot-capture-suite-v2\\portrait-zoomed.render-check.json",
+      "game_gate_report": "E:\\I-mage-not-AI\\artifacts\\render-capture-smoke\\godot-capture-suite-v2\\portrait-zoomed.game-gate.json"
+    }
+  ]
+}

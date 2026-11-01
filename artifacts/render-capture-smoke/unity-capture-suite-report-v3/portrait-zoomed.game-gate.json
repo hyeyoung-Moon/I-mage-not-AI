@@ -1,0 +1,46 @@
+{
+  "schema_version": "0.5",
+  "asset_type": "game_gate",
+  "status": "INCONCLUSIVE",
+  "completeness": "INCOMPLETE",
+  "coverage": {
+    "required": 4,
+    "completed": 3,
+    "missing": [
+      "scenario_alignment"
+    ]
+  },
+  "results": [
+    {
+      "gate": "game_trace",
+      "status": "PASS",
+      "scenario_id": "unity-capture-suite-live-fixture-v2",
+      "source_status": "PASS",
+      "source_completeness": "COMPLETE"
+    },
+    {
+      "gate": "runtime_evidence",
+      "status": "PASS",
+      "scenario_id": "unity-capture-suite-live-fixture-v2",
+      "source_status": "PASS",
+      "source_completeness": "COMPLETE"
+    },
+    {
+      "gate": "render_evidence",
+      "status": "PASS",
+      "scenario_id": "unity-capture-suite-live-fixture-v3",
+      "source_status": "PASS",
+      "source_completeness": "COMPLETE"
+    },
+    {
+      "gate": "scenario_alignment",
+      "status": "INCONCLUSIVE",
+      "reason": "trace, runtime, and render reports refer to different scenarios",
+      "scenario_ids": {
+        "game_trace": "unity-capture-suite-live-fixture-v2",
+        "runtime_evidence": "unity-capture-suite-live-fixture-v2",
+        "render_evidence": "unity-capture-suite-live-fixture-v3"
+      }
+    }
+  ]
+}

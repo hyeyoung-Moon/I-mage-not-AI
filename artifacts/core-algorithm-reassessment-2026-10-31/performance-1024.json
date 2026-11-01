@@ -1,0 +1,135 @@
+{
+  "size": [
+    1024,
+    1024
+  ],
+  "runs": 3,
+  "seconds": [
+    3.4397329000057653,
+    3.529196999996202,
+    3.6559651999996277
+  ],
+  "median_seconds": 3.529196999996202,
+  "status": "PASS",
+  "completeness": "COMPLETE",
+  "finding_count": 8,
+  "coverage": {
+    "required": 8,
+    "completed": 8,
+    "missing": [],
+    "checks": [
+      {
+        "rule_id": "IMAGE-001",
+        "feature_id": null,
+        "status": "PASS"
+      },
+      {
+        "rule_id": "COLOR-001",
+        "feature_id": null,
+        "status": "PASS"
+      },
+      {
+        "rule_id": "GEOMETRY-002",
+        "feature_id": null,
+        "status": "PASS"
+      },
+      {
+        "rule_id": "SOLID-001",
+        "feature_id": "checker",
+        "status": "PASS"
+      },
+      {
+        "rule_id": "COLOR-002",
+        "feature_id": "checker",
+        "status": "PASS"
+      },
+      {
+        "rule_id": "TOPOLOGY-001",
+        "feature_id": "checker",
+        "status": "PASS"
+      },
+      {
+        "rule_id": "SYMMETRY-001",
+        "feature_id": "checker",
+        "status": "PASS"
+      },
+      {
+        "rule_id": "SOLID-002",
+        "feature_id": "checker",
+        "status": "PASS"
+      }
+    ]
+  },
+  "findings": [
+    {
+      "rule_id": "IMAGE-001",
+      "status": "PASS",
+      "measured": {
+        "path": "E:\\CodexTemp\\WindowsTemp\\imreview-benchmark-d4edirgz\\asset.png",
+        "format": "PNG",
+        "width": 1024,
+        "height": 1024,
+        "adapter": "raster",
+        "adapter_version": "1.0",
+        "mode": "RGBA",
+        "alpha_present": true,
+        "sha256": "a7f784f278ed704f9f16ebe34d2b7a948d3b5f90458bfdc141bb53369718f4f0",
+        "transparent_ratio": 0.0,
+        "alpha_bbox": [
+          0,
+          0,
+          1024,
+          1024
+        ]
+      }
+    },
+    {
+      "rule_id": "COLOR-001",
+      "status": "PASS",
+      "measured": 2
+    },
+    {
+      "rule_id": "GEOMETRY-002",
+      "status": "PASS",
+      "measured": {
+        "left": 0.0,
+        "top": 0.0,
+        "right": 0.0,
+        "bottom": 0.0
+      }
+    },
+    {
+      "rule_id": "SOLID-001",
+      "status": "PASS",
+      "measured": 180
+    },
+    {
+      "rule_id": "SOLID-002",
+      "status": "PASS",
+      "measured": {
+        "max_delta_e00": 51.6923124331351,
+        "exceedance_ratio": 0.5,
+        "reference_rgb": [
+          220,
+          150,
+          100
+        ]
+      }
+    },
+    {
+      "rule_id": "COLOR-002",
+      "status": "PASS",
+      "measured": 2
+    },
+    {
+      "rule_id": "TOPOLOGY-001",
+      "status": "PASS",
+      "measured": 1
+    },
+    {
+      "rule_id": "SYMMETRY-001",
+      "status": "PASS",
+      "measured": 1.0
+    }
+  ]
+}

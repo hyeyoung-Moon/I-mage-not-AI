@@ -1,0 +1,148 @@
+{
+  "schema_version": "0.5",
+  "status": "PASS",
+  "completeness": "COMPLETE",
+  "coverage": {
+    "required": 5,
+    "completed": 5,
+    "missing": [],
+    "checks": [
+      {
+        "rule_id": "IMAGE-001",
+        "feature_id": null,
+        "status": "PASS"
+      },
+      {
+        "rule_id": "COLOR-002",
+        "feature_id": "body",
+        "status": "PASS"
+      },
+      {
+        "rule_id": "TOPOLOGY-001",
+        "feature_id": "body",
+        "status": "PASS"
+      },
+      {
+        "rule_id": "SYMMETRY-001",
+        "feature_id": "body",
+        "status": "PASS"
+      },
+      {
+        "rule_id": "CHARACTER-001",
+        "feature_id": "body",
+        "status": "PASS"
+      }
+    ]
+  },
+  "asset": {
+    "path": "E:\\I-mage-not-AI\\artifacts\\core-evaluation-2026-10-31-independent\\empty-mask\\asset.png",
+    "format": "PNG",
+    "width": 4,
+    "height": 4,
+    "adapter": "raster",
+    "adapter_version": "1.0",
+    "mode": "RGBA",
+    "alpha_present": true,
+    "sha256": "3bb2da1a2287b7ee8580ad0b998cf32736e1a8108cb9859aea8bb1a0e73bc486",
+    "transparent_ratio": 0.0,
+    "alpha_bbox": [
+      0,
+      0,
+      4,
+      4
+    ]
+  },
+  "asset_id": null,
+  "rule_registry_version": "1",
+  "allowed_region": null,
+  "allowed_mask": null,
+  "feature_masks": {
+    "body": {
+      "path": "mask.png",
+      "sha256": "86686d9eb005257d237bb3b85b31348df465768c082b5d210d22bf99ab7e5bfb",
+      "width": 4,
+      "height": 4
+    }
+  },
+  "results": [
+    {
+      "rule_id": "IMAGE-001",
+      "feature_id": null,
+      "algorithm": "image_metadata",
+      "status": "PASS",
+      "measured": {
+        "path": "E:\\I-mage-not-AI\\artifacts\\core-evaluation-2026-10-31-independent\\empty-mask\\asset.png",
+        "format": "PNG",
+        "width": 4,
+        "height": 4,
+        "adapter": "raster",
+        "adapter_version": "1.0",
+        "mode": "RGBA",
+        "alpha_present": true,
+        "sha256": "3bb2da1a2287b7ee8580ad0b998cf32736e1a8108cb9859aea8bb1a0e73bc486",
+        "transparent_ratio": 0.0,
+        "alpha_bbox": [
+          0,
+          0,
+          4,
+          4
+        ]
+      },
+      "threshold": {
+        "sha256": "3bb2da1a2287b7ee8580ad0b998cf32736e1a8108cb9859aea8bb1a0e73bc486"
+      },
+      "formula": "SHA256(file bytes) equals asset.sha256 when provided",
+      "region": null,
+      "algorithm_version": "1.0",
+      "constraint_origin": "unspecified"
+    },
+    {
+      "rule_id": "COLOR-002",
+      "feature_id": "body",
+      "algorithm": "masked_palette_count",
+      "status": "PASS",
+      "measured": 0,
+      "threshold": 1,
+      "formula": "unique visible RGB tuples inside mask",
+      "region": null,
+      "algorithm_version": "1.0",
+      "constraint_origin": "unspecified"
+    },
+    {
+      "rule_id": "TOPOLOGY-001",
+      "feature_id": "body",
+      "algorithm": "mask_connected_components",
+      "status": "PASS",
+      "measured": 0,
+      "threshold": 1,
+      "formula": "8-connected foreground component count",
+      "region": null,
+      "algorithm_version": "1.0",
+      "constraint_origin": "unspecified"
+    },
+    {
+      "rule_id": "SYMMETRY-001",
+      "feature_id": "body",
+      "algorithm": "mask_reflection_iou",
+      "status": "PASS",
+      "measured": 1.0,
+      "threshold": 0.9,
+      "formula": "intersection(mask, horizontal_reflection)/union",
+      "region": null,
+      "algorithm_version": "1.0",
+      "constraint_origin": "unspecified"
+    },
+    {
+      "rule_id": "CHARACTER-001",
+      "feature_id": "body",
+      "algorithm": "masked_luma_levels",
+      "status": "PASS",
+      "measured": 0,
+      "threshold": 1,
+      "formula": "unique luma bins of width 32",
+      "region": null,
+      "algorithm_version": "1.0",
+      "constraint_origin": "unspecified"
+    }
+  ]
+}

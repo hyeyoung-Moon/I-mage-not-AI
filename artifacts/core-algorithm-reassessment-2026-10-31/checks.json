@@ -1,0 +1,16 @@
+{
+  "pytest": {
+    "command": ".venv/Scripts/python.exe -m pytest -q",
+    "exit_code": 0,
+    "passed": 65,
+    "elapsed_seconds": 119.01
+  },
+  "mypy": {
+    "exit_code": 1,
+    "log": "mypy.log"
+  },
+  "ruff": {
+    "exit_code": 1,
+    "log": "ruff.log"
+  }
+}

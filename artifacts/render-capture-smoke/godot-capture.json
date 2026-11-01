@@ -1,0 +1,44 @@
+{
+	"capture_source": "engine_runtime",
+	"captures": [
+		{
+			"event_ids": [],
+			"frame_index": 0,
+			"image": "godot-capture_frames/000000.png",
+			"timestamp": 0.0
+		},
+		{
+			"event_ids": [],
+			"frame_index": 1,
+			"image": "godot-capture_frames/000001.png",
+			"timestamp": 0.0333333333333333
+		},
+		{
+			"event_ids": [],
+			"frame_index": 2,
+			"image": "godot-capture_frames/000002.png",
+			"timestamp": 0.0666666666666667
+		},
+		{
+			"event_ids": [],
+			"frame_index": 3,
+			"image": "godot-capture_frames/000003.png",
+			"timestamp": 0.1
+		}
+	],
+	"engine": "godot",
+	"engine_version": "4.6.3-stable (official)",
+	"format": "i_mage_not_ai.render-evidence/1",
+	"import_settings": {
+		"default_texture_filter": false,
+		"renderer": "gl_compatibility",
+		"window_mode": "runtime_capture"
+	},
+	"platform": "Windows",
+	"resolution": [
+		320,
+		180
+	],
+	"scenario_id": "godot-capture-fixture-v1",
+	"timebase": "seconds"
+}

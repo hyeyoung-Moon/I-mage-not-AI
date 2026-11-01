@@ -1,0 +1,216 @@
+{
+  "schema_version": "0.5",
+  "asset_type": "render_evidence",
+  "status": "PASS",
+  "completeness": "COMPLETE",
+  "engine": "godot",
+  "engine_version": "4.6.3-stable (official)",
+  "platform": "Windows",
+  "scenario_id": "godot-capture-visible-v1",
+  "resolution": [
+    320,
+    180
+  ],
+  "import_settings": {
+    "default_texture_filter": false,
+    "renderer": "gl_compatibility",
+    "window_mode": "runtime_capture"
+  },
+  "captures": [
+    {
+      "frame_index": 0,
+      "timestamp": 0.0,
+      "image": "godot-visible_frames/000000.png",
+      "sha256": "be20969e208ff33164e4e110dd7633e9ccbd73c901d5cb80a87976146677f8af",
+      "event_ids": [
+        "attack-start"
+      ]
+    },
+    {
+      "frame_index": 1,
+      "timestamp": 0.0333333333333333,
+      "image": "godot-visible_frames/000001.png",
+      "sha256": "815429de4c07816663a0e468c9ac04a3d39d18e1602484860706ef0264c72fde",
+      "event_ids": []
+    },
+    {
+      "frame_index": 2,
+      "timestamp": 0.0666666666666667,
+      "image": "godot-visible_frames/000002.png",
+      "sha256": "96d979d82ca89126181280ac6c41930d425f4039eb8121988088bedd8c46a6cd",
+      "event_ids": []
+    },
+    {
+      "frame_index": 3,
+      "timestamp": 0.1,
+      "image": "godot-visible_frames/000003.png",
+      "sha256": "ae8a288f7128dbacbaf31205e6b549eec91448072a44068ce7a2ebe092b200aa",
+      "event_ids": []
+    },
+    {
+      "frame_index": 4,
+      "timestamp": 0.133333333333333,
+      "image": "godot-visible_frames/000004.png",
+      "sha256": "ab862ded9a46e9d846aeb10f5cb2131026ffd45db3f06f52bd18ef9c30f0f4b4",
+      "event_ids": []
+    },
+    {
+      "frame_index": 5,
+      "timestamp": 0.166666666666667,
+      "image": "godot-visible_frames/000005.png",
+      "sha256": "eb99e32259b9dbff23dc7346622ceda67c55fa90dacfa57556674df87ac95a86",
+      "event_ids": []
+    },
+    {
+      "frame_index": 6,
+      "timestamp": 0.2,
+      "image": "godot-visible_frames/000006.png",
+      "sha256": "f896bbacb926eb07c5f0951aa7cf49c35a0a0e729af58cee57daae9b2357bee6",
+      "event_ids": []
+    },
+    {
+      "frame_index": 7,
+      "timestamp": 0.233333333333333,
+      "image": "godot-visible_frames/000007.png",
+      "sha256": "04c1cd964ba2daa6c0d62792b634ea60fb0e92fd073f8e77e2d462128b3a4d01",
+      "event_ids": []
+    },
+    {
+      "frame_index": 8,
+      "timestamp": 0.266666666666667,
+      "image": "godot-visible_frames/000008.png",
+      "sha256": "547c6b944efdcc4b13697269ef6067fc84ab0c0abfb897db287d84a3bec6bb8b",
+      "event_ids": []
+    },
+    {
+      "frame_index": 9,
+      "timestamp": 0.3,
+      "image": "godot-visible_frames/000009.png",
+      "sha256": "9e39faa5fb44a8623bb36bc52e4d426dd6af944f13c8227533ad51072d77aeeb",
+      "event_ids": []
+    },
+    {
+      "frame_index": 10,
+      "timestamp": 0.333333333333333,
+      "image": "godot-visible_frames/000010.png",
+      "sha256": "8a8536d39667a2bcc1ae48a1e4b5bc293138db3a516aa6d3850ed31d6065e754",
+      "event_ids": []
+    },
+    {
+      "frame_index": 11,
+      "timestamp": 0.366666666666667,
+      "image": "godot-visible_frames/000011.png",
+      "sha256": "d60899a0a8f53c572761c7d084f16e5d32c0751fb65f46736e9f967de4f243d1",
+      "event_ids": []
+    },
+    {
+      "frame_index": 12,
+      "timestamp": 0.4,
+      "image": "godot-visible_frames/000012.png",
+      "sha256": "18cb431dadff7547456fa9efc3b6fdddd896ff2180440b9084e410cd7f2ae384",
+      "event_ids": []
+    },
+    {
+      "frame_index": 13,
+      "timestamp": 0.433333333333333,
+      "image": "godot-visible_frames/000013.png",
+      "sha256": "307616824f766ee03cd06d342087d8c4d49899d4bf49f0717b2db859a4b3111e",
+      "event_ids": []
+    },
+    {
+      "frame_index": 14,
+      "timestamp": 0.466666666666667,
+      "image": "godot-visible_frames/000014.png",
+      "sha256": "4a735a33fd02d11715bc61328b51824605717b3f98998d2e0e40aa061b32944b",
+      "event_ids": []
+    },
+    {
+      "frame_index": 15,
+      "timestamp": 0.5,
+      "image": "godot-visible_frames/000015.png",
+      "sha256": "ae67af5b94b97a79daec70607e768e084197eaa6f44ed4b284c88a88e1c68220",
+      "event_ids": []
+    },
+    {
+      "frame_index": 16,
+      "timestamp": 0.533333333333333,
+      "image": "godot-visible_frames/000016.png",
+      "sha256": "8bbce0c64747889c8e5fe267adb25a37bc6eccc73b0a327875a9a7310c5ffa6d",
+      "event_ids": []
+    },
+    {
+      "frame_index": 17,
+      "timestamp": 0.566666666666667,
+      "image": "godot-visible_frames/000017.png",
+      "sha256": "c5c1335a2f7a72c96a8baba0b856d5b396317002fbdd07c3a55ade8d75489368",
+      "event_ids": []
+    }
+  ],
+  "coverage": {
+    "required": 3,
+    "completed": 3,
+    "missing": []
+  },
+  "results": [
+    {
+      "rule_id": "RENDER-CAPTURE-COUNT",
+      "algorithm": "render_capture_count",
+      "status": "PASS",
+      "measured": {
+        "count": 18
+      },
+      "threshold": {
+        "minimum": 18
+      },
+      "formula": "captured engine frames >= min_capture_count"
+    },
+    {
+      "rule_id": "RENDER-FRAME-DELTA",
+      "algorithm": "render_changed_pixel_ratio",
+      "status": "PASS",
+      "measured": {
+        "max_ratio": 0.025,
+        "per_interval": [
+          0.0175,
+          0.02,
+          0.0175,
+          0.0175,
+          0.02,
+          0.0175,
+          0.0225,
+          0.0225,
+          0.025,
+          0.0225,
+          0.0225,
+          0.0225,
+          0.0225,
+          0.0225,
+          0.025,
+          0.0225,
+          0.0225
+        ],
+        "changed_pixel_threshold_rgb": 10,
+        "interval_count": 17
+      },
+      "threshold": {
+        "max_ratio": 0.4
+      },
+      "formula": "count(pixels with max_channel_abs_delta >= threshold) / total_pixels per adjacent capture"
+    },
+    {
+      "rule_id": "RENDER-EVENT:attack-start",
+      "algorithm": "render_event_frame_alignment",
+      "status": "PASS",
+      "measured": {
+        "observed_timestamp": 0.0,
+        "absolute_error": 0.0,
+        "timebase": "seconds"
+      },
+      "threshold": {
+        "expected_time": 0,
+        "tolerance": 0.01
+      },
+      "formula": "exactly one capture annotation exists and abs(capture_time - expected_event_time) <= tolerance"
+    }
+  ]
+}

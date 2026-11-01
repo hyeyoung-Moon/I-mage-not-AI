@@ -1,0 +1,28 @@
+{
+  "schema_version": "0.5",
+  "asset_type": "game_trace",
+  "status": "PASS",
+  "completeness": "COMPLETE",
+  "engine": "generic",
+  "engine_version": null,
+  "timebase": "seconds",
+  "random_seed": null,
+  "results": [
+    {
+      "id": "MOTION:root",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "PASS",
+      "measured": {
+        "sample_count": 3,
+        "units": "m",
+        "timebase": "seconds",
+        "coordinate_system": "world",
+        "max_step": 1e+308,
+        "mean_step": Infinity
+      },
+      "threshold": 1e+308,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    }
+  ]
+}

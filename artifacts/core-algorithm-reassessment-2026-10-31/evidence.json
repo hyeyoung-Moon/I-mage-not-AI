@@ -1,0 +1,671 @@
+{
+  "head": "d6b7b1cfe5e42a08760521f3e51a14b0c8855f5e",
+  "python": "3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]",
+  "sources": {
+    "imreview\\adapters.py": "7d00ee912b459bd51afb0cec3df6c9ceda25df7d81b3c7775d7f34e43d448c7d",
+    "imreview\\benchmark.py": "fde56541f229b692dfa9811539cd61d0a90e2efd8ae545bcf951aba4db18072a",
+    "imreview\\cli.py": "d623e67a93fbe8d04862815da8aea14fad61fb886f1124ed1acc632437a87a05",
+    "imreview\\core.py": "b00e788592c0ca18b90e0b9f485eaf8179ab0257c7beb82cd4eabac0fc9b7fc0",
+    "imreview\\engine_export.py": "c5efb18f2bec59885289530d2270b61b332bdf0274731c3aac4cf6508b22063d",
+    "imreview\\game.py": "1631e2c0ccf205b8355b819f93cca2416b218185cf35088fcf937936ca87d1be",
+    "imreview\\measurements.py": "ee774bbcbee846fecc63429499a233291abb3ddf8b06059edaba82f3643aaf0a",
+    "imreview\\models.py": "73c9625e4ea8d943c264af7a5e14d271297ee8daaced1a01f813e5621a5a76a7",
+    "imreview\\plugins.py": "01396735b81677e53ff153b4052c2fb6a114b6e6378c7e0094bbb9d926f66708",
+    "imreview\\policies.py": "4022a62f942ae7aa52a3919c4b1afc86559b919ca22aaba20c9160cb93f58e4d",
+    "imreview\\project_discovery.py": "beedc944bcbd45d9a4afbe3ff68d4144a49c35d820191fdd2728b9ff1f0f7422",
+    "imreview\\typer_cli.py": "c04a29e7345bc03fbdfd5e6638f6117e5ad66ccad58d682a35108e849a7ccc61",
+    "imreview\\__init__.py": "39e6a7c5014b247eaa6d7e3ed2caa4b7c867a01cc96bcb5e61aedab1307674a1"
+  },
+  "cases": {
+    "asset_selector_bypass": {
+      "expected": "ICON-STRICT applies; 2 colors > 1 => FAIL. SPRITE-LOOSE must not match icon.",
+      "matched_rule_ids": [
+        "ICON-STRICT"
+      ],
+      "cli": {
+        "exit_code": 1,
+        "report": {
+          "schema_version": "0.5",
+          "status": "FAIL",
+          "completeness": "COMPLETE",
+          "coverage": {
+            "required": 2,
+            "completed": 2,
+            "missing": [],
+            "checks": [
+              {
+                "rule_id": "IMAGE-001",
+                "feature_id": null,
+                "status": "PASS"
+              },
+              {
+                "rule_id": "ICON-STRICT",
+                "feature_id": "shape",
+                "status": "FAIL"
+              }
+            ]
+          },
+          "asset": {
+            "path": "E:\\CodexTemp\\WindowsTemp\\imreview-reassessment-dt98ktrl\\asset.png",
+            "format": "PNG",
+            "width": 8,
+            "height": 8,
+            "adapter": "raster",
+            "adapter_version": "1.0",
+            "mode": "RGBA",
+            "alpha_present": true,
+            "sha256": "d4ade58d294854d788f3c310825ed39d449c3514114d0891e1794f83045f8fc2",
+            "transparent_ratio": 0.0,
+            "alpha_bbox": [
+              0,
+              0,
+              8,
+              8
+            ]
+          },
+          "asset_id": null,
+          "rule_registry_version": "1",
+          "allowed_region": null,
+          "allowed_mask": null,
+          "results": [
+            {
+              "rule_id": "IMAGE-001",
+              "feature_id": null,
+              "algorithm": "image_metadata",
+              "status": "PASS",
+              "measured": {
+                "path": "E:\\CodexTemp\\WindowsTemp\\imreview-reassessment-dt98ktrl\\asset.png",
+                "format": "PNG",
+                "width": 8,
+                "height": 8,
+                "adapter": "raster",
+                "adapter_version": "1.0",
+                "mode": "RGBA",
+                "alpha_present": true,
+                "sha256": "d4ade58d294854d788f3c310825ed39d449c3514114d0891e1794f83045f8fc2",
+                "transparent_ratio": 0.0,
+                "alpha_bbox": [
+                  0,
+                  0,
+                  8,
+                  8
+                ]
+              },
+              "threshold": {
+                "sha256": "d4ade58d294854d788f3c310825ed39d449c3514114d0891e1794f83045f8fc2"
+              },
+              "formula": "SHA256(file bytes) equals asset.sha256 when provided",
+              "region": null,
+              "algorithm_version": "1.0",
+              "constraint_origin": "unspecified"
+            },
+            {
+              "rule_id": "ICON-STRICT",
+              "feature_id": "shape",
+              "algorithm": "quantized_palette_count",
+              "status": "FAIL",
+              "measured": 2,
+              "threshold": 1,
+              "formula": "unique visible RGB tuples inside mask",
+              "region": [
+                0,
+                0,
+                8,
+                8
+              ],
+              "algorithm_version": "1.0",
+              "constraint_origin": "unspecified"
+            }
+          ]
+        },
+        "stderr": ""
+      }
+    },
+    "overlap_operator_reversed": {
+      "expected": "Reject unsupported >= or evaluate 0 >= 0.5 as FAIL.",
+      "cli": {
+        "exit_code": 3,
+        "report": "",
+        "stderr": "{\"status\": \"INVALID_INPUT\", \"error\": \"rule MIN-OVERLAP: overlap supports only less_than_or_equal\"}\n"
+      }
+    },
+    "standalone_game_missing_anchor": {
+      "expected": "Missing requested anchor evidence => INCONCLUSIVE/INCOMPLETE in both entry points.",
+      "game_cli": {
+        "exit_code": 2,
+        "report": {
+          "schema_version": "0.5",
+          "asset_type": "game_trace",
+          "status": "INCONCLUSIVE",
+          "completeness": "INCOMPLETE",
+          "engine": "generic",
+          "engine_version": null,
+          "timebase": "seconds",
+          "random_seed": null,
+          "results": [
+            {
+              "id": "MOTION:p",
+              "algorithm": "position_difference",
+              "version": "1.0",
+              "status": "PASS",
+              "measured": {
+                "sample_count": 2,
+                "units": "m",
+                "timebase": "seconds",
+                "coordinate_system": "world",
+                "max_step": 0.0,
+                "mean_step": 0.0
+              },
+              "threshold": 0,
+              "formula": "Euclidean distance between consecutive world-space samples"
+            },
+            {
+              "id": "MISSING:anchor_distance",
+              "algorithm": "anchor_distance",
+              "version": "1.0",
+              "status": "INCONCLUSIVE",
+              "measured": null,
+              "threshold": 0,
+              "formula": "trace contains no evidence for this requested check",
+              "reason": "trace contains no evidence for this requested check"
+            }
+          ]
+        },
+        "stderr": ""
+      },
+      "manifest_cli": {
+        "exit_code": 2,
+        "report": {
+          "schema_version": "0.5",
+          "status": "INCONCLUSIVE",
+          "completeness": "INCOMPLETE",
+          "coverage": {
+            "required": 3,
+            "completed": 2,
+            "missing": [
+              {
+                "rule_id": "GAME-ANCHOR-DISTANCE",
+                "feature_id": "MISSING:anchor_distance",
+                "status": "INCONCLUSIVE"
+              }
+            ],
+            "checks": [
+              {
+                "rule_id": "IMAGE-001",
+                "feature_id": null,
+                "status": "PASS"
+              },
+              {
+                "rule_id": "GAME-POSITION-DIFFERENCE",
+                "feature_id": "MOTION:p",
+                "status": "PASS"
+              },
+              {
+                "rule_id": "GAME-ANCHOR-DISTANCE",
+                "feature_id": "MISSING:anchor_distance",
+                "status": "INCONCLUSIVE"
+              }
+            ]
+          },
+          "asset": {
+            "adapter": "game_trace",
+            "version": "1.0",
+            "sha256": "30a7f53dd853fdfa8f5a9fcdf498df85fe00f4b2acbe620a99778cef5f871084",
+            "format": "GAME_TRACE_JSON",
+            "engine": "generic",
+            "engine_version": null,
+            "schema_version": "1",
+            "timebase": "seconds",
+            "track_count": 1,
+            "event_count": 0,
+            "particle_count": 0,
+            "contact_count": 0,
+            "anchor_count": 0,
+            "frame_count": 0
+          },
+          "asset_id": null,
+          "rule_registry_version": "1",
+          "results": [
+            {
+              "rule_id": "IMAGE-001",
+              "feature_id": null,
+              "algorithm": "image_metadata",
+              "status": "PASS",
+              "measured": {
+                "adapter": "game_trace",
+                "version": "1.0",
+                "sha256": "30a7f53dd853fdfa8f5a9fcdf498df85fe00f4b2acbe620a99778cef5f871084",
+                "format": "GAME_TRACE_JSON",
+                "engine": "generic",
+                "engine_version": null,
+                "schema_version": "1",
+                "timebase": "seconds",
+                "track_count": 1,
+                "event_count": 0,
+                "particle_count": 0,
+                "contact_count": 0,
+                "anchor_count": 0,
+                "frame_count": 0
+              },
+              "threshold": {
+                "sha256": "30a7f53dd853fdfa8f5a9fcdf498df85fe00f4b2acbe620a99778cef5f871084"
+              },
+              "formula": "SHA256(file bytes) equals asset.sha256 when provided",
+              "region": null
+            },
+            {
+              "rule_id": "GAME-POSITION-DIFFERENCE",
+              "feature_id": "MOTION:p",
+              "algorithm": "position_difference",
+              "algorithm_version": "1.0",
+              "status": "PASS",
+              "measured": {
+                "sample_count": 2,
+                "units": "m",
+                "timebase": "seconds",
+                "coordinate_system": "world",
+                "max_step": 0.0,
+                "mean_step": 0.0
+              },
+              "threshold": 0,
+              "formula": "Euclidean distance between consecutive world-space samples"
+            },
+            {
+              "rule_id": "GAME-ANCHOR-DISTANCE",
+              "feature_id": "MISSING:anchor_distance",
+              "algorithm": "anchor_distance",
+              "algorithm_version": "1.0",
+              "status": "INCONCLUSIVE",
+              "measured": null,
+              "threshold": 0,
+              "formula": "trace contains no evidence for this requested check",
+              "reason": "trace contains no evidence for this requested check"
+            }
+          ]
+        },
+        "stderr": ""
+      }
+    },
+    "pose_keys_not_compared": {
+      "expected": "Different joint identity cannot prove a matching loop boundary.",
+      "report": {
+        "schema_version": "0.5",
+        "asset_type": "game_trace",
+        "status": "INCONCLUSIVE",
+        "completeness": "INCOMPLETE",
+        "engine": "generic",
+        "engine_version": null,
+        "timebase": "seconds",
+        "random_seed": null,
+        "results": [
+          {
+            "id": "MOTION:p",
+            "algorithm": "position_difference",
+            "version": "1.0",
+            "status": "PASS",
+            "measured": {
+              "sample_count": 2,
+              "units": "m",
+              "timebase": "seconds",
+              "coordinate_system": "world",
+              "max_step": 0.0,
+              "mean_step": 0.0
+            },
+            "threshold": 0,
+            "formula": "Euclidean distance between consecutive world-space samples"
+          },
+          {
+            "id": "POSE-LOOP:pose",
+            "algorithm": "pose_boundary_distance",
+            "version": "1.0",
+            "status": "INCONCLUSIVE",
+            "measured": null,
+            "threshold": 0,
+            "formula": "Euclidean distance between flattened first and last pose samples",
+            "reason": "pose sample joint keys differ"
+          }
+        ]
+      }
+    },
+    "finite_position_norm_overflow": {
+      "expected": "Distance 1e200 is finite and exceeds 1 => FAIL; avoid arithmetic exception.",
+      "observed": {
+        "schema_version": "0.5",
+        "asset_type": "game_trace",
+        "status": "FAIL",
+        "completeness": "COMPLETE",
+        "engine": "generic",
+        "engine_version": null,
+        "timebase": "seconds",
+        "random_seed": null,
+        "results": [
+          {
+            "id": "MOTION:p",
+            "algorithm": "position_difference",
+            "version": "1.0",
+            "status": "FAIL",
+            "measured": {
+              "sample_count": 2,
+              "units": "m",
+              "timebase": "seconds",
+              "coordinate_system": "world",
+              "max_step": 1e+200,
+              "mean_step": 1e+200
+            },
+            "threshold": 1,
+            "formula": "Euclidean distance between consecutive world-space samples"
+          }
+        ]
+      }
+    },
+    "fractional_luma_bin_truncated": {
+      "expected": "Accepted positive bin width 0.5 remains 0.5; zero cannot be silently substituted.",
+      "luma_levels": {
+        "method": "linear_srgb_luminance_scaled_0_255",
+        "bin_width": 0.5,
+        "count": 1
+      },
+      "warnings": []
+    },
+    "luminance_definitions_differ": {
+      "expected": "Interpretation differs: review uses encoded RGB weights; measure uses linearized sRGB. Labels/versions should make this explicit.",
+      "review": {
+        "rule_id": "CHARACTER-001",
+        "feature_id": "shape",
+        "algorithm": "masked_luma_levels",
+        "status": "PASS",
+        "measured": 1,
+        "threshold": 1,
+        "formula": "unique luma bins of width 32",
+        "region": null,
+        "algorithm_version": "1.0",
+        "constraint_origin": "unspecified"
+      },
+      "measure": {
+        "method": "linear_srgb_luminance_scaled_0_255",
+        "bin_width": 32,
+        "count": 2
+      }
+    },
+    "constant_black_white_standardized_gap": {
+      "expected": "Different constant means with zero pooled standard deviation => undefined (or infinity), not zero.",
+      "observed": {
+        "mean_difference_foreground_minus_context": 1.0,
+        "standardized_absolute_mean_gap": null,
+        "64_bin_histogram_intersection": 0.0
+      }
+    },
+    "prior_missing_capability_fix": {
+      "exit_code": 2,
+      "report": {
+        "schema_version": "0.5",
+        "status": "INCONCLUSIVE",
+        "completeness": "INCOMPLETE",
+        "coverage": {
+          "required": 2,
+          "completed": 1,
+          "missing": [],
+          "checks": [
+            {
+              "rule_id": "IMAGE-001",
+              "feature_id": null,
+              "status": "PASS"
+            },
+            {
+              "rule_id": "REQUIRES-DEPTH",
+              "feature_id": null,
+              "status": "INCONCLUSIVE"
+            }
+          ]
+        },
+        "asset": {
+          "path": "E:\\CodexTemp\\WindowsTemp\\imreview-reassessment-dt98ktrl\\asset.png",
+          "format": "PNG",
+          "width": 8,
+          "height": 8,
+          "adapter": "raster",
+          "adapter_version": "1.0",
+          "mode": "RGBA",
+          "alpha_present": true,
+          "sha256": "051ea57ca4391119412b32a95bdb10231803e744ce6fb1f362cdc6845847b627",
+          "transparent_ratio": 0.0,
+          "alpha_bbox": [
+            0,
+            0,
+            8,
+            8
+          ]
+        },
+        "asset_id": null,
+        "rule_registry_version": "1",
+        "allowed_region": null,
+        "allowed_mask": null,
+        "results": [
+          {
+            "rule_id": "IMAGE-001",
+            "feature_id": null,
+            "algorithm": "image_metadata",
+            "status": "PASS",
+            "measured": {
+              "path": "E:\\CodexTemp\\WindowsTemp\\imreview-reassessment-dt98ktrl\\asset.png",
+              "format": "PNG",
+              "width": 8,
+              "height": 8,
+              "adapter": "raster",
+              "adapter_version": "1.0",
+              "mode": "RGBA",
+              "alpha_present": true,
+              "sha256": "051ea57ca4391119412b32a95bdb10231803e744ce6fb1f362cdc6845847b627",
+              "transparent_ratio": 0.0,
+              "alpha_bbox": [
+                0,
+                0,
+                8,
+                8
+              ]
+            },
+            "threshold": {
+              "sha256": "051ea57ca4391119412b32a95bdb10231803e744ce6fb1f362cdc6845847b627"
+            },
+            "formula": "SHA256(file bytes) equals asset.sha256 when provided",
+            "region": null,
+            "algorithm_version": "1.0",
+            "constraint_origin": "unspecified"
+          },
+          {
+            "rule_id": "REQUIRES-DEPTH",
+            "feature_id": null,
+            "algorithm": "exact_palette_count",
+            "status": "INCONCLUSIVE",
+            "measured": 1,
+            "threshold": 1,
+            "formula": "number of distinct visible RGBA tuples; transparent pixels excluded",
+            "region": null,
+            "algorithm_version": "1.0",
+            "constraint_origin": "unspecified",
+            "reason": "required capabilities are unavailable: color_metrics, depth_buffer, raster_pixels"
+          }
+        ]
+      },
+      "stderr": ""
+    },
+    "prior_unsupported_version_fix": {
+      "exit_code": 2,
+      "report": {
+        "schema_version": "0.5",
+        "status": "INCONCLUSIVE",
+        "completeness": "INCOMPLETE",
+        "coverage": {
+          "required": 2,
+          "completed": 1,
+          "missing": [],
+          "checks": [
+            {
+              "rule_id": "IMAGE-001",
+              "feature_id": null,
+              "status": "PASS"
+            },
+            {
+              "rule_id": "VERSION",
+              "feature_id": null,
+              "status": "INCONCLUSIVE"
+            }
+          ]
+        },
+        "asset": {
+          "path": "E:\\CodexTemp\\WindowsTemp\\imreview-reassessment-dt98ktrl\\asset.png",
+          "format": "PNG",
+          "width": 8,
+          "height": 8,
+          "adapter": "raster",
+          "adapter_version": "1.0",
+          "mode": "RGBA",
+          "alpha_present": true,
+          "sha256": "051ea57ca4391119412b32a95bdb10231803e744ce6fb1f362cdc6845847b627",
+          "transparent_ratio": 0.0,
+          "alpha_bbox": [
+            0,
+            0,
+            8,
+            8
+          ]
+        },
+        "asset_id": null,
+        "rule_registry_version": "1",
+        "allowed_region": null,
+        "allowed_mask": null,
+        "results": [
+          {
+            "rule_id": "IMAGE-001",
+            "feature_id": null,
+            "algorithm": "image_metadata",
+            "status": "PASS",
+            "measured": {
+              "path": "E:\\CodexTemp\\WindowsTemp\\imreview-reassessment-dt98ktrl\\asset.png",
+              "format": "PNG",
+              "width": 8,
+              "height": 8,
+              "adapter": "raster",
+              "adapter_version": "1.0",
+              "mode": "RGBA",
+              "alpha_present": true,
+              "sha256": "051ea57ca4391119412b32a95bdb10231803e744ce6fb1f362cdc6845847b627",
+              "transparent_ratio": 0.0,
+              "alpha_bbox": [
+                0,
+                0,
+                8,
+                8
+              ]
+            },
+            "threshold": {
+              "sha256": "051ea57ca4391119412b32a95bdb10231803e744ce6fb1f362cdc6845847b627"
+            },
+            "formula": "SHA256(file bytes) equals asset.sha256 when provided",
+            "region": null,
+            "algorithm_version": "1.0",
+            "constraint_origin": "unspecified"
+          },
+          {
+            "rule_id": "VERSION",
+            "feature_id": null,
+            "algorithm": "exact_palette_count",
+            "status": "INCONCLUSIVE",
+            "measured": 1,
+            "threshold": 1,
+            "formula": "number of distinct visible RGBA tuples; transparent pixels excluded",
+            "region": null,
+            "algorithm_version": "1.0",
+            "constraint_origin": "unspecified",
+            "reason": "requested algorithm version 99.0 is not available"
+          }
+        ]
+      },
+      "stderr": ""
+    },
+    "prior_empty_position_fix": {
+      "schema_version": "0.5",
+      "asset_type": "game_trace",
+      "status": "INCONCLUSIVE",
+      "completeness": "INCOMPLETE",
+      "engine": "generic",
+      "engine_version": null,
+      "timebase": "seconds",
+      "random_seed": null,
+      "results": [
+        {
+          "id": "MOTION:p",
+          "algorithm": "position_difference",
+          "version": "1.0",
+          "status": "INCONCLUSIVE",
+          "measured": {
+            "sample_count": 0,
+            "units": "m",
+            "timebase": "seconds",
+            "coordinate_system": "world",
+            "max_step": null,
+            "mean_step": null
+          },
+          "threshold": 0,
+          "formula": "Euclidean distance between consecutive world-space samples",
+          "reason": "at least two position samples are required"
+        }
+      ]
+    },
+    "preservation_denominator_ignores_allowed_area": {
+      "protected_pixel_count": 1823,
+      "outside_changed_pixel_count": 800,
+      "expected_protected_pixel_preservation": 0.5611629182665936,
+      "reported": {
+        "cases": 2,
+        "ground_truth_violations": 2,
+        "predicted_violations": 0,
+        "true_positives": 0,
+        "false_positives": 0,
+        "false_negatives": 2,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null,
+        "status": "SCORED",
+        "fix_success_rate": 1.0,
+        "preservation_rate": 0.5611629182665936,
+        "changed_pixels": 1025,
+        "changes_outside_allowed_region": 800,
+        "remaining_violations": 0,
+        "metadata": {
+          "agent": "audit",
+          "model": "audit",
+          "prompt_version": "1",
+          "environment": "local"
+        }
+      }
+    },
+    "v2_cache_does_not_key_policy": {
+      "expected": "Changing palette limit from 2 to 0 must recompute; 1 visible color exceeds 0.",
+      "initial_status": "PASS",
+      "new_requested_palette_limit": 0,
+      "cached_status": "FAIL",
+      "cached_palette_finding": {
+        "rule_id": "COLOR-001",
+        "feature_id": null,
+        "algorithm": "exact_palette_count",
+        "status": "FAIL",
+        "measured": 1,
+        "threshold": 0,
+        "formula": "number of distinct visible RGBA tuples; transparent pixels excluded",
+        "region": null,
+        "algorithm_version": "1.0",
+        "constraint_origin": "unspecified"
+      }
+    }
+  },
+  "ciede2000_reference": {
+    "url": "https://hajim.rochester.edu/ece/sites/gsharma/ciede2000/dataNprograms/ciede2000testdata.txt",
+    "sha256": "44aebb39107128328add54fbef5ac8ee89909e50508f448a1580adea2058a4b8",
+    "pairs": 34,
+    "maximum_absolute_error_scalar": 4.9498977271467126e-05,
+    "maximum_absolute_error_vector": 4.9498977271467126e-05,
+    "pass_at_reference_rounding_tolerance_0_00005": true
+  },
+  "source_hashes_unchanged": true
+}

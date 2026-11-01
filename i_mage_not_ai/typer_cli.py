@@ -1,15 +1,18 @@
 """Implementation of the i-mage-not-ai command line interface."""
 from __future__ import annotations
 import json
+import hashlib
 from pathlib import Path
 from typing import Optional
 import typer
 from .core import RULES, RULE_PACKS, inspect_image, load_manifest, review as run_review, verify_images, resolve_rules, plan_review
 from .policies import load_project_rules, match_project_rules
-from .game import load_trace, load_policy, analyze_trace, load_runtime_evidence, load_runtime_policy, analyze_runtime_evidence
+from .game import load_trace, load_policy, analyze_trace, load_runtime_evidence, load_runtime_policy, analyze_runtime_evidence, aggregate_game_gate
+from .render_evidence import analyze_render_evidence, load_render_evidence
 from .benchmark import score_files, generate_synthetic_dataset, create_submission_template, verify_synthetic_submission, update_leaderboard, render_gallery
 from .project_discovery import discover_projects, create_project_manifest, install_unity_exporter
 from .engine_export import run_engine_export
+from .engine_capture import run_engine_capture, run_engine_capture_suite, install_unity_capture_adapter
 from .measurements import compare_feature_context, measure_manifest
 from .openpose_anatomy import analyze_openpose_anatomy
 from .learned_similarity import compare_dinov2, compare_lpips
@@ -17,7 +20,7 @@ from .learned_similarity import compare_dinov2, compare_lpips
 app=typer.Typer(no_args_is_help=True,help="Deterministic image design constraint linter")
 manifest_app=typer.Typer(no_args_is_help=True)
 delegate_app=typer.Typer(no_args_is_help=True)
-game_app=typer.Typer(no_args_is_help=True,help="Analyze engine traces and observed runtime evidence (does not run engine code)")
+game_app=typer.Typer(no_args_is_help=True,help="Capture rendered engine frames and analyze game/runtime evidence")
 benchmark_app=typer.Typer(no_args_is_help=True,help="Score labeled benchmark findings")
 project_app=typer.Typer(no_args_is_help=True,help="Discover local Godot/Unity project assets without executing project code")
 character_app=typer.Typer(no_args_is_help=True,help="Check saved OpenPose keypoints against explicit anatomy policies")
@@ -45,6 +48,47 @@ def review_exit_code(result: dict) -> int:
     if result.get("status") == "FAIL": return 1
     if result.get("status") == "INCONCLUSIVE" or result.get("completeness") != "COMPLETE": return 2
     return 0
+
+def file_sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+def build_review_plan(manifest_path: Path, manifest: dict, rules_file: Optional[Path], policies: list) -> dict:
+    execution_plan = plan_review(manifest, policies)
+    return {
+        **execution_plan,
+        "schema_version": "i-mage-not-ai/review-plan/1",
+        "bindings": {
+            "manifest_sha256": file_sha256(manifest_path),
+            "rules_file_sha256": file_sha256(rules_file) if rules_file else None,
+        },
+        "status": execution_plan["status"],
+        "execution_plan": execution_plan,
+        "review_intent": [],
+    }
+
+def validate_review_plan(plan_path: Path, manifest_path: Path, manifest: dict, rules_file: Optional[Path], policies: list) -> dict:
+    plan = json.loads(plan_path.read_text(encoding="utf-8"))
+    expected = build_review_plan(manifest_path, manifest, rules_file, policies)
+    if not isinstance(plan, dict) or plan.get("schema_version") != expected["schema_version"]:
+        raise ValueError("unsupported review plan schema")
+    if plan.get("bindings") != expected["bindings"]:
+        raise ValueError("review plan is stale: manifest or rules file changed")
+    if plan.get("execution_plan") != expected["execution_plan"] or plan.get("status") != expected["status"]:
+        raise ValueError("review plan execution section does not match the current deterministic CLI plan")
+    if not isinstance(plan.get("review_intent"), list):
+        raise ValueError("review_intent must be a list")
+    expected_rule_ids = [check["rule_id"] for check in expected["execution_plan"]["checks"]]
+    intents = plan["review_intent"]
+    if any(not isinstance(item, dict) for item in intents):
+        raise ValueError("each review_intent entry must be an object")
+    intent_rule_ids = [item.get("rule_id") for item in intents]
+    if sorted(intent_rule_ids) != sorted(expected_rule_ids):
+        raise ValueError("review_intent must contain exactly one rationale for every planned rule")
+    if any(not isinstance(item.get("purpose"), str) or not item["purpose"].strip()
+           or not isinstance(item.get("threshold_source"), str) or not item["threshold_source"].strip()
+           for item in intents):
+        raise ValueError("each review_intent needs a non-empty purpose and threshold_source")
+    return plan
 
 @benchmark_app.command("score")
 def benchmark_score(ground_truth: Path=typer.Option(...,"--ground-truth"),predictions: Path=typer.Option(...,"--predictions"),output: Optional[Path]=typer.Option(None,"--output")):
@@ -207,24 +251,26 @@ def packs(kind: Optional[str]=typer.Option(None,"--kind")):
     emit({key:value for key,value in RULE_PACKS.items() if kind is None or key==kind})
 
 @app.command("plan")
-def plan(manifest: Path=typer.Option(...,"--manifest"),rules_file: Optional[Path]=typer.Option(None,"--rules-file")):
+def plan(manifest: Path=typer.Option(...,"--manifest"),rules_file: Optional[Path]=typer.Option(None,"--rules-file"),output: Optional[Path]=typer.Option(None,"--output")):
     try:
         data,_=load_manifest(manifest); policies=load_project_rules(rules_file) if rules_file else []
-        result=plan_review(data,policies)
+        result=build_review_plan(manifest,data,rules_file,policies)
         if rules_file:
             matched=match_project_rules(data,policies)
             result["project_rules"]=[{"id":r.id,"feature_id":f,"algorithm":r.algorithm.id,"status":"PLANNED"} for r,f in matched]
-        emit(result)
+        emit(result,output)
         if result["status"]!="READY": raise typer.Exit(2)
     except (ValueError,OSError) as exc: fail(exc)
     except typer.Exit: raise
     except Exception as exc: internal_error(exc)
 
 @app.command("review")
-def review(manifest: Path=typer.Option(...,"--manifest"),output: Optional[Path]=typer.Option(None,"--output"),output_format: str=typer.Option("json","--format"),rules_file: Optional[Path]=typer.Option(None,"--rules-file")):
+def review(manifest: Path=typer.Option(...,"--manifest"),output: Optional[Path]=typer.Option(None,"--output"),output_format: str=typer.Option("json","--format"),rules_file: Optional[Path]=typer.Option(None,"--rules-file"),plan_file: Optional[Path]=typer.Option(None,"--plan")):
     if output_format not in {"json","markdown"}: raise typer.BadParameter("--format must be json or markdown")
     try:
         data,root=load_manifest(manifest); policies=load_project_rules(rules_file) if rules_file else []
+        if plan_file:
+            validate_review_plan(plan_file,manifest,data,rules_file,policies)
         result=run_review(data,root,policies)
         rendered=markdown_report(result) if output_format=="markdown" else json.dumps(result,indent=2,ensure_ascii=False)+"\n"
         if output: output.write_text(rendered,encoding="utf-8")
@@ -301,6 +347,77 @@ def check_runtime_evidence(evidence: Path=typer.Option(...,"--evidence"),policy:
     except typer.Exit: raise
     except Exception as exc: internal_error(exc)
 
+@game_app.command("render-check")
+def check_render_evidence(evidence: Path=typer.Option(...,"--evidence"),policy: Path=typer.Option(...,"--policy"),output: Optional[Path]=typer.Option(None,"--output")):
+    """Check engine capture provenance, frame changes, and event timing."""
+    try:
+        bundle,_=load_render_evidence(evidence)
+        constraints=json.loads(policy.read_text(encoding="utf-8"))
+        report=analyze_render_evidence(bundle,constraints)
+        emit(report,output)
+        exit_code=review_exit_code(report)
+        if exit_code: raise typer.Exit(exit_code)
+    except (ValueError,OSError,json.JSONDecodeError) as exc: fail(exc)
+    except typer.Exit: raise
+    except Exception as exc: internal_error(exc)
+
+@game_app.command("capture")
+def capture_game(engine: str=typer.Option(...,"--engine"),project: Path=typer.Option(...,"--project"),
+                 engine_executable: Path=typer.Option(...,"--engine-executable"),scene: str=typer.Option(...,"--scene"),
+                 scenario_id: str=typer.Option(...,"--scenario-id"),output: Path=typer.Option(...,"--output"),
+                 width: int=typer.Option(...,"--width",min=1,max=8192),height: int=typer.Option(...,"--height",min=1,max=8192),
+                 frames: int=typer.Option(60,"--frames",min=2,max=10000),fps: int=typer.Option(60,"--fps",min=1,max=240),
+                 event_map: Optional[Path]=typer.Option(None,"--event-map"),allow_project_code: bool=typer.Option(False,"--allow-project-code"),
+                 camera_node_path: Optional[str]=typer.Option(None,"--camera-node-path"),
+                 camera_distance_offset: float=typer.Option(0.0,"--camera-distance-offset"),
+                 camera_zoom_scale: float=typer.Option(1.0,"--camera-zoom-scale"),
+                 timeout: int=typer.Option(300,"--timeout",min=1,max=1800)):
+    """Run a selected project scene with a renderer and save actual frame captures."""
+    try:
+        result=run_engine_capture(engine=engine,project_root=project,engine_executable=engine_executable,
+            selection=scene,scenario_id=scenario_id,output=output,width=width,height=height,
+            frame_count=frames,fps=fps,allow_project_code=allow_project_code,event_map=event_map,
+            camera_node_path=camera_node_path,camera_distance_offset=camera_distance_offset,
+            camera_zoom_scale=camera_zoom_scale,timeout_seconds=timeout)
+        emit(result)
+    except (ValueError,OSError) as exc: fail(exc)
+    except typer.Exit: raise
+    except Exception as exc: internal_error(exc)
+
+@game_app.command("capture-suite")
+def capture_game_suite(engine: str=typer.Option(...,"--engine"),project: Path=typer.Option(...,"--project"),
+                       engine_executable: Path=typer.Option(...,"--engine-executable"),scene: str=typer.Option(...,"--scene"),
+                       scenario_id: str=typer.Option(...,"--scenario-id"),suite: Path=typer.Option(...,"--suite"),
+                       render_policy: Path=typer.Option(...,"--render-policy"),review_report: Path=typer.Option(...,"--review-report"),
+                       runtime_report: Path=typer.Option(...,"--runtime-report"),output: Path=typer.Option(...,"--output"),
+                       frames: int=typer.Option(60,"--frames",min=2,max=10000),fps: int=typer.Option(60,"--fps",min=1,max=240),
+                       event_map: Optional[Path]=typer.Option(None,"--event-map"),allow_project_code: bool=typer.Option(False,"--allow-project-code"),
+                       timeout: int=typer.Option(300,"--timeout",min=1,max=1800)):
+    """Capture every resolution/camera case, then automatically run render-check and game gate."""
+    try:
+        result=run_engine_capture_suite(engine=engine,project_root=project,engine_executable=engine_executable,
+            selection=scene,scenario_id=scenario_id,suite_file=suite,event_map=event_map,
+            render_policy_file=render_policy,review_report_file=review_report,runtime_report_file=runtime_report,
+            output=output,frame_count=frames,fps=fps,allow_project_code=allow_project_code,timeout_seconds=timeout)
+        emit(result)
+        if result["status"]!="PASS": raise typer.Exit(1 if result["status"]=="FAIL" else 2)
+    except (ValueError,OSError) as exc: fail(exc)
+    except typer.Exit: raise
+    except Exception as exc: internal_error(exc)
+
+@game_app.command("gate")
+def game_gate(review_report: Path=typer.Option(...,"--review-report"),runtime_report: Path=typer.Option(...,"--runtime-report"),render_report: Path=typer.Option(...,"--render-report"),output: Optional[Path]=typer.Option(None,"--output")):
+    """Aggregate required game trace, live runtime, and rendered-frame gates."""
+    try:
+        reports=[json.loads(path.read_text(encoding="utf-8")) for path in (review_report,runtime_report,render_report)]
+        result=aggregate_game_gate(*reports)
+        emit(result,output)
+        exit_code=review_exit_code(result)
+        if exit_code: raise typer.Exit(exit_code)
+    except (ValueError,OSError,json.JSONDecodeError) as exc: fail(exc)
+    except typer.Exit: raise
+    except Exception as exc: internal_error(exc)
+
 @project_app.command("preview")
 def preview_project(path: Path=typer.Option(...,"--path"),max_files: int=typer.Option(20000,"--max-files",min=1),max_depth: int=typer.Option(16,"--max-depth",min=0)):
     """List detected Godot/Unity projects, image files, references, and skipped paths."""
@@ -336,6 +453,24 @@ def install_project_exporter(engine: str=typer.Option(...,"--engine"),project: P
         destination=install_unity_exporter(project)
         emit({"status":"INSTALLED","engine":engine,"path":str(destination),"executed_project_code":False,
               "note":"Unity may compile this editor extension the next time its editor opens."})
+    except (ValueError,OSError) as exc: fail(exc)
+    except typer.Exit: raise
+    except Exception as exc: internal_error(exc)
+
+@project_app.command("install-capture-adapter")
+def install_capture_adapter(engine: str=typer.Option(...,"--engine"),project: Path=typer.Option(...,"--project")):
+    """Install the Unity runtime capture hook and editor launcher without running the project."""
+    try:
+        if engine == "godot":
+            emit({"status":"READY","engine":"godot","installed":False,
+                  "runner":str(Path(__file__).resolve().parents[1]/"engine"/"godot"/"i_mage_not_ai_render_capture.gd"),
+                  "note":"Godot capture uses the bundled external runner and does not modify the project."})
+        elif engine == "unity":
+            paths=install_unity_capture_adapter(project)
+            emit({"status":"INSTALLED","engine":"unity","paths":paths,"executed_project_code":False,
+                  "note":"Unity will compile the runtime hook/editor launcher the next time the Editor opens."})
+        else:
+            raise ValueError("engine must be godot or unity")
     except (ValueError,OSError) as exc: fail(exc)
     except typer.Exit: raise
     except Exception as exc: internal_error(exc)

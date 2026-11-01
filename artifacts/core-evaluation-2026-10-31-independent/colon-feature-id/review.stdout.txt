@@ -1,0 +1,104 @@
+{
+  "schema_version": "0.5",
+  "status": "INCONCLUSIVE",
+  "completeness": "INCOMPLETE",
+  "coverage": {
+    "required": 2,
+    "completed": 1,
+    "missing": [],
+    "checks": [
+      {
+        "rule_id": "IMAGE-001",
+        "feature_id": null,
+        "status": "PASS"
+      },
+      {
+        "rule_id": "OVERLAP-001",
+        "feature_id": "part:left:right",
+        "status": "INCONCLUSIVE"
+      }
+    ]
+  },
+  "asset": {
+    "path": "E:\\I-mage-not-AI\\artifacts\\core-evaluation-2026-10-31-independent\\colon-feature-id\\asset.png",
+    "format": "PNG",
+    "width": 4,
+    "height": 4,
+    "adapter": "raster",
+    "adapter_version": "1.0",
+    "mode": "RGBA",
+    "alpha_present": true,
+    "sha256": "4158613de6f164302373f07bcabaf381a2ae959085936dba1b52454ae558551a",
+    "transparent_ratio": 0.0,
+    "alpha_bbox": [
+      0,
+      0,
+      4,
+      4
+    ]
+  },
+  "asset_id": null,
+  "rule_registry_version": "1",
+  "allowed_region": null,
+  "allowed_mask": null,
+  "feature_masks": {
+    "part:left": {
+      "path": "m0.png",
+      "sha256": "5d83d313422584700dab9a54b26d268a3422b08845bd27cb93287b09c7478495",
+      "width": 4,
+      "height": 4
+    },
+    "right": {
+      "path": "m1.png",
+      "sha256": "5d83d313422584700dab9a54b26d268a3422b08845bd27cb93287b09c7478495",
+      "width": 4,
+      "height": 4
+    }
+  },
+  "results": [
+    {
+      "rule_id": "IMAGE-001",
+      "feature_id": null,
+      "algorithm": "image_metadata",
+      "status": "PASS",
+      "measured": {
+        "path": "E:\\I-mage-not-AI\\artifacts\\core-evaluation-2026-10-31-independent\\colon-feature-id\\asset.png",
+        "format": "PNG",
+        "width": 4,
+        "height": 4,
+        "adapter": "raster",
+        "adapter_version": "1.0",
+        "mode": "RGBA",
+        "alpha_present": true,
+        "sha256": "4158613de6f164302373f07bcabaf381a2ae959085936dba1b52454ae558551a",
+        "transparent_ratio": 0.0,
+        "alpha_bbox": [
+          0,
+          0,
+          4,
+          4
+        ]
+      },
+      "threshold": {
+        "sha256": "4158613de6f164302373f07bcabaf381a2ae959085936dba1b52454ae558551a"
+      },
+      "formula": "SHA256(file bytes) equals asset.sha256 when provided",
+      "region": null,
+      "algorithm_version": "1.0",
+      "constraint_origin": "unspecified"
+    },
+    {
+      "rule_id": "OVERLAP-001",
+      "feature_id": "part:left:right",
+      "algorithm": "mask_intersection_ratio",
+      "status": "INCONCLUSIVE",
+      "measured": 1.0,
+      "threshold": 1,
+      "formula": "intersection area / smaller feature area",
+      "region": null,
+      "reason": "required measurement data is unavailable",
+      "algorithm_version": "1.0",
+      "constraint_origin": "unspecified"
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "generated_utc": "2026-10-31T08:50:08.022492+00:00",
+  "source_sha256": {
+    "imreview\\core.py": "b00e788592c0ca18b90e0b9f485eaf8179ab0257c7beb82cd4eabac0fc9b7fc0",
+    "imreview\\game.py": "1631e2c0ccf205b8355b819f93cca2416b218185cf35088fcf937936ca87d1be",
+    "imreview\\policies.py": "4022a62f942ae7aa52a3919c4b1afc86559b919ca22aaba20c9160cb93f58e4d"
+  },
+  "cases": {
+    "mask_integrity": {
+      "manifest_sha256_unchanged": true,
+      "source_sha256_unchanged": true,
+      "mask_sha256_changed": true,
+      "first": {
+        "exit": 0,
+        "status": "PASS",
+        "finding": {
+          "rule_id": "COLOR-002",
+          "feature_id": "body",
+          "algorithm": "masked_palette_count",
+          "status": "PASS",
+          "measured": 1,
+          "threshold": 1,
+          "formula": "unique visible RGB tuples inside mask",
+          "region": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "algorithm_version": "1.0",
+          "constraint_origin": "unspecified"
+        }
+      },
+      "second": {
+        "exit": 1,
+        "status": "FAIL",
+        "finding": {
+          "rule_id": "COLOR-002",
+          "feature_id": "body",
+          "algorithm": "masked_palette_count",
+          "status": "FAIL",
+          "measured": 2,
+          "threshold": 1,
+          "formula": "unique visible RGB tuples inside mask",
+          "region": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "algorithm_version": "1.0",
+          "constraint_origin": "unspecified"
+        }
+      }
+    },
+    "valid_overlap_policy": {
+      "exit": 2,
+      "status": "INCONCLUSIVE",
+      "completeness": "INCOMPLETE",
+      "coverage": {
+        "required": 2,
+        "completed": 1,
+        "missing": [
+          {
+            "rule_id": "MAX-OVERLAP",
+            "feature_id": null,
+            "algorithm": "mask_intersection_ratio",
+            "algorithm_version": "1.0",
+            "severity": "error",
+            "priority": 0,
+            "on_missing": "inconclusive",
+            "required_capabilities": [],
+            "status": "SKIPPED",
+            "reason": "planned rule did not produce a result"
+          }
+        ],
+        "checks": [
+          {
+            "rule_id": "IMAGE-001",
+            "feature_id": null,
+            "status": "PASS"
+          }
+        ]
+      },
+      "finding": {
+        "rule_id": "MAX-OVERLAP",
+        "feature_id": "a:b",
+        "algorithm": "mask_intersection_ratio",
+        "status": "PASS",
+        "measured": 0.0,
+        "threshold": 0.5,
+        "formula": "intersection area / smaller feature area",
+        "region": null,
+        "algorithm_version": "1.0",
+        "constraint_origin": "unspecified"
+      }
+    },
+    "policy_origin": {
+      "exit": 0,
+      "declared_origin": "project_config",
+      "finding": {
+        "rule_id": "BODY-PALETTE",
+        "feature_id": "a",
+        "algorithm": "quantized_palette_count",
+        "status": "PASS",
+        "measured": 2,
+        "threshold": 2,
+        "formula": "unique visible RGB tuples inside mask",
+        "region": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "algorithm_version": "1.0",
+        "constraint_origin": "unspecified"
+      }
+    },
+    "nested_pose": {
+      "exit": 0,
+      "status": "PASS",
+      "completeness": "COMPLETE",
+      "first_pose": {
+        "hip": {
+          "left": [
+            0,
+            0
+          ]
+        }
+      },
+      "last_pose": {
+        "hip": {
+          "right": [
+            0,
+            0
+          ]
+        }
+      },
+      "finding": {
+        "id": "POSE-LOOP:pose",
+        "algorithm": "pose_boundary_distance",
+        "version": "1.0",
+        "status": "PASS",
+        "measured": {
+          "distance": 0.0,
+          "units": "m"
+        },
+        "threshold": 0,
+        "formula": "Euclidean distance between flattened first and last pose samples"
+      }
+    },
+    "extreme_velocity": {
+      "exit": 1,
+      "status": "FAIL",
+      "expected_velocity": 1e+200,
+      "limit": 1e+201,
+      "finding_status": "FAIL",
+      "reported_velocity": "inf",
+      "raw_json_contains_infinity": true
+    }
+  }
+}

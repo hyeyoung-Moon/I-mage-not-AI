@@ -1,0 +1,101 @@
+{
+  "schema_version": "1",
+  "mode": "diagnostic_only",
+  "status": "MEASURED_NO_QUALITY_VERDICT",
+  "asset": {
+    "path": "E:\\I-mage-not-AI\\artifacts\\core-evaluation-2026-10-31-independent\\transparent-pixels\\asset.png",
+    "sha256": "43cc5c9429b6506409e6a5ee96960bb4eb91c1aa2618c6bcbc6225297ace47dc",
+    "width": 2,
+    "height": 1,
+    "alpha_present": true,
+    "transparent_pixel_ratio": 0.5,
+    "alpha_bbox": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "alpha_values_source": "stored_channel",
+    "alpha_weighted_centroid": {
+      "x": 0.5,
+      "y": 0.5,
+      "normalized_distance_to_canvas_center": 0.25
+    },
+    "normalized_alpha_bbox_margins": {
+      "left": 0.0,
+      "top": 0.0,
+      "right": 0.5,
+      "bottom": 0.0
+    },
+    "unique_visible_rgb_colors": 1
+  },
+  "global_measurements": {
+    "tile_edge_mean_absolute_rgb_difference": {
+      "horizontal_opposing_edges": 127.0,
+      "vertical_opposing_edges": 0.0,
+      "max": 127.0,
+      "judgment": "MEASURED_ONLY; seamless-tile intent was not declared."
+    }
+  },
+  "features": [
+    {
+      "id": "body",
+      "role": "foreground",
+      "metrics": {
+        "pixel_count": 2,
+        "occupancy_ratio": 1.0,
+        "bbox": [
+          0,
+          0,
+          2,
+          1
+        ],
+        "connected_components_8": 1,
+        "symmetry_horizontal_iou_bbox_local": 1.0,
+        "unique_rgb_colors": 2,
+        "lab_bin_count": null,
+        "channel_range_rgb": {
+          "r": 127,
+          "g": 127,
+          "b": 127
+        },
+        "delta_e00_to_channel_median": {
+          "reference_rgb": [
+            255,
+            255,
+            255
+          ],
+          "max": 33.23895369493413,
+          "p50": 16.619476847467066,
+          "p95": 31.577006010187425,
+          "exceedance_ratio": null,
+          "exceedance_ratio_reason": "No delta_e_tolerance is configured; no cutoff was invented."
+        },
+        "luma_levels": {
+          "method": "linear_srgb_luminance_scaled_0_255",
+          "bin_width": 64,
+          "count": 2
+        },
+        "periodic_energy_ratio_top8": null,
+        "periodic_energy_bbox_crop": [
+          0,
+          0,
+          2,
+          1
+        ],
+        "rgb_plane_fit_r2": {
+          "value": null,
+          "judgment": "INCONCLUSIVE_DIAGNOSTIC_ONLY"
+        }
+      }
+    }
+  ],
+  "pairwise_overlaps": [],
+  "unmeasured": {
+    "lab_bin_count": "No Lab bin size was configured.",
+    "delta_e_exceedance_ratio": "No delta_e_tolerance was configured.",
+    "svg": "Not applicable to this raster asset.",
+    "game_trace": "No animation or runtime trace was supplied."
+  },
+  "policy": "No PASS/FAIL thresholds were added or inferred."
+}

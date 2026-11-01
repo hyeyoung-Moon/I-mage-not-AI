@@ -1,0 +1,48 @@
+{
+    "format": "i_mage_not_ai.render-evidence/1",
+    "capture_source": "engine_runtime",
+    "engine": "unity",
+    "engine_version": "6000.3.25f1",
+    "platform": "WindowsEditor",
+    "scenario_id": "unity-capture-exe-launcher-v1",
+    "timebase": "seconds",
+    "resolution": [
+        320,
+        180
+    ],
+    "import_settings": {
+        "render_pipeline": "built-in",
+        "color_space": "Gamma",
+        "anti_aliasing": 2,
+        "v_sync_count": 1,
+        "capture_mode": "main_camera_render_texture"
+    },
+    "captures": [
+        {
+            "frame_index": 0,
+            "timestamp": 0.0,
+            "image": "unity-exe-launcher_frames/000000.png",
+            "event_ids": [
+                "attack-start"
+            ]
+        },
+        {
+            "frame_index": 1,
+            "timestamp": 0.03333333507180214,
+            "image": "unity-exe-launcher_frames/000001.png",
+            "event_ids": []
+        },
+        {
+            "frame_index": 2,
+            "timestamp": 0.06666667014360428,
+            "image": "unity-exe-launcher_frames/000002.png",
+            "event_ids": []
+        },
+        {
+            "frame_index": 3,
+            "timestamp": 0.10000000149011612,
+            "image": "unity-exe-launcher_frames/000003.png",
+            "event_ids": []
+        }
+    ]
+}

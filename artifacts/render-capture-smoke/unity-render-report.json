@@ -1,0 +1,218 @@
+{
+  "schema_version": "0.5",
+  "asset_type": "render_evidence",
+  "status": "PASS",
+  "completeness": "COMPLETE",
+  "engine": "unity",
+  "engine_version": "6000.3.25f1",
+  "platform": "WindowsEditor",
+  "scenario_id": "unity-capture-fixture-v1",
+  "resolution": [
+    320,
+    180
+  ],
+  "import_settings": {
+    "render_pipeline": "built-in",
+    "color_space": "Gamma",
+    "anti_aliasing": 2,
+    "v_sync_count": 1,
+    "capture_mode": "main_camera_render_texture"
+  },
+  "captures": [
+    {
+      "frame_index": 0,
+      "timestamp": 0.0,
+      "image": "unity-visible-v5_frames/000000.png",
+      "sha256": "0ca1a0fa1c878fd6c2d379dd1ab52c1c2f88ac36a45afdc2d67f9ac17ed6175b",
+      "event_ids": [
+        "attack-start"
+      ]
+    },
+    {
+      "frame_index": 1,
+      "timestamp": 0.03333333507180214,
+      "image": "unity-visible-v5_frames/000001.png",
+      "sha256": "87ef0ff55ee0be47bc49cca193f7fffceda27253fa445e0024ef2ac9a2fbf275",
+      "event_ids": []
+    },
+    {
+      "frame_index": 2,
+      "timestamp": 0.06666667014360428,
+      "image": "unity-visible-v5_frames/000002.png",
+      "sha256": "676b5a04bcb17855534aca0a2f72105aef44ceb50c7193a1c416246413a79456",
+      "event_ids": []
+    },
+    {
+      "frame_index": 3,
+      "timestamp": 0.10000000149011612,
+      "image": "unity-visible-v5_frames/000003.png",
+      "sha256": "295018eacc2b69da2e463e975a14c405650646b730d9ed2e02f2f6c82a0cbdca",
+      "event_ids": []
+    },
+    {
+      "frame_index": 4,
+      "timestamp": 0.13333334028720856,
+      "image": "unity-visible-v5_frames/000004.png",
+      "sha256": "51540b5830f1e5cb1e82dd9155f2d9db1ff15c91cdf34b97eab272e36b9c9b5a",
+      "event_ids": []
+    },
+    {
+      "frame_index": 5,
+      "timestamp": 0.1666666716337204,
+      "image": "unity-visible-v5_frames/000005.png",
+      "sha256": "cb00c8edf9fa7cb2cc0d50abe2d1680f59f4c8c78fe1bff979ace4e2e8c3c8cc",
+      "event_ids": []
+    },
+    {
+      "frame_index": 6,
+      "timestamp": 0.20000000298023224,
+      "image": "unity-visible-v5_frames/000006.png",
+      "sha256": "0ae386128e47bff988b68b99f64d1aa02266e03b76f307d6953486c152241edf",
+      "event_ids": []
+    },
+    {
+      "frame_index": 7,
+      "timestamp": 0.23333333432674408,
+      "image": "unity-visible-v5_frames/000007.png",
+      "sha256": "3dec81fa731620ce6b1de82d80855b0f0795cb2ceafcd851ea2d9582b5bb6fed",
+      "event_ids": []
+    },
+    {
+      "frame_index": 8,
+      "timestamp": 0.2666666805744171,
+      "image": "unity-visible-v5_frames/000008.png",
+      "sha256": "c3f32defa791e38799b1a9ca48d14f17629cb535f1a186d9769028792a604cdd",
+      "event_ids": []
+    },
+    {
+      "frame_index": 9,
+      "timestamp": 0.30000001192092896,
+      "image": "unity-visible-v5_frames/000009.png",
+      "sha256": "1add452ee634496fa04b3618a46c76bb531635b11052ff848bda243354b7af2b",
+      "event_ids": []
+    },
+    {
+      "frame_index": 10,
+      "timestamp": 0.3333333432674408,
+      "image": "unity-visible-v5_frames/000010.png",
+      "sha256": "c511015e48ce65dc32ae442c8e36eb365ff3629c6d7f0148283caff662a13114",
+      "event_ids": []
+    },
+    {
+      "frame_index": 11,
+      "timestamp": 0.36666667461395264,
+      "image": "unity-visible-v5_frames/000011.png",
+      "sha256": "32a3dfbade34ee68a83b2929baf9203081100803c1022ceb8741da0a666b1d74",
+      "event_ids": []
+    },
+    {
+      "frame_index": 12,
+      "timestamp": 0.4000000059604645,
+      "image": "unity-visible-v5_frames/000012.png",
+      "sha256": "e4cb8a0059ce4b9edbfdbb8d402bccccfb3931cc083846c490fec99115aa0ae8",
+      "event_ids": []
+    },
+    {
+      "frame_index": 13,
+      "timestamp": 0.4333333373069763,
+      "image": "unity-visible-v5_frames/000013.png",
+      "sha256": "5731dc172e7ddb4b84e2dde9f5fa5cbd63381dffff882e77d02c511774e42961",
+      "event_ids": []
+    },
+    {
+      "frame_index": 14,
+      "timestamp": 0.46666666865348816,
+      "image": "unity-visible-v5_frames/000014.png",
+      "sha256": "8f426d259c28c63c303f8539affe5def0920d61f7c0613f850065afbda5e7836",
+      "event_ids": []
+    },
+    {
+      "frame_index": 15,
+      "timestamp": 0.5,
+      "image": "unity-visible-v5_frames/000015.png",
+      "sha256": "691c80910cfab3a0e9725f0a383854ea35e94ea567bee3d108eec7f77ebfb1ca",
+      "event_ids": []
+    },
+    {
+      "frame_index": 16,
+      "timestamp": 0.5333333611488342,
+      "image": "unity-visible-v5_frames/000016.png",
+      "sha256": "5d31206f284644fb3ae9737a567fad67217bc0783e5685145f1c5a5808f8aedf",
+      "event_ids": []
+    },
+    {
+      "frame_index": 17,
+      "timestamp": 0.5666666626930237,
+      "image": "unity-visible-v5_frames/000017.png",
+      "sha256": "bef9a60d43a8451ae2aee407e9a914b6876daa16963be8db42622c147b7a83da",
+      "event_ids": []
+    }
+  ],
+  "coverage": {
+    "required": 3,
+    "completed": 3,
+    "missing": []
+  },
+  "results": [
+    {
+      "rule_id": "RENDER-CAPTURE-COUNT",
+      "algorithm": "render_capture_count",
+      "status": "PASS",
+      "measured": {
+        "count": 18
+      },
+      "threshold": {
+        "minimum": 18
+      },
+      "formula": "captured engine frames >= min_capture_count"
+    },
+    {
+      "rule_id": "RENDER-FRAME-DELTA",
+      "algorithm": "render_changed_pixel_ratio",
+      "status": "PASS",
+      "measured": {
+        "max_ratio": 0.004965277777777778,
+        "per_interval": [
+          0.004253472222222222,
+          0.004253472222222222,
+          0.004965277777777778,
+          0.004253472222222222,
+          0.004965277777777778,
+          0.004253472222222222,
+          0.004965277777777778,
+          0.004253472222222222,
+          0.004965277777777778,
+          0.004253472222222222,
+          0.004965277777777778,
+          0.004253472222222222,
+          0.004253472222222222,
+          0.004965277777777778,
+          0.004253472222222222,
+          0.004965277777777778,
+          0.004253472222222222
+        ],
+        "changed_pixel_threshold_rgb": 10,
+        "interval_count": 17
+      },
+      "threshold": {
+        "max_ratio": 0.4
+      },
+      "formula": "count(pixels with max_channel_abs_delta >= threshold) / total_pixels per adjacent capture"
+    },
+    {
+      "rule_id": "RENDER-EVENT:attack-start",
+      "algorithm": "render_event_frame_alignment",
+      "status": "PASS",
+      "measured": {
+        "observed_timestamp": 0.0,
+        "absolute_error": 0.0,
+        "timebase": "seconds"
+      },
+      "threshold": {
+        "expected_time": 0,
+        "tolerance": 0.01
+      },
+      "formula": "exactly one capture annotation exists and abs(capture_time - expected_event_time) <= tolerance"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "asset_type": "game_trace",
+  "status": "PASS",
+  "completeness": "COMPLETE",
+  "scenario_id": "unity-capture-suite-live-fixture-v3",
+  "fixture_note": "Orchestration smoke prerequisite only; not a production game trace review."
+}

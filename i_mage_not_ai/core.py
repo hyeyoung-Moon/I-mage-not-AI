@@ -16,6 +16,7 @@ from svgpathtools import parse_path
 import yaml
 from .adapters import ADAPTERS, FEATURE_ADAPTERS
 from .policies import ProjectRule, match_project_rules, apply_project_rules
+from .shape_metrics import compare_masks, hu_shape_distance, minimum_width, roi_edge_metrics, skeleton_graph, topology
 
 RULES = [
     {"id": "IMAGE-001", "algorithm": "image_metadata", "description": "Verify asset readability, dimensions, and optional SHA-256."},
@@ -25,6 +26,16 @@ RULES = [
     {"id": "COLOR-001", "algorithm": "exact_palette_count", "description": "Count distinct visible RGB colors (deterministic exact count)."},
     {"id": "COLOR-002", "algorithm": "masked_palette_count", "description": "Count exact visible RGB colors inside a feature mask."},
     {"id": "TOPOLOGY-001", "algorithm": "mask_connected_components", "description": "Count 8-connected components in a declared binary feature mask."},
+    {"id": "TOPOLOGY-002", "algorithm": "mask_hole_count", "description": "Count enclosed 4-connected holes in a declared binary feature mask."},
+    {"id": "TOPOLOGY-003", "algorithm": "mask_skeleton_endpoints", "description": "Count endpoints in a morphological feature-mask skeleton."},
+    {"id": "TOPOLOGY-004", "algorithm": "mask_skeleton_branches", "description": "Count branch clusters in a morphological feature-mask skeleton."},
+    {"id": "GEOMETRY-003", "algorithm": "mask_minimum_width", "description": "Estimate minimum local mask width from the distance transform on a thinned skeleton."},
+    {"id": "GEOMETRY-004", "algorithm": "mask_boundary_distance", "description": "Measure symmetric Hausdorff distance between candidate and reference mask boundaries in pixels."},
+    {"id": "GEOMETRY-005", "algorithm": "mask_iou_dice", "description": "Compare candidate and reference masks using intersection over union."},
+    {"id": "GEOMETRY-006", "algorithm": "mask_dice", "description": "Compare candidate and reference masks using Dice coefficient."},
+    {"id": "GEOMETRY-007", "algorithm": "mask_hu_shape_distance", "description": "Compare Hu moment shape descriptors against a reference mask."},
+    {"id": "RASTER-EDGE-001", "algorithm": "roi_tenengrad_sharpness", "description": "Measure mean squared Sobel gradient within a declared feature mask."},
+    {"id": "RASTER-EDGE-002", "algorithm": "mask_boundary_gradient", "description": "Measure mean Sobel gradient magnitude along the declared feature-mask boundary."},
     {"id": "SYMMETRY-001", "algorithm": "mask_reflection_iou", "description": "Compare a declared feature mask with its horizontal reflection."},
     {"id": "BACKGROUND-001", "algorithm": "tile_edge_color_error", "description": "Measure exact RGB discontinuity between opposing tile edges."},
     {"id": "BACKGROUND-002", "algorithm": "fft_periodic_energy_ratio", "description": "Measure non-DC FFT energy concentrated at periodic peaks in a masked region."},
@@ -100,13 +111,13 @@ def load_manifest(path: Path) -> tuple[dict[str, Any], Path]:
         data = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as exc:
         raise ManifestError(f"cannot read manifest: {exc}") from exc
-    if not isinstance(data, dict) or data.get("schema_version") not in {"0.1", "0.5"}:
-        raise ManifestError("schema_version must be '0.5' (legacy '0.1' is also accepted)")
+    if not isinstance(data, dict) or data.get("schema_version") not in {"0.1", "0.5", "0.6"}:
+        raise ManifestError("schema_version must be '0.6' (legacy '0.1' and '0.5' are also accepted)")
     asset = data.get("asset")
     if not isinstance(asset, dict) or not isinstance(asset.get("path"), str):
         raise ManifestError("asset.path is required")
-    if data["schema_version"] == "0.5" and not asset.get("sha256"):
-        raise ManifestError("schema_version 0.5 requires asset.sha256")
+    if data["schema_version"] in {"0.5", "0.6"} and not asset.get("sha256"):
+        raise ManifestError(f"schema_version {data['schema_version']} requires asset.sha256")
     resolved_asset = _safe_path(path.parent, asset["path"])
     if resolved_asset.stat().st_size > 50 * 1024 * 1024:
         raise ManifestError("asset exceeds 50 MiB safety limit")
@@ -128,6 +139,8 @@ def load_manifest(path: Path) -> tuple[dict[str, Any], Path]:
             if expected_engine and expected_engine!=trace.engine: raise ValueError(f"manifest engine {expected_engine} does not match trace engine {trace.engine}")
             if expected_engine is None: asset["engine"]=trace.engine
             validate_policy(data.get("game_policy",{}))
+            if data.get("schema_version") == "0.6" and (not isinstance(data.get("scenario_id"),str) or not data["scenario_id"].strip()):
+                raise ValueError("schema_version 0.6 game traces require a non-empty scenario_id")
         except ValueError as exc: raise ManifestError(str(exc)) from exc
     if "features" not in data:
         raise ManifestError("features is required")
@@ -169,6 +182,20 @@ def load_manifest(path: Path) -> tuple[dict[str, Any], Path]:
             if allowed_mask_path and mask_path==allowed_mask_path: raise ManifestError("regression mask cannot be reused as a feature mask")
         properties = feature.get("properties", {})
         if not isinstance(properties, dict): raise ManifestError(f"feature {feature['id']}: properties must be an object")
+        if "reference_mask" in properties:
+            if not isinstance(properties["reference_mask"], str): raise ManifestError(f"feature {feature['id']}.reference_mask must be a relative path")
+            _safe_path(path.parent, properties["reference_mask"])
+        if any(key in properties for key in ("max_boundary_distance_px", "min_iou", "min_dice")) and "reference_mask" not in properties:
+            raise ManifestError(f"feature {feature['id']}: reference_mask is required for boundary-distance/IoU/Dice checks")
+        if "max_hu_shape_distance" in properties and "reference_mask" not in properties:
+            raise ManifestError(f"feature {feature['id']}: reference_mask is required for Hu shape comparison")
+        if "max_holes" in properties and (not isinstance(properties["max_holes"], int) or isinstance(properties["max_holes"], bool) or properties["max_holes"] < 0):
+            raise ManifestError(f"feature {feature['id']}.max_holes must be a non-negative integer")
+        if "min_width_px" in properties and properties["min_width_px"] <= 0:
+            raise ManifestError(f"feature {feature['id']}.min_width_px must be greater than zero")
+        for key in ("min_iou", "min_dice"):
+            if key in properties and not 0 <= properties[key] <= 1:
+                raise ManifestError(f"feature {feature['id']}.{key} must be between zero and one")
         if "luma_bin_width" in properties:
             width=properties["luma_bin_width"]
             if not isinstance(width,(int,float)) or isinstance(width,bool) or not math.isfinite(width) or width<=0:
@@ -203,6 +230,7 @@ def load_manifest(path: Path) -> tuple[dict[str, Any], Path]:
         try:
             with Image.open(resolved_asset) as source: asset_size=source.size
             mask_paths=[_safe_path(path.parent,f["geometry"]["path"]) for f in features if f.get("geometry",{}).get("type")=="mask"]
+            mask_paths.extend(_safe_path(path.parent,f["properties"]["reference_mask"]) for f in features if "reference_mask" in f.get("properties",{}))
             if allowed_mask_path: mask_paths.append(allowed_mask_path)
             for mask_path in mask_paths:
                 with Image.open(mask_path) as mask:
@@ -248,7 +276,17 @@ def resolve_rules(manifest: dict[str, Any], project_rules: list[ProjectRule] | N
             ("max_periodic_energy_ratio","BACKGROUND-002","fft_periodic_energy_ratio"),
             ("max_luma_levels","CHARACTER-001","masked_luma_levels"),
             ("max_silhouette_components","CHARACTER-002","silhouette_metrics"),
-            ("min_occupancy_ratio","BACKGROUND-003","region_occupancy")):
+            ("min_occupancy_ratio","BACKGROUND-003","region_occupancy"),
+            ("max_holes","TOPOLOGY-002","mask_hole_count"),
+            ("max_skeleton_endpoints","TOPOLOGY-003","mask_skeleton_endpoints"),
+            ("max_skeleton_branches","TOPOLOGY-004","mask_skeleton_branches"),
+            ("min_width_px","GEOMETRY-003","mask_minimum_width"),
+            ("max_boundary_distance_px","GEOMETRY-004","mask_boundary_distance"),
+            ("min_iou","GEOMETRY-005","mask_iou_dice"),
+            ("min_dice","GEOMETRY-006","mask_dice"),
+            ("max_hu_shape_distance","GEOMETRY-007","mask_hu_shape_distance"),
+            ("min_tenengrad","RASTER-EDGE-001","roi_tenengrad_sharpness"),
+            ("min_boundary_gradient","RASTER-EDGE-002","mask_boundary_gradient")):
             if key in p: selected.append({"rule_id":rule_id,"feature_id":f["id"],"algorithm":algorithm})
         if p.get("surface")=="solid" and ("max_delta_e00" in p or "max_exceedance_ratio" in p):
             selected.append({"rule_id":"SOLID-002","feature_id":f["id"],"algorithm":"ciede2000_uniformity"})
@@ -519,6 +557,15 @@ def review(manifest: dict[str, Any], root: Path, project_rules: list[ProjectRule
         image_check=_rule_result("IMAGE-001",None,"image_metadata",game_source,{"sha256":expected},
             "PASS" if expected in (None,game_source["sha256"]) else "FAIL","SHA256(file bytes) equals asset.sha256 when provided")
         game_results=[image_check]
+        if manifest.get("schema_version") == "0.6":
+            inventory=manifest.get("feature_inventory",[])
+            unresolved=[item["id"] for item in inventory if item["status"] not in {"approved","not_applicable"} or any(candidate["status"]=="unreviewed" for candidate in item.get("candidates",[]))]
+            game_results.append(_rule_result("FEATURE-COVERAGE-001",None,"feature_inventory_completeness",
+                {"required":len(inventory),"approved":sum(item["status"]=="approved" for item in inventory),
+                 "not_applicable":sum(item["status"]=="not_applicable" for item in inventory),"unresolved":unresolved,
+                 "items":[{"id":item["id"],"status":item["status"],"feature_id":item.get("feature_id"),"candidates":item.get("candidates",[])} for item in inventory]},
+                {"all_required_features":"approved or explicitly not_applicable"},"PASS" if not unresolved else "INCONCLUSIVE",
+                "every requested feature has an approved feature mapping or a reasoned not_applicable disposition"))
         for row in game["results"]:
             game_results.append({"rule_id":f"GAME-{row.get('algorithm','trace').upper().replace('_','-')}","feature_id":row.get("id"),
                             "algorithm":row.get("algorithm","game_trace_validation"),"algorithm_version":row.get("version","1.0"),
@@ -535,7 +582,7 @@ def review(manifest: dict[str, Any], root: Path, project_rules: list[ProjectRule
         covered=[{"rule_id":r["rule_id"],"feature_id":r.get("feature_id"),"status":r["status"]} for r in game_results]
         complete=all(r["status"] in {"PASS","FAIL"} for r in game_results)
         overall="FAIL" if any(r["status"]=="FAIL" for r in game_results) else ("PASS" if complete else "INCONCLUSIVE")
-        return {"schema_version":"0.5","status":overall,"completeness":"COMPLETE" if complete else "INCOMPLETE",
+        return {"schema_version":"0.5","asset_type":"game_trace","scenario_id":manifest.get("scenario_id"),"status":overall,"completeness":"COMPLETE" if complete else "INCOMPLETE",
                 "coverage":{"required":len(game_results),"completed":sum(r["status"] in {"PASS","FAIL"} for r in game_results),
                             "missing":[r for r in covered if r["status"] not in {"PASS","FAIL"}],"checks":covered},
                 "asset":game_source,"asset_id":manifest.get("asset",{}).get("id"),"rule_registry_version":"1",
@@ -654,7 +701,7 @@ def review(manifest: dict[str, Any], root: Path, project_rules: list[ProjectRule
                         "raster color variation can come from shading or texture; semantic gradient presence cannot be proven from pixels"))
                 geom = f.get("geometry", {})
                 wants_mask_rule = any(k in props for k in ("max_channel_range", "max_delta_e00", "max_exceedance_ratio", "max_palette_colors", "max_connected_components", "min_symmetry_iou"))
-                wants_mask_rule |= any(k in props for k in ("max_periodic_energy_ratio", "max_luma_levels", "max_silhouette_components", "min_occupancy_ratio", "max_gradient_fit_r2", "seamless_tile"))
+                wants_mask_rule |= any(k in props for k in ("max_periodic_energy_ratio", "max_luma_levels", "max_silhouette_components", "min_occupancy_ratio", "max_gradient_fit_r2", "seamless_tile", "max_holes", "min_width_px", "max_boundary_distance_px", "min_iou", "min_dice", "max_skeleton_endpoints", "max_skeleton_branches", "max_hu_shape_distance", "min_tenengrad", "min_boundary_gradient"))
                 mask = None
                 mask_array: np.ndarray = np.zeros((image.height, image.width), dtype=np.bool_)
                 if wants_mask_rule and geom.get("type") == "mask":
@@ -759,6 +806,69 @@ def review(manifest: dict[str, Any], root: Path, project_rules: list[ProjectRule
                     else:
                         comp, _, _ = _mask_metrics(mask); state = "PASS" if comp <= props["max_silhouette_components"] else "FAIL"
                     results.append(_rule_result("CHARACTER-002", f["id"], "silhouette_metrics", {"components":comp,"bbox":_bbox_list(mask)}, props["max_silhouette_components"], state, "8-connected components and alpha-mask bounding box"))
+                visible_mask = mask_array & (alpha_array > 0)
+                if "max_holes" in props:
+                    holes_count = topology(visible_mask)["holes"] if mask is not None and np.any(visible_mask) else None
+                    state = "INCONCLUSIVE" if holes_count is None else ("PASS" if holes_count <= props["max_holes"] else "FAIL")
+                    results.append(_rule_result("TOPOLOGY-002", f["id"], "mask_hole_count", holes_count, props["max_holes"], state,
+                        "enclosed 4-connected background components inside the visible feature mask", _bbox_list(mask)))
+                if any(key in props for key in ("max_skeleton_endpoints", "max_skeleton_branches")):
+                    graph_metrics = skeleton_graph(visible_mask) if mask is not None else None
+                    for prop, rule_id, algorithm, metric in (
+                        ("max_skeleton_endpoints", "TOPOLOGY-003", "mask_skeleton_endpoints", "endpoints"),
+                        ("max_skeleton_branches", "TOPOLOGY-004", "mask_skeleton_branches", "branch_points"),
+                    ):
+                        if prop not in props: continue
+                        measured = None if graph_metrics is None else graph_metrics[metric]
+                        state = "INCONCLUSIVE" if measured is None else ("PASS" if measured <= props[prop] else "FAIL")
+                        results.append(_rule_result(rule_id, f["id"], algorithm, measured, props[prop], state,
+                            f"{metric} in deterministic morphological skeleton graph", _bbox_list(mask)))
+                if "min_width_px" in props:
+                    width_value = minimum_width(visible_mask) if mask is not None and np.any(visible_mask) else None
+                    state = "INCONCLUSIVE" if width_value is None else ("PASS" if width_value >= props["min_width_px"] else "FAIL")
+                    results.append(_rule_result("GEOMETRY-003", f["id"], "mask_minimum_width", width_value, props["min_width_px"], state,
+                        "minimum twice-distance-transform radius at local ridge maxima, in pixels", _bbox_list(mask)))
+                if any(key in props for key in ("max_boundary_distance_px", "min_iou", "min_dice")):
+                    comparison: dict[str, float | None] = {"boundary_distance_px": None, "iou": None, "dice": None}
+                    if mask is not None and np.any(visible_mask) and props.get("reference_mask"):
+                        reference_path = _safe_path(root, props["reference_mask"])
+                        try:
+                            with Image.open(reference_path) as reference_image:
+                                reference_mask = np.asarray(reference_image.convert("L")) > 0
+                            comparison = compare_masks(visible_mask, reference_mask)
+                        except (OSError, ValueError) as exc:
+                            raise ManifestError(f"feature {f['id']}: cannot compare reference mask: {exc}") from exc
+                    for prop, rule_id, algorithm, metric, op in (
+                        ("max_boundary_distance_px", "GEOMETRY-004", "mask_boundary_distance", "boundary_distance_px", "le"),
+                        ("min_iou", "GEOMETRY-005", "mask_iou_dice", "iou", "ge"),
+                        ("min_dice", "GEOMETRY-006", "mask_dice", "dice", "ge"),
+                    ):
+                        if prop not in props: continue
+                        comparison_value = comparison[metric]
+                        state = "INCONCLUSIVE" if comparison_value is None else ("PASS" if (comparison_value <= props[prop] if op == "le" else comparison_value >= props[prop]) else "FAIL")
+                        results.append(_rule_result(rule_id, f["id"], algorithm, comparison_value, props[prop], state,
+                            f"{metric} against aligned reference_mask in pixel coordinates", _bbox_list(mask)))
+                if "max_hu_shape_distance" in props:
+                    shape_distance: float | None = None
+                    if mask is not None and props.get("reference_mask"):
+                        reference_path = _safe_path(root, props["reference_mask"])
+                        with Image.open(reference_path) as reference_image:
+                            reference_mask = np.asarray(reference_image.convert("L")) > 0
+                        shape_distance = hu_shape_distance(visible_mask, reference_mask)
+                    state = "INCONCLUSIVE" if shape_distance is None else ("PASS" if shape_distance <= props["max_hu_shape_distance"] else "FAIL")
+                    results.append(_rule_result("GEOMETRY-007", f["id"], "mask_hu_shape_distance", shape_distance,
+                        props["max_hu_shape_distance"], state, "Euclidean distance between signed-log Hu moment vectors", _bbox_list(mask)))
+                if "min_tenengrad" in props or "min_boundary_gradient" in props:
+                    edge_metrics = roi_edge_metrics(rgba_array[:, :, :3], visible_mask) if mask is not None else {"tenengrad": None, "boundary_gradient": None}
+                    for prop, rule_id, algorithm, metric in (
+                        ("min_tenengrad", "RASTER-EDGE-001", "roi_tenengrad_sharpness", "tenengrad"),
+                        ("min_boundary_gradient", "RASTER-EDGE-002", "mask_boundary_gradient", "boundary_gradient"),
+                    ):
+                        if prop not in props: continue
+                        edge_value = edge_metrics[metric]
+                        state = "INCONCLUSIVE" if edge_value is None else ("PASS" if edge_value >= props[prop] else "FAIL")
+                        results.append(_rule_result(rule_id, f["id"], algorithm, edge_value, props[prop], state,
+                            "Sobel gradient over ROI pixels; intensity input uses RGB-derived luma on 0..255 scale", _bbox_list(mask)))
                 if mask is not None and not np.any(mask_array & (alpha_array > 0)):
                     for finding in results:
                         if finding.get("feature_id") == f["id"] and finding.get("algorithm") in {
@@ -842,8 +952,21 @@ def review(manifest: dict[str, Any], root: Path, project_rules: list[ProjectRule
                 row["status"]="SKIPPED"; row["reason"]="rule configured to skip when required evidence is missing"
 
     planned=resolve_rules(source_manifest,project_rules)
+    if source_manifest.get("schema_version") == "0.6":
+        planned.append({"rule_id":"FEATURE-COVERAGE-001","feature_id":None,"algorithm":"feature_inventory_completeness"})
     plan_checks={(item["rule_id"],item.get("feature_id")):item for item in execution_plan["checks"]}
     for check in planned:
+        if check["algorithm"] == "feature_inventory_completeness":
+            inventory=source_manifest.get("feature_inventory",[])
+            unresolved=[item["id"] for item in inventory if item["status"] not in {"approved","not_applicable"} or any(candidate["status"]=="unreviewed" for candidate in item.get("candidates",[]))]
+            status="PASS" if not unresolved else "INCONCLUSIVE"
+            results.append(_rule_result(check["rule_id"],None,check["algorithm"],
+                {"required":len(inventory),"approved":sum(item["status"]=="approved" for item in inventory),
+                 "not_applicable":sum(item["status"]=="not_applicable" for item in inventory),"unresolved":unresolved,
+                 "items":[{"id":item["id"],"status":item["status"],"feature_id":item.get("feature_id"),"candidates":item.get("candidates",[])} for item in inventory]},
+                {"all_required_features":"approved or explicitly not_applicable"},status,
+                "every requested feature has an approved feature mapping or a reasoned not_applicable disposition"))
+            continue
         plan_check=plan_checks.get((check["rule_id"],check.get("feature_id")))
         if plan_check is None or plan_check["status"]=="READY":
             continue

@@ -1,0 +1,132 @@
+{
+    "format": "i_mage_not_ai.render-evidence/1",
+    "capture_source": "engine_runtime",
+    "engine": "unity",
+    "engine_version": "6000.3.25f1",
+    "platform": "WindowsEditor",
+    "scenario_id": "unity-capture-fixture-v1",
+    "timebase": "seconds",
+    "resolution": [
+        320,
+        180
+    ],
+    "import_settings": {
+        "render_pipeline": "built-in",
+        "color_space": "Gamma",
+        "anti_aliasing": 2,
+        "v_sync_count": 1,
+        "capture_mode": "main_camera_render_texture"
+    },
+    "captures": [
+        {
+            "frame_index": 0,
+            "timestamp": 0.0,
+            "image": "unity-visible-v5_frames/000000.png",
+            "event_ids": [
+                "attack-start"
+            ]
+        },
+        {
+            "frame_index": 1,
+            "timestamp": 0.03333333507180214,
+            "image": "unity-visible-v5_frames/000001.png",
+            "event_ids": []
+        },
+        {
+            "frame_index": 2,
+            "timestamp": 0.06666667014360428,
+            "image": "unity-visible-v5_frames/000002.png",
+            "event_ids": []
+        },
+        {
+            "frame_index": 3,
+            "timestamp": 0.10000000149011612,
+            "image": "unity-visible-v5_frames/000003.png",
+            "event_ids": []
+        },
+        {
+            "frame_index": 4,
+            "timestamp": 0.13333334028720857,
+            "image": "unity-visible-v5_frames/000004.png",
+            "event_ids": []
+        },
+        {
+            "frame_index": 5,
+            "timestamp": 0.1666666716337204,
+            "image": "unity-visible-v5_frames/000005.png",
+            "event_ids": []
+        },
+        {
+            "frame_index": 6,
+            "timestamp": 0.20000000298023225,
+            "image": "unity-visible-v5_frames/000006.png",
+            "event_ids": []
+        },
+        {
+            "frame_index": 7,
+            "timestamp": 0.23333333432674409,
+            "image": "unity-visible-v5_frames/000007.png",
+            "event_ids": []
+        },
+        {
+            "frame_index": 8,
+            "timestamp": 0.2666666805744171,
+            "image": "unity-visible-v5_frames/000008.png",
+            "event_ids": []
+        },
+        {
+            "frame_index": 9,
+            "timestamp": 0.30000001192092898,
+            "image": "unity-visible-v5_frames/000009.png",
+            "event_ids": []
+        },
+        {
+            "frame_index": 10,
+            "timestamp": 0.3333333432674408,
+            "image": "unity-visible-v5_frames/000010.png",
+            "event_ids": []
+        },
+        {
+            "frame_index": 11,
+            "timestamp": 0.36666667461395266,
+            "image": "unity-visible-v5_frames/000011.png",
+            "event_ids": []
+        },
+        {
+            "frame_index": 12,
+            "timestamp": 0.4000000059604645,
+            "image": "unity-visible-v5_frames/000012.png",
+            "event_ids": []
+        },
+        {
+            "frame_index": 13,
+            "timestamp": 0.4333333373069763,
+            "image": "unity-visible-v5_frames/000013.png",
+            "event_ids": []
+        },
+        {
+            "frame_index": 14,
+            "timestamp": 0.46666666865348818,
+            "image": "unity-visible-v5_frames/000014.png",
+            "event_ids": []
+        },
+        {
+            "frame_index": 15,
+            "timestamp": 0.5,
+            "image": "unity-visible-v5_frames/000015.png",
+            "event_ids": []
+        },
+        {
+            "frame_index": 16,
+            "timestamp": 0.5333333611488342,
+            "image": "unity-visible-v5_frames/000016.png",
+            "event_ids": []
+        },
+        {
+            "frame_index": 17,
+            "timestamp": 0.5666666626930237,
+            "image": "unity-visible-v5_frames/000017.png",
+            "event_ids": []
+        }
+    ]
+}

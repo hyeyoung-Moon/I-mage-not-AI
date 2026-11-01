@@ -9,6 +9,16 @@ algorithms:
   masked_color_uniformity: {version: "1.0", adapter: raster, capabilities: [raster_pixels, feature_mask, color_metrics]}
   ciede2000_uniformity: {version: "1.0", adapter: raster, capabilities: [raster_pixels, feature_mask, color_metrics]}
   mask_connected_components: {version: "1.0", adapter: raster, capabilities: [feature_mask, geometry_metrics]}
+  mask_hole_count: {version: "1.0", adapter: raster, capabilities: [feature_mask, geometry_metrics]}
+  mask_skeleton_endpoints: {version: "1.0", adapter: raster, capabilities: [feature_mask, geometry_metrics]}
+  mask_skeleton_branches: {version: "1.0", adapter: raster, capabilities: [feature_mask, geometry_metrics]}
+  mask_minimum_width: {version: "1.0", adapter: raster, capabilities: [feature_mask, geometry_metrics]}
+  mask_boundary_distance: {version: "1.0", adapter: raster, capabilities: [feature_mask, geometry_metrics]}
+  mask_iou_dice: {version: "1.0", adapter: raster, capabilities: [feature_mask, geometry_metrics]}
+  mask_dice: {version: "1.0", adapter: raster, capabilities: [feature_mask, geometry_metrics]}
+  mask_hu_shape_distance: {version: "1.0", adapter: raster, capabilities: [feature_mask, geometry_metrics]}
+  roi_tenengrad_sharpness: {version: "1.0", adapter: raster, capabilities: [feature_mask, raster_pixels]}
+  mask_boundary_gradient: {version: "1.0", adapter: raster, capabilities: [feature_mask, raster_pixels]}
   mask_reflection_iou: {version: "1.0", adapter: raster, capabilities: [feature_mask, geometry_metrics]}
   mask_intersection_ratio: {version: "1.0", adapter: raster, capabilities: [feature_mask, geometry_metrics]}
   tile_edge_color_error: {version: "1.0", adapter: raster, capabilities: [raster_pixels]}

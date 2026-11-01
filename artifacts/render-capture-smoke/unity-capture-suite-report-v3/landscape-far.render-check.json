@@ -1,0 +1,324 @@
+{
+  "schema_version": "0.5",
+  "asset_type": "render_evidence",
+  "status": "PASS",
+  "completeness": "COMPLETE",
+  "engine": "unity",
+  "engine_version": "6000.3.25f1",
+  "platform": "WindowsEditor",
+  "scenario_id": "unity-capture-suite-live-fixture-v3",
+  "resolution": [
+    320,
+    180
+  ],
+  "import_settings": {
+    "render_pipeline": "built-in",
+    "color_space": "Gamma",
+    "anti_aliasing": 2,
+    "v_sync_count": 1,
+    "capture_mode": "camera_render_texture",
+    "camera_node_path": "Main Camera",
+    "camera_distance_offset": 2.0,
+    "camera_zoom_scale": 1.0
+  },
+  "captures": [
+    {
+      "frame_index": 0,
+      "timestamp": 0.0,
+      "image": "landscape-far.evidence_frames/000000.png",
+      "sha256": "45ada0c716c54c5defca517081eddc4942a494dc90c0b727e968cce2e4f37c9f",
+      "event_ids": []
+    },
+    {
+      "frame_index": 1,
+      "timestamp": 0.01666666753590107,
+      "image": "landscape-far.evidence_frames/000001.png",
+      "sha256": "2f14a0df2d2578c9c593c607e49e9446bd9ccf440411b222313a42c05d3051b3",
+      "event_ids": []
+    },
+    {
+      "frame_index": 2,
+      "timestamp": 0.03333333507180214,
+      "image": "landscape-far.evidence_frames/000002.png",
+      "sha256": "707ba65d8241881ad592f4905b996c46a4e8e8782b4e143cde8463e13568ac47",
+      "event_ids": []
+    },
+    {
+      "frame_index": 3,
+      "timestamp": 0.05000000074505806,
+      "image": "landscape-far.evidence_frames/000003.png",
+      "sha256": "31e0f8a822d7376c47a3807677195d46187bb2a2d744ef92010a8e22d896fc79",
+      "event_ids": []
+    },
+    {
+      "frame_index": 4,
+      "timestamp": 0.06666667014360428,
+      "image": "landscape-far.evidence_frames/000004.png",
+      "sha256": "58e900d849d1b825301c2eb1ef22b9ccd10d6b1d006be78354285083f57a2ec9",
+      "event_ids": []
+    },
+    {
+      "frame_index": 5,
+      "timestamp": 0.0833333358168602,
+      "image": "landscape-far.evidence_frames/000005.png",
+      "sha256": "b398e31bc41594f6d52147fc28832b94c5a5b39c2145bcde0ebfbc842e5df33c",
+      "event_ids": []
+    },
+    {
+      "frame_index": 6,
+      "timestamp": 0.10000000149011612,
+      "image": "landscape-far.evidence_frames/000006.png",
+      "sha256": "a74db318ac53398b3a6613c08a0eb4ffd3ff817becdc454fc515aa67715630aa",
+      "event_ids": []
+    },
+    {
+      "frame_index": 7,
+      "timestamp": 0.11666666716337204,
+      "image": "landscape-far.evidence_frames/000007.png",
+      "sha256": "9368305290493a77a409ee40bc88c8fa94c89941d5b67ea316444ecd7d68e4a1",
+      "event_ids": []
+    },
+    {
+      "frame_index": 8,
+      "timestamp": 0.13333334028720856,
+      "image": "landscape-far.evidence_frames/000008.png",
+      "sha256": "6ca5604647aff583726de9f637a7459554fd6a88e304feedcf4a4a4df59bd75d",
+      "event_ids": []
+    },
+    {
+      "frame_index": 9,
+      "timestamp": 0.15000000596046448,
+      "image": "landscape-far.evidence_frames/000009.png",
+      "sha256": "97cb33f5b4a470630a18e026b657c60a672914e42c8c28d2983da5abd9eb1e2e",
+      "event_ids": []
+    },
+    {
+      "frame_index": 10,
+      "timestamp": 0.1666666716337204,
+      "image": "landscape-far.evidence_frames/000010.png",
+      "sha256": "a33a7d2c7b9be381605d46ab9c22f84c75c929699e35ef8a2d17c7d44bd44524",
+      "event_ids": []
+    },
+    {
+      "frame_index": 11,
+      "timestamp": 0.18333333730697632,
+      "image": "landscape-far.evidence_frames/000011.png",
+      "sha256": "7ede0abfe205e82117fee472ef17dce8c0badd13bac1a7aa880b66d5162a07d3",
+      "event_ids": []
+    },
+    {
+      "frame_index": 12,
+      "timestamp": 0.20000000298023224,
+      "image": "landscape-far.evidence_frames/000012.png",
+      "sha256": "4e8c0b60a779fc54208056f94f19818908f4ad9e1fbfd65de180c9e984e96c0f",
+      "event_ids": []
+    },
+    {
+      "frame_index": 13,
+      "timestamp": 0.21666666865348816,
+      "image": "landscape-far.evidence_frames/000013.png",
+      "sha256": "c4bd38ffdfacbf8f4536e700c208401facb3fb35f9c1529b5cf1b7c35ee90d4c",
+      "event_ids": [
+        "attack-start"
+      ]
+    },
+    {
+      "frame_index": 14,
+      "timestamp": 0.23333333432674408,
+      "image": "landscape-far.evidence_frames/000014.png",
+      "sha256": "eaef98f0fbdcd4ca850bcbbe5aca2d132b9a32112be3b1bc7d680aa559b07e90",
+      "event_ids": []
+    },
+    {
+      "frame_index": 15,
+      "timestamp": 0.25,
+      "image": "landscape-far.evidence_frames/000015.png",
+      "sha256": "92be94cd3fd029f4c233811282f0925ae2163cb16d828de0bfa65d4ba58365e4",
+      "event_ids": []
+    },
+    {
+      "frame_index": 16,
+      "timestamp": 0.2666666805744171,
+      "image": "landscape-far.evidence_frames/000016.png",
+      "sha256": "7f89af282da5a51097124b205316249d8de98c24e64d8d3625598dcf858c63a4",
+      "event_ids": []
+    },
+    {
+      "frame_index": 17,
+      "timestamp": 0.28333333134651184,
+      "image": "landscape-far.evidence_frames/000017.png",
+      "sha256": "636caaeffa716e6f368631b2fb9be5967ee850d8fa785fa3af4fdd3a253e2e9b",
+      "event_ids": []
+    },
+    {
+      "frame_index": 18,
+      "timestamp": 0.30000001192092896,
+      "image": "landscape-far.evidence_frames/000018.png",
+      "sha256": "998cea7194a804e457b531a1af010601ffa705f23e473141f2a6162e2c1d9127",
+      "event_ids": []
+    },
+    {
+      "frame_index": 19,
+      "timestamp": 0.3166666626930237,
+      "image": "landscape-far.evidence_frames/000019.png",
+      "sha256": "d5a3ceb666231e896827bfebfa587ce70afbd8ea2dc67ff7c063f9b693b98cf7",
+      "event_ids": []
+    },
+    {
+      "frame_index": 20,
+      "timestamp": 0.3333333432674408,
+      "image": "landscape-far.evidence_frames/000020.png",
+      "sha256": "d3f0a063a03026e110c9508ad8201262af3e19ef679dec0e32ed4736c0e1a3b6",
+      "event_ids": []
+    },
+    {
+      "frame_index": 21,
+      "timestamp": 0.3499999940395355,
+      "image": "landscape-far.evidence_frames/000021.png",
+      "sha256": "42834550a9c4eaf127cefcc11b21c6ebaae0f5c5ba6e77e3e6ca5e6be02ffb8c",
+      "event_ids": []
+    },
+    {
+      "frame_index": 22,
+      "timestamp": 0.36666667461395264,
+      "image": "landscape-far.evidence_frames/000022.png",
+      "sha256": "547998b3f2cdfd9a5591889163885dbf57e15236005f56624e5d76d895d23c82",
+      "event_ids": []
+    },
+    {
+      "frame_index": 23,
+      "timestamp": 0.38333332538604736,
+      "image": "landscape-far.evidence_frames/000023.png",
+      "sha256": "4a7d634e6c0aeb06227a3cc2baadf41111790c4bd54a960499fa798e4a0349d1",
+      "event_ids": []
+    },
+    {
+      "frame_index": 24,
+      "timestamp": 0.4000000059604645,
+      "image": "landscape-far.evidence_frames/000024.png",
+      "sha256": "2318fff96c2c16d24dc3c78644c66e6e6dbfc6bfa9bf9c234e2d59ae39c1587f",
+      "event_ids": []
+    },
+    {
+      "frame_index": 25,
+      "timestamp": 0.4166666567325592,
+      "image": "landscape-far.evidence_frames/000025.png",
+      "sha256": "0291006f7d2dffdf814da1438e5be8c35de7e9e782adcfd1b12f56be131cb86a",
+      "event_ids": []
+    },
+    {
+      "frame_index": 26,
+      "timestamp": 0.4333333373069763,
+      "image": "landscape-far.evidence_frames/000026.png",
+      "sha256": "63ca1f462efa00e919bb63036c8a8044a4be9e1e356cc443586f70473e1c82ac",
+      "event_ids": []
+    },
+    {
+      "frame_index": 27,
+      "timestamp": 0.44999998807907104,
+      "image": "landscape-far.evidence_frames/000027.png",
+      "sha256": "07ba669c0d24cf99fe8e9bcf10cd63f7b2feb9aef2b2f140af53d735573e0553",
+      "event_ids": []
+    },
+    {
+      "frame_index": 28,
+      "timestamp": 0.46666666865348816,
+      "image": "landscape-far.evidence_frames/000028.png",
+      "sha256": "e1bdbc13bc3d4a83007774eb7975d1637186e23f9f6b08da096357bdc374aa82",
+      "event_ids": []
+    },
+    {
+      "frame_index": 29,
+      "timestamp": 0.4833333194255829,
+      "image": "landscape-far.evidence_frames/000029.png",
+      "sha256": "f7b8cd2290c9c260d23749dafa2c8cf0bfcf86e800cc488e3a05b108e104dd45",
+      "event_ids": []
+    }
+  ],
+  "coverage": {
+    "required": 3,
+    "completed": 3,
+    "missing": []
+  },
+  "results": [
+    {
+      "rule_id": "RENDER-CAPTURE-COUNT",
+      "algorithm": "render_capture_count",
+      "status": "PASS",
+      "measured": {
+        "count": 30
+      },
+      "threshold": {
+        "minimum": 18
+      },
+      "formula": "captured engine frames >= min_capture_count"
+    },
+    {
+      "rule_id": "RENDER-FRAME-DELTA",
+      "algorithm": "render_changed_pixel_ratio",
+      "status": "PASS",
+      "measured": {
+        "max_ratio": 0.002829861111111111,
+        "per_interval": [
+          0.0021180555555555558,
+          0.002829861111111111,
+          0.002829861111111111,
+          0.002829861111111111,
+          0.0021180555555555558,
+          0.002829861111111111,
+          0.002829861111111111,
+          0.0021180555555555558,
+          0.002829861111111111,
+          0.002829861111111111,
+          0.002829861111111111,
+          0.0021180555555555558,
+          0.002829861111111111,
+          0.002829861111111111,
+          0.002829861111111111,
+          0.0021180555555555558,
+          0.002829861111111111,
+          0.002829861111111111,
+          0.0021180555555555558,
+          0.002829861111111111,
+          0.002829861111111111,
+          0.002829861111111111,
+          0.0021180555555555558,
+          0.002829861111111111,
+          0.002829861111111111,
+          0.002829861111111111,
+          0.0021180555555555558,
+          0.002829861111111111,
+          0.002829861111111111
+        ],
+        "changed_pixel_threshold_rgb": 10,
+        "interval_count": 29
+      },
+      "threshold": {
+        "max_ratio": 0.4
+      },
+      "formula": "count(pixels with max_channel_abs_delta >= threshold) / total_pixels per adjacent capture"
+    },
+    {
+      "rule_id": "RENDER-EVENT:attack-start",
+      "algorithm": "render_event_frame_alignment",
+      "status": "PASS",
+      "measured": {
+        "observed_timestamp": 0.21666666865348816,
+        "frame_index": 13,
+        "absolute_error": 0.016666668653488148,
+        "timebase": "seconds",
+        "requested_before_frames": 3,
+        "available_before_frames": 13,
+        "requested_after_frames": 3,
+        "available_after_frames": 16
+      },
+      "threshold": {
+        "expected_time": 0.2,
+        "tolerance": 0.1,
+        "before_frames": 3,
+        "after_frames": 3
+      },
+      "formula": "exactly one event annotation, timestamp within tolerance, and requested neighboring frames exist"
+    }
+  ]
+}

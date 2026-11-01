@@ -1,0 +1,319 @@
+{
+  "schema_version": "0.5",
+  "asset_type": "render_evidence",
+  "status": "PASS",
+  "completeness": "COMPLETE",
+  "engine": "godot",
+  "engine_version": "4.6.3-stable (official)",
+  "platform": "Windows",
+  "scenario_id": "capture-suite-live-fixture-v2",
+  "resolution": [
+    360,
+    640
+  ],
+  "import_settings": {
+    "default_texture_filter": false,
+    "renderer": "gl_compatibility",
+    "window_mode": "runtime_capture"
+  },
+  "captures": [
+    {
+      "frame_index": 0,
+      "timestamp": 0.0,
+      "image": "portrait-zoomed.evidence_frames/000000.png",
+      "sha256": "355a958a5c6c33ae9850ef13256caff5ddb6693b5bd591b146c76f42efdf09b1",
+      "event_ids": []
+    },
+    {
+      "frame_index": 1,
+      "timestamp": 0.0166666666666667,
+      "image": "portrait-zoomed.evidence_frames/000001.png",
+      "sha256": "6969a7ef712070d41333d76a05ab4df6e9f539e7b77b124c212aa358be66cdc8",
+      "event_ids": []
+    },
+    {
+      "frame_index": 2,
+      "timestamp": 0.0333333333333333,
+      "image": "portrait-zoomed.evidence_frames/000002.png",
+      "sha256": "3d702762554b77da39d700f074a0b93cf150b98f217b8d67628fab0ef1b12a7f",
+      "event_ids": []
+    },
+    {
+      "frame_index": 3,
+      "timestamp": 0.05,
+      "image": "portrait-zoomed.evidence_frames/000003.png",
+      "sha256": "3e833839fc2573a4e79d608b086b4c2f035ca0ed0b6d86cca44dcc27a4793619",
+      "event_ids": []
+    },
+    {
+      "frame_index": 4,
+      "timestamp": 0.0666666666666667,
+      "image": "portrait-zoomed.evidence_frames/000004.png",
+      "sha256": "faa4538e22c05236812e8e6bd9388643551ff79afef78748cb0d1a57ab653c1a",
+      "event_ids": []
+    },
+    {
+      "frame_index": 5,
+      "timestamp": 0.0833333333333333,
+      "image": "portrait-zoomed.evidence_frames/000005.png",
+      "sha256": "ab7578d16e17d32782e09c7859ef4aa7291589a7cb2540cba7297386c6ddbd83",
+      "event_ids": []
+    },
+    {
+      "frame_index": 6,
+      "timestamp": 0.1,
+      "image": "portrait-zoomed.evidence_frames/000006.png",
+      "sha256": "3c9844af17ab72aa676ebc7e4abb7bf9f0ea63052a60e128cf0d699f51feee81",
+      "event_ids": []
+    },
+    {
+      "frame_index": 7,
+      "timestamp": 0.116666666666667,
+      "image": "portrait-zoomed.evidence_frames/000007.png",
+      "sha256": "66ec58a61371cc23c37451d1e06e2e5e6ccc99d8da268d5a7321461ab9ce7b7f",
+      "event_ids": []
+    },
+    {
+      "frame_index": 8,
+      "timestamp": 0.133333333333333,
+      "image": "portrait-zoomed.evidence_frames/000008.png",
+      "sha256": "73ba707a317b3be4ef8717ee126b548fee37ed185a2b3245d7163c9e5f6ddec7",
+      "event_ids": []
+    },
+    {
+      "frame_index": 9,
+      "timestamp": 0.15,
+      "image": "portrait-zoomed.evidence_frames/000009.png",
+      "sha256": "4fac844de6a13b4389b93a574e33abd3c2c9dc94c371496c8c00672810d726cb",
+      "event_ids": []
+    },
+    {
+      "frame_index": 10,
+      "timestamp": 0.166666666666667,
+      "image": "portrait-zoomed.evidence_frames/000010.png",
+      "sha256": "4637251acd60c6cd1b9cc9cb636d43156bcef6758a146e4498fd3cbebb1aae57",
+      "event_ids": []
+    },
+    {
+      "frame_index": 11,
+      "timestamp": 0.183333333333333,
+      "image": "portrait-zoomed.evidence_frames/000011.png",
+      "sha256": "9d3569f3cf39d7381e0d3ee026a42ceb0193ef7441f2c0794b94a9bc1ea83c03",
+      "event_ids": []
+    },
+    {
+      "frame_index": 12,
+      "timestamp": 0.2,
+      "image": "portrait-zoomed.evidence_frames/000012.png",
+      "sha256": "3622217aa7481c1a5cfe721fed06d080c776a31e76e5a87128aa6bcac47091d7",
+      "event_ids": []
+    },
+    {
+      "frame_index": 13,
+      "timestamp": 0.216666666666667,
+      "image": "portrait-zoomed.evidence_frames/000013.png",
+      "sha256": "c6738a810ae27a122602229022771b59130d8497131f7ecf7eed4656694fff0a",
+      "event_ids": []
+    },
+    {
+      "frame_index": 14,
+      "timestamp": 0.233333333333333,
+      "image": "portrait-zoomed.evidence_frames/000014.png",
+      "sha256": "c34c9a6ec6338ce4ec31c3ed84482466d3a0f878ba9f781cd0a3cd35b55c6b6d",
+      "event_ids": []
+    },
+    {
+      "frame_index": 15,
+      "timestamp": 0.25,
+      "image": "portrait-zoomed.evidence_frames/000015.png",
+      "sha256": "b6f30eb57cf4a3e5323496617e114830ec3aabe987050a75dac25f119908094b",
+      "event_ids": [
+        "attack-start"
+      ]
+    },
+    {
+      "frame_index": 16,
+      "timestamp": 0.266666666666667,
+      "image": "portrait-zoomed.evidence_frames/000016.png",
+      "sha256": "c9eb3a4d0b81c9dd8646ba0de96f9001eaa1da7fbdc6f7be8fecfa8c7019f35d",
+      "event_ids": []
+    },
+    {
+      "frame_index": 17,
+      "timestamp": 0.283333333333333,
+      "image": "portrait-zoomed.evidence_frames/000017.png",
+      "sha256": "d3781d01da9c615bee0486a5ab64ae86dff8e915f8cdd9fa04b3bbaa58fd0612",
+      "event_ids": []
+    },
+    {
+      "frame_index": 18,
+      "timestamp": 0.3,
+      "image": "portrait-zoomed.evidence_frames/000018.png",
+      "sha256": "4ebd14ff602777c8b9886bea3cc042d6c17eee2cb2a23f28f863836530ac1a76",
+      "event_ids": []
+    },
+    {
+      "frame_index": 19,
+      "timestamp": 0.316666666666667,
+      "image": "portrait-zoomed.evidence_frames/000019.png",
+      "sha256": "472004d47b8cd2dd44e638f50d37f26473abbe2208a8dd7c9103b1cc753761f1",
+      "event_ids": []
+    },
+    {
+      "frame_index": 20,
+      "timestamp": 0.333333333333333,
+      "image": "portrait-zoomed.evidence_frames/000020.png",
+      "sha256": "7120bfa0a6d65ee414bdfb67a146af1e13cbc255186897499a080ddcf2386c9f",
+      "event_ids": []
+    },
+    {
+      "frame_index": 21,
+      "timestamp": 0.35,
+      "image": "portrait-zoomed.evidence_frames/000021.png",
+      "sha256": "19275a438551475571ee6efd73ed832a3ea2679a0bbfa3cd3f2942b2ebcccaec",
+      "event_ids": []
+    },
+    {
+      "frame_index": 22,
+      "timestamp": 0.366666666666667,
+      "image": "portrait-zoomed.evidence_frames/000022.png",
+      "sha256": "b53a50ea5cd2cdd49841eca479199b0989214fde53622fde8e673db0d568ab15",
+      "event_ids": []
+    },
+    {
+      "frame_index": 23,
+      "timestamp": 0.383333333333333,
+      "image": "portrait-zoomed.evidence_frames/000023.png",
+      "sha256": "4ca36a92879a348c9348abd4d6c137b450a175958343be071b941104614407ed",
+      "event_ids": []
+    },
+    {
+      "frame_index": 24,
+      "timestamp": 0.4,
+      "image": "portrait-zoomed.evidence_frames/000024.png",
+      "sha256": "a3f6ba799aaf3d07d74b721c9e7d171edcedae3a4eb32cb618546d30cd879271",
+      "event_ids": []
+    },
+    {
+      "frame_index": 25,
+      "timestamp": 0.416666666666667,
+      "image": "portrait-zoomed.evidence_frames/000025.png",
+      "sha256": "6315e44e7d617aac2f43320c30244e120b9e07cac39ac06b435c6de8a533cd46",
+      "event_ids": []
+    },
+    {
+      "frame_index": 26,
+      "timestamp": 0.433333333333333,
+      "image": "portrait-zoomed.evidence_frames/000026.png",
+      "sha256": "4afa1c73d432956103e45451002e229843b50f1a06c128527533d0cd8a22db97",
+      "event_ids": []
+    },
+    {
+      "frame_index": 27,
+      "timestamp": 0.45,
+      "image": "portrait-zoomed.evidence_frames/000027.png",
+      "sha256": "e8cc2bbc3baefd8229608df61d589e19b6083b4a88449966823e345523419938",
+      "event_ids": []
+    },
+    {
+      "frame_index": 28,
+      "timestamp": 0.466666666666667,
+      "image": "portrait-zoomed.evidence_frames/000028.png",
+      "sha256": "68f6c696ab5617a9acd2a2e5b5bf073aa8609602a99a7784d198b0e50dce8642",
+      "event_ids": []
+    },
+    {
+      "frame_index": 29,
+      "timestamp": 0.483333333333333,
+      "image": "portrait-zoomed.evidence_frames/000029.png",
+      "sha256": "08661d1c13954392367fa7e38c2fe9ac9277b8ea749767f20ce75fa52ce065a7",
+      "event_ids": []
+    }
+  ],
+  "coverage": {
+    "required": 3,
+    "completed": 3,
+    "missing": []
+  },
+  "results": [
+    {
+      "rule_id": "RENDER-CAPTURE-COUNT",
+      "algorithm": "render_capture_count",
+      "status": "PASS",
+      "measured": {
+        "count": 30
+      },
+      "threshold": {
+        "minimum": 18
+      },
+      "formula": "captured engine frames >= min_capture_count"
+    },
+    {
+      "rule_id": "RENDER-FRAME-DELTA",
+      "algorithm": "render_changed_pixel_ratio",
+      "status": "PASS",
+      "measured": {
+        "max_ratio": 0.006076388888888889,
+        "per_interval": [
+          0.004774305555555556,
+          0.006076388888888889,
+          0.006076388888888889,
+          0.004774305555555556,
+          0.006076388888888889,
+          0.004774305555555556,
+          0.006076388888888889,
+          0.006076388888888889,
+          0.005208333333333333,
+          0.006076388888888889,
+          0.004774305555555556,
+          0.006076388888888889,
+          0.004774305555555556,
+          0.006076388888888889,
+          0.006076388888888889,
+          0.004774305555555556,
+          0.006076388888888889,
+          0.004774305555555556,
+          0.006076388888888889,
+          0.006076388888888889,
+          0.005208333333333333,
+          0.006076388888888889,
+          0.004774305555555556,
+          0.006076388888888889,
+          0.004774305555555556,
+          0.006076388888888889,
+          0.006076388888888889,
+          0.004774305555555556,
+          0.006076388888888889
+        ],
+        "changed_pixel_threshold_rgb": 10,
+        "interval_count": 29
+      },
+      "threshold": {
+        "max_ratio": 0.4
+      },
+      "formula": "count(pixels with max_channel_abs_delta >= threshold) / total_pixels per adjacent capture"
+    },
+    {
+      "rule_id": "RENDER-EVENT:attack-start",
+      "algorithm": "render_event_frame_alignment",
+      "status": "PASS",
+      "measured": {
+        "observed_timestamp": 0.25,
+        "frame_index": 15,
+        "absolute_error": 0.033299999999999996,
+        "timebase": "seconds",
+        "requested_before_frames": 3,
+        "available_before_frames": 15,
+        "requested_after_frames": 3,
+        "available_after_frames": 14
+      },
+      "threshold": {
+        "expected_time": 0.2167,
+        "tolerance": 0.08,
+        "before_frames": 3,
+        "after_frames": 3
+      },
+      "formula": "exactly one event annotation, timestamp within tolerance, and requested neighboring frames exist"
+    }
+  ]
+}

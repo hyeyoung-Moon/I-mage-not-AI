@@ -1,0 +1,38 @@
+{
+  "schema_version": "0.5",
+  "asset_type": "game_trace",
+  "status": "INCONCLUSIVE",
+  "completeness": "INCOMPLETE",
+  "engine": "generic",
+  "engine_version": null,
+  "timebase": "seconds",
+  "random_seed": null,
+  "results": [
+    {
+      "id": "MOTION:root",
+      "algorithm": "position_difference",
+      "version": "1.0",
+      "status": "PASS",
+      "measured": {
+        "sample_count": 2,
+        "units": "m",
+        "timebase": "seconds",
+        "coordinate_system": "world",
+        "max_step": 0.0,
+        "mean_step": 0.0
+      },
+      "threshold": 0,
+      "formula": "Euclidean distance between consecutive world-space samples"
+    },
+    {
+      "id": "MISSING:anchor_distance",
+      "algorithm": "anchor_distance",
+      "version": "1.0",
+      "status": "INCONCLUSIVE",
+      "measured": null,
+      "threshold": 0,
+      "formula": "trace contains no evidence for this requested check",
+      "reason": "trace contains no evidence for this requested check"
+    }
+  ]
+}

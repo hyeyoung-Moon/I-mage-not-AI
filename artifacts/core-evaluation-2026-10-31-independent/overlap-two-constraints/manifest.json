@@ -1,0 +1,32 @@
+{
+  "schema_version": "0.5",
+  "asset": {
+    "path": "asset.png",
+    "sha256": "4158613de6f164302373f07bcabaf381a2ae959085936dba1b52454ae558551a"
+  },
+  "features": [
+    {
+      "id": "a",
+      "role": "foreground",
+      "geometry": {
+        "type": "mask",
+        "path": "a.png"
+      }
+    },
+    {
+      "id": "b",
+      "role": "foreground",
+      "geometry": {
+        "type": "mask",
+        "path": "b.png"
+      }
+    }
+  ],
+  "overlap_constraints": [
+    {
+      "feature_a": "a",
+      "feature_b": "b",
+      "max_overlap_ratio": 0
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "schema_version": "0.5",
+  "status": "PASS",
+  "completeness": "COMPLETE",
+  "coverage": {
+    "required": 2,
+    "completed": 2,
+    "missing": [],
+    "checks": [
+      {
+        "rule_id": "IMAGE-001",
+        "feature_id": null,
+        "status": "PASS"
+      },
+      {
+        "rule_id": "CHARACTER-001",
+        "feature_id": "body",
+        "status": "PASS"
+      }
+    ]
+  },
+  "asset": {
+    "path": "E:\\I-mage-not-AI\\artifacts\\core-evaluation-2026-10-31-independent\\transparent-pixels\\asset.png",
+    "format": "PNG",
+    "width": 2,
+    "height": 1,
+    "adapter": "raster",
+    "adapter_version": "1.0",
+    "mode": "RGBA",
+    "alpha_present": true,
+    "sha256": "43cc5c9429b6506409e6a5ee96960bb4eb91c1aa2618c6bcbc6225297ace47dc",
+    "transparent_ratio": 0.5,
+    "alpha_bbox": [
+      0,
+      0,
+      1,
+      1
+    ]
+  },
+  "asset_id": null,
+  "rule_registry_version": "1",
+  "allowed_region": null,
+  "allowed_mask": null,
+  "feature_masks": {
+    "body": {
+      "path": "mask.png",
+      "sha256": "fb9c3ffd55c45eec58e914924e8f3da4811fc7fcfee83c404ca9b605b3371a8d",
+      "width": 2,
+      "height": 1
+    }
+  },
+  "results": [
+    {
+      "rule_id": "IMAGE-001",
+      "feature_id": null,
+      "algorithm": "image_metadata",
+      "status": "PASS",
+      "measured": {
+        "path": "E:\\I-mage-not-AI\\artifacts\\core-evaluation-2026-10-31-independent\\transparent-pixels\\asset.png",
+        "format": "PNG",
+        "width": 2,
+        "height": 1,
+        "adapter": "raster",
+        "adapter_version": "1.0",
+        "mode": "RGBA",
+        "alpha_present": true,
+        "sha256": "43cc5c9429b6506409e6a5ee96960bb4eb91c1aa2618c6bcbc6225297ace47dc",
+        "transparent_ratio": 0.5,
+        "alpha_bbox": [
+          0,
+          0,
+          1,
+          1
+        ]
+      },
+      "threshold": {
+        "sha256": "43cc5c9429b6506409e6a5ee96960bb4eb91c1aa2618c6bcbc6225297ace47dc"
+      },
+      "formula": "SHA256(file bytes) equals asset.sha256 when provided",
+      "region": null,
+      "algorithm_version": "1.0",
+      "constraint_origin": "unspecified"
+    },
+    {
+      "rule_id": "CHARACTER-001",
+      "feature_id": "body",
+      "algorithm": "masked_luma_levels",
+      "status": "PASS",
+      "measured": 1,
+      "threshold": 1,
+      "formula": "unique luma bins of width 64",
+      "region": null,
+      "algorithm_version": "1.0",
+      "constraint_origin": "unspecified"
+    }
+  ]
+}

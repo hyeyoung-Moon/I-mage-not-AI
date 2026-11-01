@@ -1,0 +1,8 @@
+{
+  "max_position_step": null,
+  "max_velocity": null,
+  "max_acceleration": null,
+  "max_jerk": null,
+  "max_pose_loop_boundary_distance": null,
+  "max_alpha_occlusion_ratio": null
+}

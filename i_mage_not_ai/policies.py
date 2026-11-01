@@ -6,7 +6,7 @@ from copy import deepcopy
 import yaml
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
 
-SUPPORTED_ALGORITHMS={"exact_palette_count","quantized_palette_count","alpha_centroid_offset","alpha_margin_ratio","masked_color_uniformity","ciede2000_uniformity","mask_connected_components","mask_reflection_iou","mask_intersection_ratio","tile_edge_color_error","fft_periodic_energy_ratio","svg_gradient_declarations","svg_stroke_width_range","svg_path_geometry"}
+SUPPORTED_ALGORITHMS={"exact_palette_count","quantized_palette_count","alpha_centroid_offset","alpha_margin_ratio","masked_color_uniformity","ciede2000_uniformity","mask_connected_components","mask_hole_count","mask_minimum_width","mask_boundary_distance","mask_iou_dice","mask_dice","mask_reflection_iou","mask_intersection_ratio","tile_edge_color_error","fft_periodic_energy_ratio","svg_gradient_declarations","svg_stroke_width_range","svg_path_geometry"}
 
 class _UniqueLoader(yaml.SafeLoader): pass
 def _mapping(loader,node,deep=False):
@@ -109,6 +109,11 @@ def apply_project_rules(manifest: dict[str,Any], matched: list[tuple[ProjectRule
         "masked_color_uniformity":("max_channel_range","SOLID-001","masked_color_uniformity"),
         "ciede2000_uniformity":("max_delta_e00","SOLID-002","ciede2000_uniformity"),
         "mask_connected_components":("max_connected_components","TOPOLOGY-001","mask_connected_components"),
+        "mask_hole_count":("max_holes","TOPOLOGY-002","mask_hole_count"),
+        "mask_minimum_width":("min_width_px","GEOMETRY-003","mask_minimum_width"),
+        "mask_boundary_distance":("max_boundary_distance_px","GEOMETRY-004","mask_boundary_distance"),
+        "mask_iou_dice":("min_iou","GEOMETRY-005","mask_iou_dice"),
+        "mask_dice":("min_dice","GEOMETRY-006","mask_dice"),
         "mask_reflection_iou":("min_symmetry_iou","SYMMETRY-001","mask_reflection_iou"),
         "mask_intersection_ratio":("max_overlap_ratio","OVERLAP-001","mask_intersection_ratio"),
         "tile_edge_color_error":("max_tile_edge_error","BACKGROUND-001","tile_edge_color_error"),

@@ -1,0 +1,193 @@
+{
+  "empty_mask": {
+    "exit": 0,
+    "strict_json": true,
+    "status": "PASS",
+    "completeness": "COMPLETE",
+    "rows": [
+      {
+        "rule_id": "COLOR-002",
+        "feature_id": "body",
+        "status": "PASS",
+        "measured": 0,
+        "threshold": 1,
+        "constraint_origin": "unspecified"
+      },
+      {
+        "rule_id": "TOPOLOGY-001",
+        "feature_id": "body",
+        "status": "PASS",
+        "measured": 0,
+        "threshold": 1,
+        "constraint_origin": "unspecified"
+      },
+      {
+        "rule_id": "SYMMETRY-001",
+        "feature_id": "body",
+        "status": "PASS",
+        "measured": 1.0,
+        "threshold": 0.9,
+        "constraint_origin": "unspecified"
+      },
+      {
+        "rule_id": "CHARACTER-001",
+        "feature_id": "body",
+        "status": "PASS",
+        "measured": 0,
+        "threshold": 1,
+        "constraint_origin": "unspecified"
+      }
+    ],
+    "stderr": ""
+  },
+  "transparent_luma": {
+    "review": {
+      "exit": 0,
+      "strict_json": true,
+      "status": "PASS",
+      "completeness": "COMPLETE",
+      "rows": [
+        {
+          "rule_id": "CHARACTER-001",
+          "feature_id": "body",
+          "status": "PASS",
+          "measured": 1,
+          "threshold": 1,
+          "constraint_origin": "unspecified"
+        }
+      ],
+      "stderr": ""
+    },
+    "measure_exit": 0,
+    "diagnostic_luma": {
+      "method": "linear_srgb_luminance_scaled_0_255",
+      "bin_width": 64,
+      "count": 2
+    }
+  },
+  "overlap_constraints": {
+    "exit": 1,
+    "strict_json": true,
+    "status": "FAIL",
+    "completeness": "COMPLETE",
+    "rows": [
+      {
+        "rule_id": "PROJECT-OVERLAP",
+        "feature_id": "a:b",
+        "status": "FAIL",
+        "measured": 1.0,
+        "threshold": 1,
+        "constraint_origin": "project_config"
+      },
+      {
+        "rule_id": "OVERLAP-001",
+        "feature_id": "a:b",
+        "status": "PASS",
+        "measured": 1.0,
+        "threshold": 1,
+        "constraint_origin": "unspecified"
+      }
+    ],
+    "stderr": ""
+  },
+  "overlap_strict_project": {
+    "exit": 1,
+    "strict_json": true,
+    "status": "FAIL",
+    "completeness": "COMPLETE",
+    "rows": [
+      {
+        "rule_id": "PROJECT-OVERLAP",
+        "feature_id": "a:b",
+        "status": "PASS",
+        "measured": 1.0,
+        "threshold": 0,
+        "constraint_origin": "project_config"
+      },
+      {
+        "rule_id": "OVERLAP-001",
+        "feature_id": "a:b",
+        "status": "FAIL",
+        "measured": 1.0,
+        "threshold": 0,
+        "constraint_origin": "unspecified"
+      }
+    ],
+    "stderr": ""
+  },
+  "colon_id": {
+    "exit": 2,
+    "strict_json": true,
+    "status": "INCONCLUSIVE",
+    "completeness": "INCOMPLETE",
+    "rows": [
+      {
+        "rule_id": "OVERLAP-001",
+        "feature_id": "part:left:right",
+        "status": "INCONCLUSIVE",
+        "measured": 1.0,
+        "threshold": 1,
+        "constraint_origin": "unspecified"
+      }
+    ],
+    "stderr": ""
+  },
+  "missing_anchor": {
+    "exit": 2,
+    "strict_json": true,
+    "status": "INCONCLUSIVE",
+    "completeness": "INCOMPLETE",
+    "rows": [
+      {
+        "id": "MOTION:root",
+        "status": "PASS",
+        "measured": {
+          "sample_count": 2,
+          "units": "m",
+          "timebase": "seconds",
+          "coordinate_system": "world",
+          "max_step": 0.0,
+          "mean_step": 0.0
+        },
+        "threshold": 0
+      },
+      {
+        "id": "MISSING:anchor_distance",
+        "status": "INCONCLUSIVE",
+        "measured": null,
+        "threshold": 0
+      }
+    ],
+    "stderr": ""
+  },
+  "mask_hash_mismatch": {
+    "exit": 3,
+    "strict_json": null,
+    "status": null,
+    "completeness": null,
+    "rows": [],
+    "stderr": "{\"status\": \"INVALID_INPUT\", \"error\": \"feature body mask SHA-256 does not match manifest\"}\n"
+  },
+  "timestamp_midpoint": {
+    "exit": 4,
+    "strict_json": null,
+    "status": null,
+    "completeness": null,
+    "rows": [],
+    "stderr": "{\"status\": \"INTERNAL_ERROR\", \"error\": \"float division by zero\"}\n"
+  },
+  "mean_step_overflow": {
+    "exit": 0,
+    "strict_json": false,
+    "status": "PASS",
+    "completeness": "COMPLETE",
+    "stdout_contains_Infinity": true
+  },
+  "snapshot": {
+    "imreview\\core.py": "4b986755629ef1b294f549a6b079a540859381cf5d82e42ab505cace100d2523",
+    "imreview\\game.py": "dbd2f13e020cc485cdd89d54fbd607aa0e3c42ffdebf0c12de28007835e447c8",
+    "imreview\\policies.py": "4022a62f942ae7aa52a3919c4b1afc86559b919ca22aaba20c9160cb93f58e4d",
+    "imreview\\measurements.py": "256953f6fe43b27e4572459f8b37df3836baf4c12e3d59a630edd331553fa35e",
+    "imreview\\rules\\algorithms.yaml": "6def4faf4df3667ae6116cb628fd3013542157bc4b492bc2ea28798cf36df6ec"
+  }
+}
